@@ -17,8 +17,15 @@
 - MySQL 8
 
 ## Tecnologias ##
-<a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a>
-<a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a>
+<a href="https://www.java.com" target="_blank" rel="noreferrer">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a>
+<a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> 
+</a>
+<a href="https://maven.apache.org/" target="_blank" rel="noreferrer"> 
+  <img src="https://maven.apache.org/images/maven-logo-white-on-black.png" alt="maven" width="60" height="40"/> 
+</a>
+
 
 ## Screenshot ##
 ![Screenshot](https://raw.githubusercontent.com/walthergv/EnfermeriaPostgradoUnprg/main/screenshots/Captura%20de%20pantalla%202023-05-28%20174236.jpg)
