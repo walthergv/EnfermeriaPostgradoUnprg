@@ -5,6 +5,8 @@
  */
 package com.postgrado.postgradosistema.cliente.area;
 
+import com.postgrado.postgradosistema.cliente.FrmAdmin;
+import com.postgrado.postgradosistema.cliente.FrmMantenimiento;
 import com.postgrado.postgradosistema.cliente.FrmPrincipal;
 import com.postgrado.postgradosistema.cliente.ciclo.FrmCiclo;
 import com.postgrado.postgradosistema.cliente.especialidad.FrmEspecialidad;
@@ -13,6 +15,8 @@ import com.postgrado.postgradosistema.cliente.proyecto.FrmProyecto;
 import com.postgrado.postgradosistema.cliente.sede.FrmSede;
 import com.postgrado.postgradosistema.logic.AreaLogic;
 import com.postgrado.postgradosistema.modelo.Area;
+import com.postgrado.postgradosistema.modelo.Usuario;
+import login.FrmLogin1;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -314,6 +318,7 @@ public class FrmArea extends javax.swing.JFrame {
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/proyectos.png"))); // NOI18N
         jMenu3.setText("Proyecto");
+        jMenu3.setEnabled(false);
         jMenu3.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
 
         jMenuItemProyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-proyecto.png"))); // NOI18N
@@ -420,9 +425,13 @@ public class FrmArea extends javax.swing.JFrame {
 
     private void jbtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMenuActionPerformed
         this.setVisible(false);
-        FrmPrincipal m = new FrmPrincipal();
-        m.setVisible(true);
-        // TODO add your handling code here:
+        if (FrmLogin1.tipoUsuario.equals("Administrador")) {
+            FrmAdmin frmAdmin = new FrmAdmin();
+            frmAdmin.setVisible(true);
+        } else {
+            FrmMantenimiento frmMantenimiento = new FrmMantenimiento();
+            frmMantenimiento.setVisible(true);
+        }
     }//GEN-LAST:event_jbtnMenuActionPerformed
 
     private void jbtnMostrarTablaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarTablaAreaActionPerformed

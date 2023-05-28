@@ -6,6 +6,8 @@
  */
 package com.postgrado.postgradosistema.cliente.proyecto;
 
+import com.postgrado.postgradosistema.cliente.FrmAdmin;
+import com.postgrado.postgradosistema.cliente.FrmMantenimiento;
 import com.postgrado.postgradosistema.cliente.FrmPrincipal;
 import com.postgrado.postgradosistema.cliente.area.FrmArea;
 import com.postgrado.postgradosistema.cliente.ciclo.FrmCiclo;
@@ -14,6 +16,8 @@ import com.postgrado.postgradosistema.cliente.ingresante.FrmIngresante;
 import com.postgrado.postgradosistema.cliente.sede.FrmSede;
 import com.postgrado.postgradosistema.logic.ProyectoLogic;
 import com.postgrado.postgradosistema.modelo.Proyecto;
+import com.postgrado.postgradosistema.modelo.Usuario;
+import login.FrmLogin1;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -290,6 +294,7 @@ public class FrmProyecto extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mantenimiento.png"))); // NOI18N
         jMenu2.setText("Mantenimiento");
+        jMenu2.setEnabled(false);
         jMenu2.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
 
         jMenuItemArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/area.png"))); // NOI18N
@@ -407,11 +412,17 @@ public class FrmProyecto extends javax.swing.JFrame {
 
     private void jbtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMenuActionPerformed
         this.setVisible(false);
-        FrmPrincipal m = new FrmPrincipal();
-        m.setVisible(true);
+        if (FrmLogin1.tipoUsuario.equals("Administrador")) {
+            FrmAdmin frmAdmin = new FrmAdmin();
+            frmAdmin.setVisible(true);
+        } else {
+            FrmMantenimiento frmMantenimiento = new FrmMantenimiento();
+            frmMantenimiento.setVisible(true);
+        }
     }//GEN-LAST:event_jbtnMenuActionPerformed
 
     private void jMenuItemAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAreaActionPerformed
+        
         this.setVisible(false);
         FrmArea a = new FrmArea();
         a.setVisible(true);

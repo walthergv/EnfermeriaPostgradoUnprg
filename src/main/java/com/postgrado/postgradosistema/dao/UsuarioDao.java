@@ -87,4 +87,33 @@ public class UsuarioDao {
         }
         return usuarios;
     }
+
+    public Usuario loginUsuario(int dni,String password) {
+        Usuario usuario = new Usuario();
+        String sql = "SELECT * FROM usuario WHERE dni=? AND contraseña=?";
+        try {
+            cntn = cnxn.getConnection();
+            ps = cntn.prepareStatement(sql);
+            ps.setInt(1,dni);
+            ps.setString(2,password);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                usuario.setDni(rs.getInt("dni"));
+                usuario.setContraseña(rs.getString("contraseña"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setRol(rs.getString("rol"));
+                usuario.setEs_usuario(rs.getString("es_usuario"));
+            }
+        } catch (Exception e) {
+            return null;
+        } finally {
+            try {
+                cntn.close();
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        return usuario;
+    }
 }

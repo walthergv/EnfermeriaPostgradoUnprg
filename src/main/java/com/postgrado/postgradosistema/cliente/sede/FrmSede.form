@@ -83,6 +83,7 @@
               <Image iconType="3" name="/imagenes/proyectos.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Proyecto"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Perpetua" size="24" style="1"/>
             </Property>
@@ -245,7 +246,7 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>

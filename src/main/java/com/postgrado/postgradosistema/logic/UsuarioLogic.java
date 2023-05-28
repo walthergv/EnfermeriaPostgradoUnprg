@@ -24,4 +24,8 @@ public class UsuarioLogic {
     public List<Usuario> buscarUsuarioPorNombre(String nombre) {
         return usuarioDao.buscarUsuarioPorNombre(nombre);
     }
+
+    public Usuario loginUser(int dni, String pass){
+        return usuarioDao.loginUsuario(dni, pass);
+    }
 }
