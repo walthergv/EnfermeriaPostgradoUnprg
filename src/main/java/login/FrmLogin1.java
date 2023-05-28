@@ -76,7 +76,7 @@ public class FrmLogin1 extends javax.swing.JFrame {
         jLabel4.setText("CONTRASEÑA");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 303, -1, -1));
 
-        jtxtcontraseña.setForeground(new java.awt.Color(204, 204, 204));
+        jtxtcontraseña.setForeground(new java.awt.Color(0, 0, 0));
         jtxtcontraseña.setBorder(null);
         jtxtcontraseña.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -86,7 +86,7 @@ public class FrmLogin1 extends javax.swing.JFrame {
         jPanel2.add(jtxtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 344, 360, 50));
 
         jtextusuario.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jtextusuario.setForeground(new java.awt.Color(204, 204, 204));
+        jtextusuario.setForeground(new java.awt.Color(0, 0, 0));
         jtextusuario.setToolTipText("");
         jtextusuario.setBorder(null);
         jtextusuario.addMouseListener(new java.awt.event.MouseAdapter() {
