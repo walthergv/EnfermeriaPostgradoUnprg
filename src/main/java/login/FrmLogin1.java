@@ -11,21 +11,22 @@ import com.postgrado.postgradosistema.logic.UsuarioLogic;
 import com.postgrado.postgradosistema.modelo.Usuario;
 
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 
 /**
- *
  * @author windows10
  */
 public class FrmLogin1 extends javax.swing.JFrame {
     public static String tipoUsuario;
     UsuarioLogic userLogic = new UsuarioLogic();
+
     /**
      * Creates new form FrmLogin
      */
     public FrmLogin1() {
         initComponents();
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
     }
 
     /**
@@ -114,14 +115,14 @@ public class FrmLogin1 extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
         );
 
         pack();
@@ -139,33 +140,33 @@ public class FrmLogin1 extends javax.swing.JFrame {
         try {
             FrmAdmin af = new FrmAdmin();
             FrmMantenimiento mf = new FrmMantenimiento();
-            boolean bandera=true;
+            boolean bandera = true;
             if (jtextusuario.getText().isEmpty() || jtxtcontraseña.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Por favor no dejar campos vacios", "Advertencia", JOptionPane.WARNING_MESSAGE);
 
             } else {
-                Usuario user= new Usuario();
-                int dni= Integer.parseInt(jtextusuario.getText());
+                Usuario user = new Usuario();
+                int dni = Integer.parseInt(jtextusuario.getText());
                 String pass = jtxtcontraseña.getText();
                 user = userLogic.loginUser(dni, pass);
                 if (user.getNombre() != null) {
 
                     if (user.getEs_usuario().equalsIgnoreCase("I")) {
                         JOptionPane.showMessageDialog(null, "El usuario se encuentra inactivo", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        bandera=false;
+                        bandera = false;
                     }
                     if (bandera) {
                         if (user.getRol().equalsIgnoreCase("Administrador")) {
                             tipoUsuario = "Administrador";
                             dispose();
                             af.setVisible(true);
-                            JOptionPane.showMessageDialog(null, "Bienvenido Administrador: "+user.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Bienvenido Administrador: " + user.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
 //                        IngresoProductoFrame.txtUsuario.setText(user.getCargo());
                         } else {
                             tipoUsuario = "Mantenimiento";
                             dispose();
                             mf.setVisible(true);
-                            JOptionPane.showMessageDialog(null, "Bienvenido Personal de Mantenimiento: "+user.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null, "Bienvenido Personal de Mantenimiento: " + user.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                 } else {
@@ -185,7 +186,7 @@ public class FrmLogin1 extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

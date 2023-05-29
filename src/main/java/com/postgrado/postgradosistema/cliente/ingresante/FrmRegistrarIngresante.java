@@ -29,6 +29,8 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
     public FrmRegistrarIngresante(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
+
     }
 
     /**

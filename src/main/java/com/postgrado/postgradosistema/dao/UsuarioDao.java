@@ -88,14 +88,14 @@ public class UsuarioDao {
         return usuarios;
     }
 
-    public Usuario loginUsuario(int dni,String password) {
+    public Usuario loginUsuario(int dni, String password) {
         Usuario usuario = new Usuario();
         String sql = "SELECT * FROM usuario WHERE dni=? AND contraseña=?";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
-            ps.setInt(1,dni);
-            ps.setString(2,password);
+            ps.setInt(1, dni);
+            ps.setString(2, password);
             rs = ps.executeQuery();
 
             while (rs.next()) {

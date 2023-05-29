@@ -27,6 +27,8 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     public FrmModificarProyecto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
+
     }
 
     /**

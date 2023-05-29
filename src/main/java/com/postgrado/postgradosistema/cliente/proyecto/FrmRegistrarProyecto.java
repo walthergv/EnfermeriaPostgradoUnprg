@@ -26,6 +26,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
     public FrmRegistrarProyecto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
+
     }
 
     /**

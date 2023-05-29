@@ -12,6 +12,8 @@
  import com.postgrado.postgradosistema.cliente.proyecto.FrmProyecto;
  import com.postgrado.postgradosistema.cliente.sede.FrmSede;
 
+ import javax.swing.*;
+
  /**
   * @author ESTUDIANTE-WALTHER GALAN VITE
   */
@@ -24,6 +26,8 @@
      public FrmPrincipal() {
          initComponents();
          setLocationRelativeTo(null);
+         setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
+
      }
 
      /**

@@ -25,7 +25,7 @@ public class UsuarioLogic {
         return usuarioDao.buscarUsuarioPorNombre(nombre);
     }
 
-    public Usuario loginUser(int dni, String pass){
+    public Usuario loginUser(int dni, String pass) {
         return usuarioDao.loginUsuario(dni, pass);
     }
 }
