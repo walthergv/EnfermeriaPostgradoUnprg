@@ -5,13 +5,13 @@
  */
 package com.postgrado.postgradosistema.cliente.area;
 
-import com.postgrado.postgradosistema.cliente.FrmAdmin;
-import com.postgrado.postgradosistema.cliente.FrmMantenimiento;
+import com.postgrado.postgradosistema.cliente.FrmPrincipal;
 import com.postgrado.postgradosistema.cliente.ciclo.FrmCiclo;
 import com.postgrado.postgradosistema.cliente.especialidad.FrmEspecialidad;
 import com.postgrado.postgradosistema.cliente.ingresante.FrmIngresante;
 import com.postgrado.postgradosistema.cliente.proyecto.FrmProyecto;
 import com.postgrado.postgradosistema.cliente.sede.FrmSede;
+import com.postgrado.postgradosistema.cliente.usuario.FrmUsuario;
 import com.postgrado.postgradosistema.logic.AreaLogic;
 import com.postgrado.postgradosistema.modelo.Area;
 import login.FrmLogin1;
@@ -35,7 +35,13 @@ public class FrmArea extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
-
+        if (FrmLogin1.tipoUsuario.equals("Administrador")) {
+            jMenuMantenimiento.setVisible(true);
+            jMenuRegistro.setVisible(true);
+        } else {
+            jMenuMantenimiento.setVisible(true);
+            jMenuRegistro.setVisible(false);
+        }
     }
 
     /**
@@ -66,12 +72,13 @@ public class FrmArea extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuMantenimiento = new javax.swing.JMenu();
         jMenuItemArea = new javax.swing.JMenuItem();
         jMenuItemCiclo = new javax.swing.JMenuItem();
         jMenuItemEspecialidad = new javax.swing.JMenuItem();
         jMenuItemSede = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuItemUsuario = new javax.swing.JMenuItem();
+        jMenuRegistro = new javax.swing.JMenu();
         jMenuItemProyecto = new javax.swing.JMenuItem();
         jMenuItemIngresante = new javax.swing.JMenuItem();
 
@@ -114,48 +121,48 @@ public class FrmArea extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(197, 197, 197)
-                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel1))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel2))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGap(79, 79, 79)
-                                                .addComponent(jLabel3)
-                                                .addGap(27, 27, 27)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jtxtBuscarPorNombreArea, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addGap(24, 24, 24)
-                                                                .addComponent(jbtnMostrarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addContainerGap(56, Short.MAX_VALUE))
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(197, 197, 197)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel3)
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtxtBuscarPorNombreArea, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jbtnMostrarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel4))
-                                .addGap(82, 82, 82)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(66, 66, 66)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jtxtBuscarPorNombreArea, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel3))
-                                .addGap(67, 67, 67)
-                                .addComponent(jbtnMostrarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(72, Short.MAX_VALUE))
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
+                .addGap(82, 82, 82)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxtBuscarPorNombreArea, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(67, 67, 67)
+                .addComponent(jbtnMostrarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 530, 520));
@@ -205,28 +212,28 @@ public class FrmArea extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jbtnRegistrarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
-                                .addComponent(jbtnModificarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(81, 81, 81)
-                                .addComponent(jbtnEliminarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(71, 71, 71)
-                                .addComponent(jbtnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jbtnRegistrarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addComponent(jbtnModificarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
+                .addComponent(jbtnEliminarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71)
+                .addComponent(jbtnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
         jPanel4Layout.setVerticalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jbtnModificarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jbtnEliminarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jbtnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jbtnRegistrarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(18, Short.MAX_VALUE))
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnModificarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnEliminarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnRegistrarArea, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 1060, 90));
@@ -234,12 +241,12 @@ public class FrmArea extends javax.swing.JFrame {
         jScrollArea.setBackground(new java.awt.Color(255, 255, 255));
 
         jTableAreas.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
+            new Object [][] {
 
-                },
-                new String[]{
-                        "ID", "NOMBRE", "ESTADO"
-                }
+            },
+            new String [] {
+                "ID", "NOMBRE", "ESTADO"
+            }
         ));
         jTableAreas.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollArea.setViewportView(jTableAreas);
@@ -257,12 +264,12 @@ public class FrmArea extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
-                jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1060, Short.MAX_VALUE)
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1060, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
-                jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 50, Short.MAX_VALUE)
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 50));
@@ -274,9 +281,9 @@ public class FrmArea extends javax.swing.JFrame {
         jMenu1.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mantenimiento.png"))); // NOI18N
-        jMenu2.setText("Mantenimiento");
-        jMenu2.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
+        jMenuMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mantenimiento.png"))); // NOI18N
+        jMenuMantenimiento.setText("Mantenimiento");
+        jMenuMantenimiento.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
 
         jMenuItemArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/area.png"))); // NOI18N
         jMenuItemArea.setText("Área");
@@ -285,7 +292,7 @@ public class FrmArea extends javax.swing.JFrame {
                 jMenuItemAreaActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItemArea);
+        jMenuMantenimiento.add(jMenuItemArea);
 
         jMenuItemCiclo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ciclo.png"))); // NOI18N
         jMenuItemCiclo.setText("Ciclo");
@@ -294,7 +301,7 @@ public class FrmArea extends javax.swing.JFrame {
                 jMenuItemCicloActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItemCiclo);
+        jMenuMantenimiento.add(jMenuItemCiclo);
 
         jMenuItemEspecialidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/especialidad.png"))); // NOI18N
         jMenuItemEspecialidad.setText("Especialidad");
@@ -303,7 +310,7 @@ public class FrmArea extends javax.swing.JFrame {
                 jMenuItemEspecialidadActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItemEspecialidad);
+        jMenuMantenimiento.add(jMenuItemEspecialidad);
 
         jMenuItemSede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sede.png"))); // NOI18N
         jMenuItemSede.setText("Sede");
@@ -312,14 +319,22 @@ public class FrmArea extends javax.swing.JFrame {
                 jMenuItemSedeActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItemSede);
+        jMenuMantenimiento.add(jMenuItemSede);
 
-        jMenuBar1.add(jMenu2);
+        jMenuItemUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.png"))); // NOI18N
+        jMenuItemUsuario.setText("Usuario");
+        jMenuItemUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemUsuarioActionPerformed(evt);
+            }
+        });
+        jMenuMantenimiento.add(jMenuItemUsuario);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/proyectos.png"))); // NOI18N
-        jMenu3.setText("Proyecto");
-        jMenu3.setEnabled(false);
-        jMenu3.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
+        jMenuBar1.add(jMenuMantenimiento);
+
+        jMenuRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/proyectos.png"))); // NOI18N
+        jMenuRegistro.setText("Registro");
+        jMenuRegistro.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
 
         jMenuItemProyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-proyecto.png"))); // NOI18N
         jMenuItemProyecto.setText("Proyecto");
@@ -328,7 +343,7 @@ public class FrmArea extends javax.swing.JFrame {
                 jMenuItemProyectoActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItemProyecto);
+        jMenuRegistro.add(jMenuItemProyecto);
 
         jMenuItemIngresante.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/estudiante.png"))); // NOI18N
         jMenuItemIngresante.setText("Estudiante");
@@ -337,21 +352,21 @@ public class FrmArea extends javax.swing.JFrame {
                 jMenuItemIngresanteActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItemIngresante);
+        jMenuRegistro.add(jMenuItemIngresante);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(jMenuRegistro);
 
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -426,11 +441,11 @@ public class FrmArea extends javax.swing.JFrame {
     private void jbtnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMenuActionPerformed
         this.setVisible(false);
         if (FrmLogin1.tipoUsuario.equals("Administrador")) {
-            FrmAdmin frmAdmin = new FrmAdmin();
-            frmAdmin.setVisible(true);
+            FrmPrincipal frmPrincipal = new FrmPrincipal();
+            frmPrincipal.setVisible(true);
         } else {
-            FrmMantenimiento frmMantenimiento = new FrmMantenimiento();
-            frmMantenimiento.setVisible(true);
+            FrmPrincipal frmPrincipal = new FrmPrincipal();
+            frmPrincipal.setVisible(true);
         }
     }//GEN-LAST:event_jbtnMenuActionPerformed
 
@@ -484,6 +499,12 @@ public class FrmArea extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, seleccione una fila para eliminar.");
         }
     }//GEN-LAST:event_jbtnEliminarAreaActionPerformed
+
+    private void jMenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuarioActionPerformed
+        this.setVisible(false);
+        FrmUsuario u = new FrmUsuario();
+        u.setVisible(true);          // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -550,8 +571,6 @@ public class FrmArea extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemArea;
     private javax.swing.JMenuItem jMenuItemCiclo;
@@ -559,6 +578,9 @@ public class FrmArea extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemIngresante;
     private javax.swing.JMenuItem jMenuItemProyecto;
     private javax.swing.JMenuItem jMenuItemSede;
+    private javax.swing.JMenuItem jMenuItemUsuario;
+    private javax.swing.JMenu jMenuMantenimiento;
+    private javax.swing.JMenu jMenuRegistro;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;

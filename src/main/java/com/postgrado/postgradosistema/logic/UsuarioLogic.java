@@ -16,6 +16,22 @@ public class UsuarioLogic {
             return false;
         }
     }
+    public boolean modificarUsuario(Usuario usuario) {
+        try {
+            return usuarioDao.modificarUsuario(usuario);
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    public boolean eliminarUsuario(Usuario usuario) {
+        try {
+            return usuarioDao.eliminarUsuario(usuario);
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
 
     public List<Usuario> listaUsuarios() {
         return usuarioDao.listaUsuarios();

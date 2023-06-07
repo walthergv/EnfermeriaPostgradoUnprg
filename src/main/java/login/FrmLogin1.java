@@ -5,8 +5,7 @@
  */
 package login;
 
-import com.postgrado.postgradosistema.cliente.FrmAdmin;
-import com.postgrado.postgradosistema.cliente.FrmMantenimiento;
+import com.postgrado.postgradosistema.cliente.FrmPrincipal;
 import com.postgrado.postgradosistema.logic.UsuarioLogic;
 import com.postgrado.postgradosistema.modelo.Usuario;
 
@@ -138,44 +137,37 @@ public class FrmLogin1 extends javax.swing.JFrame {
 
     private void btnLogearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogearActionPerformed
         try {
-            FrmAdmin af = new FrmAdmin();
-            FrmMantenimiento mf = new FrmMantenimiento();
-            boolean bandera = true;
-            if (jtextusuario.getText().isEmpty() || jtxtcontraseña.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Por favor no dejar campos vacios", "Advertencia", JOptionPane.WARNING_MESSAGE);
-
-            } else {
-                Usuario user = new Usuario();
-                int dni = Integer.parseInt(jtextusuario.getText());
-                String pass = jtxtcontraseña.getText();
-                user = userLogic.loginUser(dni, pass);
-                if (user.getNombre() != null) {
-
-                    if (user.getEs_usuario().equalsIgnoreCase("I")) {
-                        JOptionPane.showMessageDialog(null, "El usuario se encuentra inactivo", "Advertencia", JOptionPane.WARNING_MESSAGE);
-                        bandera = false;
-                    }
-                    if (bandera) {
-                        if (user.getRol().equalsIgnoreCase("Administrador")) {
-                            tipoUsuario = "Administrador";
-                            dispose();
-                            af.setVisible(true);
-                            JOptionPane.showMessageDialog(null, "Bienvenido Administrador: " + user.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
-//                        IngresoProductoFrame.txtUsuario.setText(user.getCargo());
-                        } else {
-                            tipoUsuario = "Mantenimiento";
-                            dispose();
-                            mf.setVisible(true);
-                            JOptionPane.showMessageDialog(null, "Bienvenido Personal de Mantenimiento: " + user.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
-                        }
-                    }
-                } else {
+            UsuarioLogic usuarioLogic = new UsuarioLogic();
+            String dniTxt = jtextusuario.getText();
+            String pass = jtxtcontraseña.getText();
+            if (!dniTxt.isEmpty() && !pass.isEmpty()){
+                int dni = Integer.parseInt(dniTxt);
+                Usuario usuario = usuarioLogic.loginUser(dni, pass);
+                if (usuario.getNombre() == null){
                     JOptionPane.showMessageDialog(null, "Las credenciales son incorrectas", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                } else if (usuario.getEs_usuario().equalsIgnoreCase("I")){
+                    JOptionPane.showMessageDialog(null, "El usuario se encuentra inactivo", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                } else if(usuario.getRol().equals("Administrador")){
+                    tipoUsuario = "Administrador";
+                    FrmPrincipal frmPrincipal = new FrmPrincipal(usuario);
+                    JOptionPane.showMessageDialog(null, "Bienvenido Administrador: " + usuario.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
+                    frmPrincipal.setVisible(true);
+                    this.dispose();
+                } else if (usuario.getRol().equals("Asistente")){
+                    tipoUsuario = "Asistente";
+                    FrmPrincipal frmPrincipal = new FrmPrincipal(usuario);
+                    JOptionPane.showMessageDialog(null, "Bienvenido Asistente: " + usuario.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
+                    frmPrincipal.setVisible(true);
+                    this.dispose();
                 }
+            }else {
+                JOptionPane.showMessageDialog(null, "Debe ingresar todos los campos", "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
-        } catch (Exception e) {
+        }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error en el sistema", "Advertencia", JOptionPane.ERROR_MESSAGE);
+            System.out.println(e.getMessage());
         }
+
     }//GEN-LAST:event_btnLogearActionPerformed
 
 
