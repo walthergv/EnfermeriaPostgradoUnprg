@@ -159,6 +159,8 @@ public class FrmLogin1 extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Bienvenido Asistente: " + usuario.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
                     frmPrincipal.setVisible(true);
                     this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Sucedio algo en los permisos del Usuario:  " + usuario.getNombre(), "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 }
             }else {
                 JOptionPane.showMessageDialog(null, "Debe ingresar todos los campos", "Advertencia", JOptionPane.WARNING_MESSAGE);

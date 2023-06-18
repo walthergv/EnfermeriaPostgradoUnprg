@@ -35,6 +35,8 @@ public class FrmArea extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
+        //Si se desea que liste una vez que se seleccione el menu, descomentar la siguiente linea
+        //listarTablaAreas();
         if (FrmLogin1.tipoUsuario.equals("Administrador")) {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(true);
@@ -111,7 +113,7 @@ public class FrmArea extends javax.swing.JFrame {
 
         jbtnMostrarTablaArea.setBackground(new java.awt.Color(204, 204, 204));
         jbtnMostrarTablaArea.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jbtnMostrarTablaArea.setText("Mostrar");
+        jbtnMostrarTablaArea.setText("Listar");
         jbtnMostrarTablaArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnMostrarTablaAreaActionPerformed(evt);
