@@ -11,7 +11,7 @@ import com.postgrado.postgradosistema.modelo.Usuario;
 
 import javax.swing.*;
 import java.awt.*;
-
+//Comentario
 /**
  * @author windows10
  */
