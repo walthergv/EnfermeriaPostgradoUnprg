@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="174d6c02-9178-4720-aaa3-dd108873f562">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+                 ingresante.id,
+                 ingresante.dni,
+                 ingresante.nombre,
+                 ingresante.codigo,
+                 ciclo.nombre AS nombre_ciclo,
+                 especialidad.nombre AS nombre_especialidad,
+                 sede.nombre AS nombre_sede,
+                 proyecto.titulo AS titulo_proyecto
+                 FROM
+                 ingresante
+                 INNER JOIN ciclo ON ingresante.ciclo_id = ciclo.id
+                 INNER JOIN especialidad ON ingresante.especialidad_id = especialidad.id
+                 INNER JOIN sede ON ingresante.sede_id = sede.id
+                 INNER JOIN proyecto ON ingresante.proyecto_id = proyecto.id;]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dni" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_ciclo" class="java.lang.String"/>
+	<field name="nombre_especialidad" class="java.lang.String"/>
+	<field name="nombre_sede" class="java.lang.String"/>
+	<field name="titulo_proyecto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement x="108" y="21" width="86" height="20" uuid="632b41b3-2dc3-4a1c-864a-3f82ee0506f1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Institución:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="21" width="256" height="20" uuid="d46ec650-9251-4649-a55f-ff422b3920c0"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Universidad Nacional Pedro Ruiz Gallo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="53" width="86" height="20" uuid="a3f176f2-c664-4e53-8ba3-461b7f19c09c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="53" width="256" height="20" uuid="26b617ea-0708-4747-85be-0ad32ea94c77"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Unidad de PostGrado Enfermeria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="83" width="154" height="20" uuid="4d108721-7fe1-4bd0-848f-2fc0f23d8639"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Correo electronico:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="83" width="190" height="20" uuid="8bc3a4d2-8e1e-45ff-931a-098462b664ec"/>
+				<textElement>
+					<font fontName="Arial" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[enfermeria@unprg.edu.pe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="543" y="23" width="116" height="40" uuid="a398ef90-ef29-4e63-bdbe-0a092f51d0b6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha y hora de impresión:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="665" y="23" width="89" height="20" uuid="c5552135-a553-41b0-b4d6-1738f5e3e4dc"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm">
+				<reportElement x="754" y="23" width="44" height="20" uuid="a04c2f48-67dd-4fbc-a3db-2ab02dc28e3f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="125" width="801" height="1" uuid="5bdeaee8-0ae9-44e6-b331-99ee30428b1f"/>
+			</line>
+			<image>
+				<reportElement x="1" y="0" width="108" height="125" uuid="9849cca5-c66f-432a-be05-20435d00e17e"/>
+				<imageExpression><![CDATA["C:\\Users\\HP\\Documents\\NetBeansProjects\\EnfermeriaPostgradoUnprg\\src\\main\\java\\com\\postgrado\\postgradosistema\\reportes\\descargar.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="8d323a34-7e9f-4279-be2a-b62971f76845"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="32" height="15" forecolor="#736343" uuid="98d73e14-64f4-472f-8302-f9a7e1b741b2"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="32" y="0" width="77" height="15" forecolor="#736343" uuid="2ee4a5d0-b6c7-4d9e-872a-d6c77d4803e3"/>
+				<text><![CDATA[DNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="109" y="0" width="126" height="15" forecolor="#736343" uuid="2d5bd7fc-90d4-4f41-87de-fc6a26e5f608"/>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="235" y="0" width="68" height="15" forecolor="#736343" uuid="396a9fda-6a26-4b96-9476-bfc2dd42b1f8"/>
+				<text><![CDATA[CODIGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="303" y="1" width="55" height="15" forecolor="#736343" uuid="d66ab84a-b7dc-4b5c-ae2a-fcf99289ad5b"/>
+				<text><![CDATA[CICLO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="358" y="1" width="119" height="15" forecolor="#736343" uuid="747289eb-3034-4168-b6c8-ef0ee81ea194"/>
+				<text><![CDATA[ESPECIALIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="477" y="0" width="78" height="15" forecolor="#736343" uuid="1551f0d0-357d-472e-93a5-c1cca83335cd"/>
+				<text><![CDATA[SEDE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="555" y="1" width="245" height="15" forecolor="#736343" uuid="b2b600eb-ab4e-4992-9a2c-7a3d1a2143c2"/>
+				<text><![CDATA[PROYECTO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="45cfe353-e8e3-4028-9869-0a4268675865"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="32" height="15" uuid="88b1e10d-26c8-4b2f-bfca-127a91394e32"/>
+					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="32" y="0" width="77" height="15" uuid="ca90baf5-ee16-4a4e-bcfc-ab12256d2986"/>
+					<textFieldExpression><![CDATA[$F{dni}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="235" y="0" width="68" height="15" uuid="2398af62-7910-4e89-a9c2-ebe2d812bc7d"/>
+					<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="303" y="0" width="55" height="15" uuid="77dea2db-7ac6-4499-9eac-4e2ca3bc1ab3"/>
+					<textFieldExpression><![CDATA[$F{nombre_ciclo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="358" y="0" width="119" height="15" uuid="5a6b94ad-9d09-4596-a499-afe746d94be3"/>
+					<textFieldExpression><![CDATA[$F{nombre_especialidad}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="477" y="0" width="78" height="15" uuid="5f0ed92d-6135-4002-84f6-c96a856d46e5"/>
+					<textFieldExpression><![CDATA[$F{nombre_sede}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="555" y="0" width="245" height="15" uuid="4712f3a1-3b57-4b77-8f3c-4f3833f956b4"/>
+					<textFieldExpression><![CDATA[$F{titulo_proyecto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="109" y="0" width="126" height="15" uuid="999c189c-1072-4e8b-ab00-021cc83927b1"/>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="0833fdca-b371-4de8-8d81-19ae34963231"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="43d5fba6-b503-4914-9fba-a218d5104ba1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="ce85a5c8-e9fd-4d2c-b39b-bbe7a813a997"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="7c38f5e9-93b2-4ac8-8493-87611e629a9f"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="2398b237-0b69-488d-8d53-43acd1a9866f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
