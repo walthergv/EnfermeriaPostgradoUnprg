@@ -560,7 +560,7 @@ public class FrmIngresante extends javax.swing.JFrame {
     JasperReport reporte;
     try {
         //reporte
-        reporte = JasperCompileManager.compileReport("C:/Users/HP/Documents/NetBeansProjects/EnfermeriaPostgradoUnprg/src/main/java/com/postgrado/postgradosistema/reportes/reporteEstudiantes.jrxml");
+        reporte = JasperCompileManager.compileReport("src/main/java/com/postgrado/postgradosistema/reportes/reporteEstudiantes.jrxml");
         JasperPrint jp = JasperFillManager.fillReport(reporte, null, cnxn.getConnection());
         JasperViewer.viewReport(jp, true);
     } catch (JRException e) {
