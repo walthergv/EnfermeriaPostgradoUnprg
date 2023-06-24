@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="64cd0fd9-2bb9-4b07-a15d-28a3b7bedb37">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="16"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -13,6 +13,44 @@
 			<style backcolor="#E6DAC3"/>
 		</conditionalStyle>
 	</style>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsReporteProyecto" uuid="4f1f968d-82eb-4a1f-8f74-3bbbdb8e1b84">
+		<queryString language="SQL">
+			<![CDATA[SELECT py.id,py.titulo,py.asesora,py.jurado,py.res_designacion,py.res_ejecucion,
+py.res_cambioJurado, py.res_sustentacion,py.res_nombramiento,py.otros,es.nombre as "especialidad"
+FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
+		</queryString>
+		<field name="id" class="java.lang.Integer"/>
+		<field name="titulo" class="java.lang.String"/>
+		<field name="asesora" class="java.lang.String"/>
+		<field name="jurado" class="java.lang.String"/>
+		<field name="res_designacion" class="java.lang.String"/>
+		<field name="res_ejecucion" class="java.lang.String"/>
+		<field name="res_cambioJurado" class="java.lang.String"/>
+		<field name="res_sustentacion" class="java.lang.String"/>
+		<field name="res_nombramiento" class="java.lang.String"/>
+		<field name="otros" class="java.lang.String"/>
+		<field name="especialidad" class="java.lang.String"/>
+	</subDataset>
 	<queryString language="SQL">
 		<![CDATA[SELECT py.id,py.titulo,py.asesora,py.jurado,py.res_designacion,py.res_ejecucion,
 py.res_cambioJurado, py.res_sustentacion,py.res_nombramiento,py.otros,es.nombre as "especialidad"
@@ -33,7 +71,7 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="121" splitType="Stretch">
+		<band height="122" splitType="Stretch">
 			<image>
 				<reportElement uuid="cad84c09-2f43-4e98-ab67-f3060cbe2165" x="1" y="13" width="80" height="80"/>
 				<imageExpression><![CDATA["C:\\Users\\Usuario\\OneDrive\\Documentos\\NetBeansProjects\\SFEnfermeriaPostgradoUnprg\\src\\main\\resources\\imagenes\\enfermeria.png"]]></imageExpression>
@@ -98,170 +136,249 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement uuid="e8264ee5-d16b-45f8-86b9-2e181dcab9fb" x="1" y="110" width="801" height="3"/>
+				<reportElement uuid="e8264ee5-d16b-45f8-86b9-2e181dcab9fb" x="0" y="110" width="801" height="3"/>
 			</line>
 		</band>
 	</title>
 	<pageHeader>
-		<band splitType="Stretch"/>
-	</pageHeader>
-	<columnHeader>
-		<band height="16" splitType="Stretch">
-			<line>
-				<reportElement uuid="18e5de3d-4cf6-490a-b184-40f104e41251" positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
+		<band height="30" splitType="Immediate">
 			<staticText>
-				<reportElement uuid="fe2bfe84-0c1c-4f3c-82f9-90cd3f372773" style="Column header" x="0" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[id]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="b0ed23da-f60c-45b8-a45b-a5901e98b62b" style="Column header" x="72" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[titulo]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="87a2d51d-24c9-4419-9f20-6f304949db26" style="Column header" x="144" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[asesora]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="76b02f21-b0dd-4d2e-83da-398cfccd4dc6" style="Column header" x="216" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[jurado]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="af6ae7ed-8fe5-40c1-9361-f3343d38c26a" style="Column header" x="288" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[res_designacion]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="51a30b1f-ce6c-4067-8f8a-c7f4bf1bad4a" style="Column header" x="360" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[res_ejecucion]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="d98f61cf-d834-4b72-ad52-f0a04aa20520" style="Column header" x="432" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[res_cambioJurado]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="66666267-7665-44ec-ad47-3993a5fcccbe" style="Column header" x="504" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[res_sustentacion]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="f68f9bec-fb48-4320-9d5f-f66f33b30449" style="Column header" x="576" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[res_nombramiento]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="d2a8db3b-1f39-4a05-b822-4e2c9934d3fb" style="Column header" x="648" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[otros]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="ffcf3882-b640-4c27-8018-2f209a6f4984" style="Column header" x="720" y="0" width="72" height="15" forecolor="#736343"/>
-				<textElement/>
-				<text><![CDATA[especialidad]]></text>
+				<reportElement uuid="10be0fbb-3cc0-4bd6-ab12-e7ef92aa7837" mode="Opaque" x="1" y="0" width="801" height="30" forecolor="#FFFFFF" backcolor="#336B87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PROYECTOS - UNIDAD DE POSTGRADO ENFERMERIA]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</pageHeader>
 	<detail>
-		<band height="15" splitType="Stretch">
-			<frame>
-				<reportElement uuid="ea72a83c-106e-42bc-91ed-dbcadee490af" style="Row" mode="Opaque" x="0" y="0" width="802" height="15"/>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="f6fdc1bd-dcc8-4daa-a5f3-0e83ecd44488" style="Detail" x="0" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="d596145f-1471-43da-9d5a-549b6010dd18" style="Detail" x="72" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="6bd4e7cd-59f7-4930-a113-4c886ea5cb59" style="Detail" x="144" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{asesora}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="1494722f-428e-4cc8-9fa2-f9c0885bad7d" style="Detail" x="216" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{jurado}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="80db1ce3-f811-4d0c-bdec-d4cd5ac3eef1" style="Detail" x="288" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{res_designacion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="d82e5d0e-a9fd-440e-99a2-d9069ea219d8" style="Detail" x="360" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{res_ejecucion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="76847619-f6f6-4ed1-9de3-426c9364a61c" style="Detail" x="432" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{res_cambioJurado}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="bca3f50f-e482-474e-91d7-3fac9b144ada" style="Detail" x="504" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{res_sustentacion}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="a9e3c5c9-0bbe-474f-b86d-bcbcb0b25ef6" style="Detail" x="576" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{res_nombramiento}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="bc9f2d76-ad70-4f15-9a9e-b3be4ac0e740" style="Detail" x="648" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{otros}]]></textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement uuid="67b0d9f5-9331-42cd-b1c3-5caee87ba40f" style="Detail" x="720" y="0" width="72" height="15"/>
-					<textElement/>
-					<textFieldExpression><![CDATA[$F{especialidad}]]></textFieldExpression>
-				</textField>
-			</frame>
+		<band height="234" splitType="Stretch">
+			<componentElement>
+				<reportElement uuid="4fff9b68-0ccf-4d95-9bde-e3e3bc03b6d1" key="table" style="table" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" mode="Opaque" x="1" y="16" width="800" height="140"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dsReporteProyecto" uuid="c19d94a5-6df8-4cc3-95c5-5160ef0df050"/>
+					<jr:column uuid="7b59ac57-38ed-4021-99da-b97b38f1e27b" width="26">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="658a3f0b-3ab3-4cf2-8800-cff448d8eccf" x="0" y="0" width="26" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="7f22b749-46eb-42e7-bb98-6bbd1c6ffd25" x="0" y="0" width="26" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="f993f5cc-d9f0-4200-9508-fb448be2666e" width="90">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="84bace45-2e8d-43c8-b501-f46d14a4727c" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Titulo]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="a706bd1c-5067-46de-9ca9-63c34a6a9ac5" positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="90" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="6ea9eac1-75de-47b7-9f36-962e9a28a453" width="58">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="023b6e3a-aa7b-4a30-aff3-995090d18f43" x="0" y="0" width="58" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Asesora]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="671653ef-3dfb-4296-881d-044bfc10e280" x="0" y="0" width="58" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{asesora}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="7b01b344-5545-49f3-b48e-583ca7ee61c3" width="61">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="7a526d3c-b787-48fe-9094-e75b092c6551" x="0" y="0" width="60" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Jurado]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="4b957519-5720-4a15-90c0-dccf914c11ef" x="0" y="0" width="60" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{jurado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="9db6607c-389e-4b73-b26c-06a284c449a4" width="91">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="e3c74f97-d277-4aa0-b0b2-a93d12bfbc45" x="0" y="0" width="91" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Res. Designacion]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="7d5a5b2c-6963-447f-97e2-aca7bdc1522c" x="0" y="0" width="91" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{res_designacion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="f7db1102-e15b-4cd6-a1b7-26c178775d5c" width="67">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="4c8cc726-12e0-48dc-92f2-a5e73f6b28e3" x="0" y="0" width="67" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Res. Ejecucion]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="334f6c4f-41bc-4110-9994-9951c905c72a" x="0" y="0" width="67" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{res_ejecucion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="b253f09b-6bb8-4f29-a2ac-e3b203712a4b" width="89">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="31ce44a9-38a6-491c-8f51-4a13e6556b16" x="0" y="0" width="89" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Res. Cambio jurado]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="34467613-5621-43a6-93d7-45f175be79c1" x="0" y="0" width="89" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{res_cambioJurado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="6d1be25b-0716-4ea0-a9ad-c585ea0918a9" width="83">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="12c4901e-0f6e-40a6-8b23-3ca57772e2d0" x="3" y="0" width="80" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Res. Sustentacion]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="8c3f0e12-cc01-4410-8113-59e0aadedfd4" x="0" y="0" width="83" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{res_sustentacion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="54640aff-0744-4b6b-92c5-e383fac7635b" width="98">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a796574d-f044-408a-a1e2-13a2de5d5034" x="0" y="0" width="98" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Res. Nombramiento]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="fa7bdfa2-357e-4230-bdef-bd329953f792" x="0" y="0" width="98" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{res_nombramiento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="4d90a9f6-bd88-4e4a-9209-2372a3c26020" width="68">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="d02ceff8-18c5-4ea0-b7b6-b4d6ed022b94" x="0" y="0" width="68" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Otros]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="7cdcd40d-52cb-4d03-8d96-0ef354dbcbad" x="0" y="0" width="68" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{otros}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column uuid="39494a4e-1302-426c-951f-8683655cfd07" width="90">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement uuid="a2cfc881-6b8d-4b4b-bb0e-854e90bf9d15" x="0" y="0" width="90" height="30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Especialidad]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement uuid="22a7f207-a034-45cb-a593-9ae73b5be456" x="0" y="0" width="90" height="53"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{especialidad}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="6" splitType="Stretch">
-			<line>
-				<reportElement uuid="25e40c4f-df77-433d-9ffc-c7e6bf5c8c6c" positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
-	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>
-				<reportElement uuid="ad83df9e-55b2-4815-ac5f-c944777b8f50" mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF"/>
+				<reportElement uuid="ad83df9e-55b2-4815-ac5f-c944777b8f50" mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#FFFFFF" backcolor="#336B87"/>
 				<textField evaluationTime="Report">
-					<reportElement uuid="f0194354-5e9a-450d-90de-e6fd6c0d28a1" style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343"/>
+					<reportElement uuid="f0194354-5e9a-450d-90de-e6fd6c0d28a1" style="Column header" x="783" y="1" width="40" height="20" forecolor="#FFFFFF"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement uuid="509d05c6-1002-46d0-a226-257334e8f9d2" style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343"/>
+					<reportElement uuid="509d05c6-1002-46d0-a226-257334e8f9d2" style="Column header" x="703" y="1" width="80" height="20" forecolor="#FFFFFF"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement uuid="8d17703f-d1dd-42ea-b328-02e824d1f6f4" style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343"/>
+					<reportElement uuid="8d17703f-d1dd-42ea-b328-02e824d1f6f4" style="Column header" x="22" y="1" width="197" height="20" forecolor="#FFFFFF"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
@@ -270,7 +387,4 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 			</frame>
 		</band>
 	</pageFooter>
-	<summary>
-		<band splitType="Stretch"/>
-	</summary>
 </jasperReport>
