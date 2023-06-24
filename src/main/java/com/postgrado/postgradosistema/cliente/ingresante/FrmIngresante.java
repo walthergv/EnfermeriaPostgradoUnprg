@@ -559,6 +559,7 @@ public class FrmIngresante extends javax.swing.JFrame {
     private void jbtnPdfProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnPdfProyectoMouseClicked
     JasperReport reporte;
     try {
+        //reporte
         reporte = JasperCompileManager.compileReport("C:/Users/HP/Documents/NetBeansProjects/EnfermeriaPostgradoUnprg/src/main/java/com/postgrado/postgradosistema/reportes/reporteEstudiantes.jrxml");
         JasperPrint jp = JasperFillManager.fillReport(reporte, null, cnxn.getConnection());
         JasperViewer.viewReport(jp, true);
