@@ -13,6 +13,7 @@ import com.postgrado.postgradosistema.cliente.especialidad.FrmEspecialidad;
 import com.postgrado.postgradosistema.cliente.ingresante.FrmIngresante;
 import com.postgrado.postgradosistema.cliente.sede.FrmSede;
 import com.postgrado.postgradosistema.cliente.usuario.FrmUsuario;
+import com.postgrado.postgradosistema.configuracion.Conexion;
 import com.postgrado.postgradosistema.logic.ProyectoLogic;
 import com.postgrado.postgradosistema.modelo.Proyecto;
 import login.FrmLogin1;
@@ -21,12 +22,18 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.util.List;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmProyecto extends javax.swing.JFrame {
-
+     Conexion cnxn = new Conexion();
     ProyectoLogic proyectoLogic = new ProyectoLogic();
     DefaultTableModel modelo = new DefaultTableModel();
 
@@ -147,6 +154,11 @@ public class FrmProyecto extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
 
         jbtnPdfProyecto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pdf.png"))); // NOI18N
+        jbtnPdfProyecto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jbtnPdfProyectoMouseClicked(evt);
+            }
+        });
         jbtnPdfProyecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtnPdfProyectoActionPerformed(evt);
@@ -594,6 +606,20 @@ public class FrmProyecto extends javax.swing.JFrame {
     private void jbtnPdfProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPdfProyectoActionPerformed
 
     }//GEN-LAST:event_jbtnPdfProyectoActionPerformed
+
+    private void jbtnPdfProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnPdfProyectoMouseClicked
+        JasperReport reporte;
+    try {
+        //reporte
+        reporte = JasperCompileManager.compileReport("src/main/java/com/postgrado/postgradosistema/reportes/reporteProyectos.jrxml");
+        JasperPrint jp = JasperFillManager.fillReport(reporte, null, cnxn.getConnection());
+        JasperViewer.viewReport(jp, true);
+    } catch (JRException e) {
+        e.printStackTrace();
+        // Manejar excepción cuando no se encuentra el archivo del informe
+        JOptionPane.showMessageDialog(this, "No se encontró el archivo del informe.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    }//GEN-LAST:event_jbtnPdfProyectoMouseClicked
 
     /**
      * @param args the command line arguments

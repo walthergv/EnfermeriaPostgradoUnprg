@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="174d6c02-9178-4720-aaa3-dd108873f562">
-	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
@@ -113,10 +113,6 @@
 			<line>
 				<reportElement uuid="5bdeaee8-0ae9-44e6-b331-99ee30428b1f" x="1" y="125" width="801" height="1"/>
 			</line>
-			<image>
-				<reportElement uuid="a1e1f3c1-b13a-483e-8ee7-4cb53cbe2ef5" x="16" y="21" width="80" height="80"/>
-				<imageExpression><![CDATA["C:\\Users\\Usuario\\OneDrive\\Documentos\\NetBeansProjects\\SFEnfermeriaPostgradoUnprg\\src\\main\\resources\\imagenes\\enfermeria.png"]]></imageExpression>
-			</image>
 		</band>
 	</title>
 	<pageHeader>
