@@ -5,7 +5,7 @@ import com.postgrado.postgradosistema.modelo.Area;
 
 import javax.swing.*;
 import java.util.List;
-
+//
 public class AreaLogic {
     private AreaDao areaDao = new AreaDao();
 
