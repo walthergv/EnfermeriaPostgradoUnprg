@@ -74,7 +74,7 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 		<band height="122" splitType="Stretch">
 			<image>
 				<reportElement uuid="cad84c09-2f43-4e98-ab67-f3060cbe2165" x="1" y="13" width="80" height="80"/>
-				<imageExpression><![CDATA["C:\\Users\\Usuario\\OneDrive\\Documentos\\NetBeansProjects\\SFEnfermeriaPostgradoUnprg\\src\\main\\resources\\imagenes\\enfermeria.png"]]></imageExpression>
+				<imageExpression><![CDATA["src/main/java/com/postgrado/postgradosistema/reportes/enfermeria.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="98" y="13" width="86" height="20"/>
