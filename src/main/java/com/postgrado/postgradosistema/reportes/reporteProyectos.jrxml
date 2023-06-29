@@ -72,47 +72,43 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 	</background>
 	<title>
 		<band height="122" splitType="Stretch">
-			<image>
-				<reportElement uuid="cad84c09-2f43-4e98-ab67-f3060cbe2165" x="1" y="13" width="80" height="80"/>
-				<imageExpression><![CDATA["src/main/java/com/postgrado/postgradosistema/reportes/enfermeria.png"]]></imageExpression>
-			</image>
 			<staticText>
-				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="98" y="13" width="86" height="20"/>
-				<textElement textAlignment="Right">
+				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="12" y="13" width="96" height="20"/>
+				<textElement>
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Institución:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="98" y="43" width="86" height="20"/>
-				<textElement textAlignment="Right">
+				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="12" y="43" width="96" height="20"/>
+				<textElement>
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Unidad:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="98" y="73" width="154" height="20"/>
-				<textElement textAlignment="Right">
+				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="12" y="73" width="96" height="37"/>
+				<textElement>
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Correo electronico:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="198" y="13" width="256" height="20"/>
+				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="134" y="13" width="256" height="20"/>
 				<textElement>
 					<font fontName="Arial" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Universidad Nacional Pedro Ruiz Gallo]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="198" y="43" width="256" height="20"/>
+				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="134" y="43" width="256" height="20"/>
 				<textElement>
 					<font fontName="Arial" size="14" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Unidad de PostGrado Enfermeria]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="264" y="73" width="190" height="20"/>
+				<reportElement uuid="1121b903-24fc-4322-824c-204af7711a93" x="134" y="73" width="190" height="20"/>
 				<textElement>
 					<font fontName="Arial" size="14" isBold="false"/>
 				</textElement>
@@ -136,7 +132,7 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement uuid="e8264ee5-d16b-45f8-86b9-2e181dcab9fb" x="0" y="110" width="801" height="3"/>
+				<reportElement uuid="e8264ee5-d16b-45f8-86b9-2e181dcab9fb" x="0" y="112" width="801" height="3"/>
 			</line>
 		</band>
 	</title>
