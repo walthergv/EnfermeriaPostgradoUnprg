@@ -114,24 +114,37 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 				</textElement>
 				<text><![CDATA[enfermeria@unprg.edu.pe]]></text>
 			</staticText>
-			<staticText>
-				<reportElement x="533" y="13" width="116" height="40" uuid="1121b903-24fc-4322-824c-204af7711a93"/>
-				<textElement textAlignment="Right">
-					<font fontName="Arial" size="14" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Fecha y hora de impresión:]]></text>
-			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="655" y="13" width="89" height="20" uuid="7fbea489-6952-4ccb-84f8-798bdafd8e39"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<textField pattern="HH.mm">
-				<reportElement x="744" y="13" width="44" height="20" uuid="1699999c-c85c-4818-ad2f-b5037fec259d"/>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
 			<line>
 				<reportElement x="0" y="112" width="801" height="3" uuid="e8264ee5-d16b-45f8-86b9-2e181dcab9fb"/>
 			</line>
+			<staticText>
+				<reportElement x="576" y="43" width="116" height="20" uuid="ad1085b6-bbc0-4779-a252-f7c57a1b6c9c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora:]]></text>
+			</staticText>
+			<textField pattern="HH.mm">
+				<reportElement x="695" y="43" width="44" height="20" uuid="bfc110d4-850d-4a7f-bb6c-c2577bfce4c3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="695" y="13" width="89" height="20" uuid="72bf5abb-ec08-4db2-a4ad-20373cc9750f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="576" y="13" width="116" height="20" uuid="f352f83c-8f14-4b76-bd2b-6e73deb80ff8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -360,21 +373,21 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 				<textField evaluationTime="Report">
 					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#FFFFFF" uuid="f0194354-5e9a-450d-90de-e6fd6c0d28a1"/>
 					<textElement verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font size="12" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#FFFFFF" uuid="509d05c6-1002-46d0-a226-257334e8f9d2"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font size="12" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="8d17703f-d1dd-42ea-b328-02e824d1f6f4"/>
 					<textElement verticalAlignment="Middle">
-						<font size="10" isBold="false"/>
+						<font size="12" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 				</textField>
