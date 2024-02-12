@@ -45,8 +45,8 @@ int xMouse, yMouse;
         jtxtPasswordUsuario = new javax.swing.JTextField();
         jtxtDniUsuario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jtxtRolUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jComboRol = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jbtnRegistrarUsuario = new javax.swing.JButton();
         jbtnSalirRegistrarUsuario = new javax.swing.JButton();
@@ -106,15 +106,11 @@ int xMouse, yMouse;
         jLabel6.setText("ROL");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, -1, -1));
 
-        jtxtRolUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtRolUsuarioKeyReleased(evt);
-            }
-        });
-        jPanel2.add(jtxtRolUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, 270, 40));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registrar023.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, 39));
+
+        jComboRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Asistente" }));
+        jPanel2.add(jComboRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, 270, 40));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1200, 480));
 
@@ -179,16 +175,12 @@ int xMouse, yMouse;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtxtRolUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtRolUsuarioKeyReleased
-
-    }//GEN-LAST:event_jtxtRolUsuarioKeyReleased
-
     private void jbtnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarUsuarioActionPerformed
             String dni = jtxtDniUsuario.getText();
             String nombre = jtxtNombreUsuario.getText();
             String contraseña = jtxtPasswordUsuario.getText();
-            String rol = jtxtRolUsuario.getText();
-
+            //String rol = jtxtRolUsuario.getText();
+            String rol= (String)jComboRol.getSelectedItem();
             if (!dni.isEmpty() && !nombre.isEmpty() && !contraseña .isEmpty() && !rol.isEmpty()) {
                 Usuario usuario = new Usuario();
                 usuario.setNombre(nombre);
@@ -201,7 +193,6 @@ int xMouse, yMouse;
                     jtxtDniUsuario.setText("");
                     jtxtNombreUsuario.setText("");
                     jtxtPasswordUsuario.setText("");
-                    jtxtRolUsuario.setText("");
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al registrar usuario");
                 }
@@ -271,6 +262,7 @@ int xMouse, yMouse;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboRol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -286,6 +278,5 @@ int xMouse, yMouse;
     private javax.swing.JTextField jtxtDniUsuario;
     private javax.swing.JTextField jtxtNombreUsuario;
     private javax.swing.JTextField jtxtPasswordUsuario;
-    private javax.swing.JTextField jtxtRolUsuario;
     // End of variables declaration//GEN-END:variables
 }
