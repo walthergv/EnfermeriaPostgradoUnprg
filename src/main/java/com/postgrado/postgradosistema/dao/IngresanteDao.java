@@ -19,8 +19,8 @@ public class IngresanteDao {
 
     public boolean registrarIngresante(Ingresante ingresante) {
         String sql = "INSERT INTO ingresante (dni, nombre, codigo, ciclo_id, especialidad_id," +
-                " sede_id, proyecto_id)" +
-                " VALUES (?,?,?,?,?,?,?)";
+                " sede_id)" +
+                " VALUES (?,?,?,?,?,?)";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
@@ -30,7 +30,6 @@ public class IngresanteDao {
             ps.setInt(4, ingresante.getCiclo().getId());
             ps.setInt(5, ingresante.getEspecialidad().getId());
             ps.setInt(6, ingresante.getSede().getId());
-            ps.setInt(7, ingresante.getProyecto().getId());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -60,7 +59,6 @@ public class IngresanteDao {
             ps.setInt(4, ingresante.getCiclo().getId());
             ps.setInt(5, ingresante.getEspecialidad().getId());
             ps.setInt(6, ingresante.getSede().getId());
-            ps.setInt(7, ingresante.getProyecto().getId());
             ps.setInt(8, ingresante.getId());
             ps.executeUpdate();
             return true;
@@ -88,14 +86,12 @@ public class IngresanteDao {
                 "  ciclo.nombre AS nombre_ciclo,\n" +
                 "  especialidad.nombre AS nombre_especialidad,\n" +
                 "  sede.nombre AS nombre_sede,\n" +
-                "  proyecto.titulo AS titulo_proyecto,\n" +
                 "  ingresante.es_ingresante \n" +
                 " FROM\n" +
                 "  ingresante\n" +
                 "  INNER JOIN ciclo ON ingresante.ciclo_id = ciclo.id\n" +
                 "  INNER JOIN especialidad ON ingresante.especialidad_id = especialidad.id\n" +
-                "  INNER JOIN sede ON ingresante.sede_id = sede.id\n" +
-                "  INNER JOIN proyecto ON ingresante.proyecto_id = proyecto.id;";
+                "  INNER JOIN sede ON ingresante.sede_id = sede.id;" ;
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
@@ -109,7 +105,6 @@ public class IngresanteDao {
                 ingresante.setCiclo(new Ciclo(rs.getString("nombre_ciclo")));
                 ingresante.setEspecialidad(new Especialidad(rs.getString("nombre_especialidad")));
                 ingresante.setSede(new Sede(rs.getString("nombre_sede")));
-                ingresante.setProyecto(new Proyecto(rs.getString("titulo_proyecto")));
                 ingresante.setEs_ingresante(rs.getString("es_ingresante"));
                 ingresantes.add(ingresante);
             }
@@ -129,14 +124,12 @@ public class IngresanteDao {
                 "  ciclo.nombre AS nombre_ciclo,\n" +
                 "  especialidad.nombre AS nombre_especialidad,\n" +
                 "  sede.nombre AS nombre_sede,\n" +
-                "  proyecto.titulo AS titulo_proyecto,\n" +
                 "  ingresante.es_ingresante \n" +
                 " FROM\n" +
                 "  ingresante\n" +
                 "  INNER JOIN ciclo ON ingresante.ciclo_id = ciclo.id\n" +
                 "  INNER JOIN especialidad ON ingresante.especialidad_id = especialidad.id\n" +
                 "  INNER JOIN sede ON ingresante.sede_id = sede.id\n" +
-                "  INNER JOIN proyecto ON ingresante.proyecto_id = proyecto.id" +
                 " WHERE ingresante.nombre LIKE ?";
         try {
             cntn = cnxn.getConnection();
@@ -152,7 +145,6 @@ public class IngresanteDao {
                 ingresante.setCiclo(new Ciclo(rs.getString("nombre_ciclo")));
                 ingresante.setEspecialidad(new Especialidad(rs.getString("nombre_especialidad")));
                 ingresante.setSede(new Sede(rs.getString("nombre_sede")));
-                ingresante.setProyecto(new Proyecto(rs.getString("titulo_proyecto")));
                 ingresante.setEs_ingresante(rs.getString("es_ingresante"));
                 ingresantes.add(ingresante);
             }
@@ -184,7 +176,6 @@ public class IngresanteDao {
                     ingresante.setCiclo(new Ciclo(rs.getString("ciclo_id")));
                     ingresante.setEspecialidad(new Especialidad(rs.getString("especialidad_id")));
                     ingresante.setSede(new Sede(rs.getString("sede_id")));
-                    ingresante.setProyecto(proyecto);
                     ingresantes.add(ingresante);
                 }
             }
@@ -231,7 +222,6 @@ public class IngresanteDao {
                 ingresante.setCiclo(new Ciclo(rs.getInt("ciclo_id")));
                 ingresante.setEspecialidad(new Especialidad(rs.getInt("especialidad_id")));
                 ingresante.setSede(new Sede(rs.getInt("sede_id")));
-                ingresante.setProyecto(new Proyecto(rs.getInt("proyecto_id")));
                 ingresantes.add(ingresante);
             }
         } catch (SQLException e) {

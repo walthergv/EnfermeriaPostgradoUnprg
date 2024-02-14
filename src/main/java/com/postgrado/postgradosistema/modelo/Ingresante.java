@@ -8,7 +8,6 @@ public class Ingresante {
     private Ciclo ciclo;
     private Especialidad especialidad;
     private Sede sede;
-    private Proyecto proyecto;
     private String es_ingresante;
 
     public Ingresante() {
@@ -21,7 +20,7 @@ public class Ingresante {
         this.codigo = codigo;
     }
 
-    public Ingresante(int id, String dni, String nombre, String codigo, Ciclo ciclo, Especialidad especialidad, Sede sede, Proyecto proyecto) {
+    public Ingresante(int id, String dni, String nombre, String codigo, Ciclo ciclo, Especialidad especialidad, Sede sede) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
@@ -29,17 +28,14 @@ public class Ingresante {
         this.ciclo = ciclo;
         this.especialidad = especialidad;
         this.sede = sede;
-        this.proyecto = proyecto;
     }
 
-    public Ingresante(String dni, String nombre, String codigo, Ciclo ciclo, Especialidad especialidad, Sede sede, Proyecto proyecto) {
+    public Ingresante(String dni, String nombre, String codigo, Ciclo ciclo, Especialidad especialidad, Sede sede) {
         this.dni = dni;
         this.nombre = nombre;
         this.codigo = codigo;
         this.ciclo = ciclo;
         this.especialidad = especialidad;
-        this.sede = sede;
-        this.proyecto = proyecto;
     }
 
     public int getId() {
@@ -106,14 +102,6 @@ public class Ingresante {
         this.sede = sede;
     }
 
-    public Proyecto getProyecto() {
-        return proyecto;
-    }
-
-    public void setProyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
-    }
-
     @Override
     public String toString() {
         return "Ingresante{" +
@@ -124,7 +112,6 @@ public class Ingresante {
                 ", ciclo=" + ciclo.getNombre() +
                 ", especialidad=" + especialidad.getNombre() +
                 ", sede=" + sede.getNombre() +
-                ", proyecto=" + proyecto.getTitulo() +
                 '}';
     }
 }

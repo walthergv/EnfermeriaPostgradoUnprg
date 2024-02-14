@@ -462,7 +462,7 @@
             <Component class="javax.swing.JTable" name="jTableIngresante">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="9" rowCount="0">
+                  <Table columnCount="8" rowCount="0">
                     <Column editable="true" title="ID" type="java.lang.Object"/>
                     <Column editable="true" title="DNI" type="java.lang.Object"/>
                     <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
@@ -470,7 +470,6 @@
                     <Column editable="true" title="CICLO" type="java.lang.Object"/>
                     <Column editable="true" title="ESPECIALIDAD" type="java.lang.Object"/>
                     <Column editable="true" title="SEDE" type="java.lang.Object"/>
-                    <Column editable="true" title="PROYECTO" type="java.lang.Object"/>
                     <Column editable="true" title="ESTADO" type="java.lang.Object"/>
                   </Table>
                 </Property>
@@ -507,11 +506,6 @@
                       <Renderer/>
                     </Column>
                     <Column maxWidth="230" minWidth="140" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>

@@ -61,6 +61,8 @@ public class FrmIngresante extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
+        
+        listarTablaIngresante();
     }
 
     /**
@@ -294,7 +296,7 @@ public class FrmIngresante extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "DNI", "NOMBRE", "CODIGO UNI", "CICLO", "ESPECIALIDAD", "SEDE", "PROYECTO", "ESTADO"
+                "ID", "DNI", "NOMBRE", "CODIGO UNI", "CICLO", "ESPECIALIDAD", "SEDE", "ESTADO"
             }
         ));
         jTableEspecialidad.setViewportView(jTableIngresante);
@@ -311,8 +313,8 @@ public class FrmIngresante extends javax.swing.JFrame {
             jTableIngresante.getColumnModel().getColumn(4).setMaxWidth(70);
             jTableIngresante.getColumnModel().getColumn(6).setMinWidth(140);
             jTableIngresante.getColumnModel().getColumn(6).setMaxWidth(230);
-            jTableIngresante.getColumnModel().getColumn(8).setMinWidth(50);
-            jTableIngresante.getColumnModel().getColumn(8).setMaxWidth(80);
+            jTableIngresante.getColumnModel().getColumn(7).setMinWidth(50);
+            jTableIngresante.getColumnModel().getColumn(7).setMaxWidth(80);
         }
 
         jPanel1.add(jTableEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 1270, 330));
@@ -514,8 +516,7 @@ public class FrmIngresante extends javax.swing.JFrame {
             ob[4] = ingresantes.get(i).getCiclo().getNombre();
             ob[5] = ingresantes.get(i).getEspecialidad().getNombre();
             ob[6] = ingresantes.get(i).getSede().getNombre();
-            ob[7] = ingresantes.get(i).getProyecto().getTitulo();
-            ob[8] = ingresantes.get(i).getEs_ingresante();
+            ob[7] = ingresantes.get(i).getEs_ingresante();
             modelo.addRow(ob);
         }
     }//GEN-LAST:event_jtxtBuscarPorNombreIngresanteKeyReleased
@@ -571,7 +572,7 @@ public class FrmIngresante extends javax.swing.JFrame {
   
     }//GEN-LAST:event_jbtnPdfProyectoMouseClicked
 
-    private void listarTablaIngresante() {
+    public void listarTablaIngresante() {
         List<Ingresante> ingresantes = ingresanteLogic.listaIngresantes();
         modelo = (DefaultTableModel) jTableIngresante.getModel();
         modelo.setRowCount(0); // Limpiar filas existentes en la tabla
@@ -584,8 +585,7 @@ public class FrmIngresante extends javax.swing.JFrame {
             ob[4] = ingresantes.get(i).getCiclo().getNombre();
             ob[5] = ingresantes.get(i).getEspecialidad().getNombre();
             ob[6] = ingresantes.get(i).getSede().getNombre();
-            ob[7] = ingresantes.get(i).getProyecto().getTitulo();
-            ob[8] = ingresantes.get(i).getEs_ingresante();
+            ob[7] = ingresantes.get(i).getEs_ingresante();
             modelo.addRow(ob); // Agregar fila con los datos del ingresante
         }
         jTableIngresante.setModel(modelo);

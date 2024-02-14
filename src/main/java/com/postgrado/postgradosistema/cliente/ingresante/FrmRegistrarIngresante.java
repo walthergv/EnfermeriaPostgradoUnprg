@@ -61,9 +61,6 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jtxtBuscarEspecialidad = new javax.swing.JTextField();
         jcomboboxEspecialidad = new javax.swing.JComboBox<>();
-        PROYECTO = new javax.swing.JLabel();
-        jtxtBuscarProyectoPorId = new javax.swing.JTextField();
-        jcomboboxProyecto = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jbtnRegistrarIngresante = new javax.swing.JButton();
@@ -88,12 +85,12 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1200, Short.MAX_VALUE)
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 50, Short.MAX_VALUE)
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
         );
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 50));
@@ -164,23 +161,6 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         });
         jPanel2.add(jcomboboxEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 210, 350, 41));
 
-        PROYECTO.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        PROYECTO.setText("ID PROYECTO");
-        jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, -1, -1));
-
-        jtxtBuscarProyectoPorId.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                try {
-                    jtxtBuscarProyectoPorIdKeyReleased(evt);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-        jPanel2.add(jtxtBuscarProyectoPorId, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 350, 80, 35));
-
-        jPanel2.add(jcomboboxProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 350, 450, 35));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registrar023.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, 39));
 
@@ -211,22 +191,22 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
-                jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(317, 317, 317)
-                                .addComponent(jbtnRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(180, 180, 180)
-                                .addComponent(jbtnSalirRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(327, Short.MAX_VALUE))
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(317, 317, 317)
+                .addComponent(jbtnRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
+                .addComponent(jbtnSalirRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(327, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
-                jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addContainerGap(22, Short.MAX_VALUE)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jbtnRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jbtnSalirRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20))
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnSalirRegistrarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 1200, 90));
@@ -234,14 +214,14 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -272,9 +252,8 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         String nombreCiclo = (String) jcomboboxCiclo.getSelectedItem();
         String nombreEspecialidad = (String) jcomboboxEspecialidad.getSelectedItem();
         String nombreSede = (String) jcomboboxSede.getSelectedItem();
-        String nombreProyecto = (String) jcomboboxProyecto.getSelectedItem();
 
-        if (!nombre.isEmpty() && !codigo.isEmpty() && !nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty() && !nombreProyecto.isEmpty()) {
+        if (!nombre.isEmpty() && !codigo.isEmpty() && !nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty() ) {
             CicloLogic cicloLogic = new CicloLogic();
             List<Ciclo> ciclos = cicloLogic.buscarCicloPorNombre(nombreCiclo);
 
@@ -284,14 +263,13 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
             SedeLogic sedeLogic = new SedeLogic();
             List<Sede> sedes = sedeLogic.buscarSedePorNombre(nombreSede);
 
-            ProyectoLogic proyectoLogic = new ProyectoLogic();
-            List<Proyecto> proyectos = proyectoLogic.buscarProyectoPorNombre(nombreProyecto);
 
-            if (!nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty() && !nombreProyecto.isEmpty()) {
+
+            if (!nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty() ) {
                 Ciclo cicloSeleccionado = ciclos.get(0);
                 Especialidad especialidadSeleccionada = especialidades.get(0);
                 Sede sedeSeleccionada = sedes.get(0);
-                Proyecto proyectoSeleccionado = proyectos.get(0);
+
 
                 Ingresante ingresante = new Ingresante();
                 ingresante.setDni(dni);
@@ -300,7 +278,7 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
                 ingresante.setCiclo(cicloSeleccionado);
                 ingresante.setEspecialidad(especialidadSeleccionada);
                 ingresante.setSede(sedeSeleccionada);
-                ingresante.setProyecto(proyectoSeleccionado);
+
 
                 IngresanteLogic ingresanteLogic = new IngresanteLogic();
                 if (ingresanteLogic.registrarIngresante(ingresante)) {
@@ -311,7 +289,7 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
                     jcomboboxCiclo.setSelectedIndex(-1);
                     jcomboboxEspecialidad.setSelectedIndex(-1);
                     jcomboboxSede.setSelectedIndex(-1);
-                    jcomboboxProyecto.setSelectedIndex(-1);
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al registrar ingresante");
                 }
@@ -366,19 +344,6 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jtxtBuscarEspecialidadKeyReleased
 
-    private void jtxtBuscarProyectoPorIdKeyReleased(java.awt.event.KeyEvent evt) throws SQLException {//GEN-FIRST:event_jtxtBuscarProyectoPorIdKeyReleased
-        String proyecto_id = jtxtBuscarProyectoPorId.getText().trim();
-        if (!proyecto_id.isEmpty() && proyecto_id.matches("[1-9]\\d*")) {
-            int proyecto_id_int = Integer.parseInt(proyecto_id);
-            List<Proyecto> proyectos = proyectoLogic.buscarProyectoPorId(proyecto_id_int);
-            DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
-            for (Proyecto proyecto : proyectos) {
-                model.addElement(proyecto.getTitulo());
-            }
-            jcomboboxProyecto.setModel(model);
-        }
-    }//GEN-LAST:event_jtxtBuscarProyectoPorIdKeyReleased
-
     /**
      * @param args the command line arguments
      */
@@ -422,7 +387,6 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel PROYECTO;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -439,11 +403,9 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
     private javax.swing.JButton jbtnSalirRegistrarIngresante;
     private javax.swing.JComboBox<String> jcomboboxCiclo;
     private javax.swing.JComboBox<String> jcomboboxEspecialidad;
-    private javax.swing.JComboBox<String> jcomboboxProyecto;
     private javax.swing.JComboBox<String> jcomboboxSede;
     private javax.swing.JTextField jtxtBuscarCiclo;
     private javax.swing.JTextField jtxtBuscarEspecialidad;
-    private javax.swing.JTextField jtxtBuscarProyectoPorId;
     private javax.swing.JTextField jtxtBuscarSede;
     private javax.swing.JTextField jtxtCodigoIngresante;
     private javax.swing.JTextField jtxtDniIngresante;

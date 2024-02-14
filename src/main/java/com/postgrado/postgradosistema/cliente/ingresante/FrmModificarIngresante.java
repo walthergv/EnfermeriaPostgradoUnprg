@@ -312,7 +312,6 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
             ingresante.setCiclo(ciclos.get(0));
             ingresante.setEspecialidad(especialidades.get(0));
             ingresante.setSede(sedes.get(0));
-            ingresante.setProyecto(proyectos.get(0));
             IngresanteLogic ingresanteLogic = new IngresanteLogic();
             if (ingresanteLogic.actualizarIngresante(ingresante)) {
                 JOptionPane.showMessageDialog(null, "Ingresante modificado correctamente");
