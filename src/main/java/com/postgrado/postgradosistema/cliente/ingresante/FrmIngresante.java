@@ -426,7 +426,7 @@ public class FrmIngresante extends javax.swing.JFrame {
     private void jbtnModificarIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarIngresanteActionPerformed
         int filaSeleccionada = jTableIngresante.getSelectedRow();
         if (filaSeleccionada != -1) {
-            if (jTableIngresante.getValueAt(filaSeleccionada, 8).toString().equals("I")) {
+            if (jTableIngresante.getValueAt(filaSeleccionada, 7).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un Estudiante inactivo");
             } else {
                 int id = Integer.parseInt(jTableIngresante.getValueAt(filaSeleccionada, 0).toString());
@@ -436,10 +436,9 @@ public class FrmIngresante extends javax.swing.JFrame {
                 String ciclo = jTableIngresante.getValueAt(filaSeleccionada, 4).toString();
                 String especialidad = jTableIngresante.getValueAt(filaSeleccionada, 5).toString();
                 String sede = jTableIngresante.getValueAt(filaSeleccionada, 6).toString();
-                String proyecto = jTableIngresante.getValueAt(filaSeleccionada, 7).toString();
 
                 FrmModificarIngresante modiingresante = new FrmModificarIngresante(this, true);
-                modiingresante.setDatos(id, dni, nombre, codigoUni, ciclo, especialidad, sede, proyecto);
+                modiingresante.setDatos(id, dni, nombre, codigoUni, ciclo, especialidad, sede);
                 modiingresante.setVisible(true);
             }
         } else {

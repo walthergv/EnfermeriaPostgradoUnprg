@@ -48,7 +48,7 @@ public class IngresanteDao {
 
     public boolean actualizarIngresante(Ingresante ingresante) {
         String sql = "UPDATE ingresante SET dni=?, nombre=?, codigo=?, ciclo_id=?, especialidad_id=?," +
-                " sede_id=?, proyecto_id=?" +
+                " sede_id=?" +
                 " WHERE id=?";
         try {
             cntn = cnxn.getConnection();
@@ -59,7 +59,7 @@ public class IngresanteDao {
             ps.setInt(4, ingresante.getCiclo().getId());
             ps.setInt(5, ingresante.getEspecialidad().getId());
             ps.setInt(6, ingresante.getSede().getId());
-            ps.setInt(8, ingresante.getId());
+            ps.setInt(7, ingresante.getId());
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
