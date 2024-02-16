@@ -19,7 +19,7 @@ public class ProyectoDao {
     ResultSet rs;
 
     public boolean registrarProyecto(Proyecto proyecto) {
-        String sql = "INSERT INTO proyecto (titulo, asesora, jurado, res_designacion, res_ejecucion, res_cambioJurado, res_sustentacion, res_nombramiento, otros, especialidad_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO proyecto (titulo, asesora, jurado, res_designacion, res_ejecucion, res_cambioJurado, res_sustentacion, res_cambioTitulo, otros, especialidad_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
@@ -30,7 +30,7 @@ public class ProyectoDao {
             ps.setString(5, proyecto.getRes_ejecucion());
             ps.setString(6, proyecto.getRes_cambioJurado());
             ps.setString(7, proyecto.getRes_sustentacion());
-            ps.setString(8, proyecto.getRes_nombramiento());
+            ps.setString(8, proyecto.getRes_cambioTitulo());
             ps.setString(9, proyecto.getOtros());
             ps.setInt(10, proyecto.getEspecialidad().getId());
             ps.executeUpdate();
@@ -50,7 +50,7 @@ public class ProyectoDao {
 
     /*comentario*/
     public boolean modificarProyecto(Proyecto proyecto) {
-        String sql = "UPDATE proyecto SET titulo = ?, asesora = ?, jurado = ?, res_designacion = ?, res_ejecucion = ?, res_cambioJurado = ?, res_sustentacion = ?, res_nombramiento = ?, otros = ?, especialidad_id= ? WHERE id = ?";
+        String sql = "UPDATE proyecto SET titulo = ?, asesora = ?, jurado = ?, res_designacion = ?, res_ejecucion = ?, res_cambioJurado = ?, res_sustentacion = ?, res_cambioTitulo = ?, otros = ?, especialidad_id= ? WHERE id = ?";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
@@ -61,7 +61,7 @@ public class ProyectoDao {
             ps.setString(5, proyecto.getRes_ejecucion());
             ps.setString(6, proyecto.getRes_cambioJurado());
             ps.setString(7, proyecto.getRes_sustentacion());
-            ps.setString(8, proyecto.getRes_nombramiento());
+            ps.setString(8, proyecto.getRes_cambioTitulo());
             ps.setString(9, proyecto.getOtros());
             ps.setInt(10, proyecto.getEspecialidad().getId());
             ps.setInt(11, proyecto.getId());
@@ -115,7 +115,7 @@ public class ProyectoDao {
                 " proyecto.res_ejecucion," +
                 " proyecto.res_cambioJurado," +
                 " proyecto.res_sustentacion," +
-                " proyecto.res_nombramiento," +
+                " proyecto.res_cambioTitulo," +
                 " proyecto.otros," +
                 " proyecto.especialidad_id," +
                 " especialidad.nombre AS nombre_especialidad," +
@@ -136,7 +136,7 @@ public class ProyectoDao {
                 proyecto.setRes_ejecucion(rs.getString("res_ejecucion"));
                 proyecto.setRes_cambioJurado(rs.getString("res_cambioJurado"));
                 proyecto.setRes_sustentacion(rs.getString("res_sustentacion"));
-                proyecto.setRes_nombramiento(rs.getString("res_nombramiento"));
+                proyecto.setRes_cambioTitulo(rs.getString("res_cambioTitulo"));
                 proyecto.setOtros(rs.getString("otros"));
                 proyecto.setEspecialidad(new Especialidad(rs.getString("nombre_especialidad")));
                 proyecto.setEs_proyecto(rs.getString("es_proyecto"));
@@ -158,7 +158,7 @@ public class ProyectoDao {
                 "proyecto.res_ejecucion, " +
                 "proyecto.res_cambioJurado, " +
                 "proyecto.res_sustentacion, " +
-                "proyecto.res_nombramiento, " +
+                "proyecto.res_cambioTitulo, " +
                 "proyecto.otros, " +
                 "especialidad.nombre AS nombre_especialidad, " +
                 "proyecto.es_proyecto " +
@@ -180,7 +180,7 @@ public class ProyectoDao {
                 proyecto.setRes_ejecucion(rs.getString("res_ejecucion"));
                 proyecto.setRes_cambioJurado(rs.getString("res_cambioJurado"));
                 proyecto.setRes_sustentacion(rs.getString("res_sustentacion"));
-                proyecto.setRes_nombramiento(rs.getString("res_nombramiento"));
+                proyecto.setRes_cambioTitulo(rs.getString("res_cambioTitulo"));
                 proyecto.setOtros(rs.getString("otros"));
                 proyecto.setEspecialidad(new Especialidad(rs.getString("nombre_especialidad")));
                 proyecto.setEs_proyecto(rs.getString("es_proyecto"));
@@ -202,7 +202,7 @@ public class ProyectoDao {
                 "proyecto.res_ejecucion, " +
                 "proyecto.res_cambioJurado, " +
                 "proyecto.res_sustentacion, " +
-                "proyecto.res_nombramiento, " +
+                "proyecto.res_cambioTitulo, " +
                 "proyecto.otros, " +
                 "especialidad.nombre AS nombre_especialidad, " +
                 "proyecto.es_proyecto " +
@@ -224,7 +224,7 @@ public class ProyectoDao {
                 proyecto.setRes_ejecucion(rs.getString("res_ejecucion"));
                 proyecto.setRes_cambioJurado(rs.getString("res_cambioJurado"));
                 proyecto.setRes_sustentacion(rs.getString("res_sustentacion"));
-                proyecto.setRes_nombramiento(rs.getString("res_nombramiento"));
+                proyecto.setRes_cambioTitulo(rs.getString("res_cambioTitulo"));
                 proyecto.setOtros(rs.getString("otros"));
                 proyecto.setEspecialidad(new Especialidad(rs.getString("nombre_especialidad")));
                 proyecto.setEs_proyecto(rs.getString("es_proyecto"));
@@ -246,7 +246,7 @@ public class ProyectoDao {
                 " proyecto.res_ejecucion," +
                 " proyecto.res_cambioJurado," +
                 " proyecto.res_sustentacion," +
-                " proyecto.res_nombramiento," +
+                " proyecto.res_cambioTitulo," +
                 " proyecto.otros," +
                 " especialidad.nombre AS nombre_especialidad," +
                 " proyecto.es_proyecto" +
@@ -268,7 +268,7 @@ public class ProyectoDao {
                 newProyecto.setRes_ejecucion(rs.getString("res_ejecucion"));
                 newProyecto.setRes_cambioJurado(rs.getString("res_cambioJurado"));
                 newProyecto.setRes_sustentacion(rs.getString("res_sustentacion"));
-                newProyecto.setRes_nombramiento(rs.getString("res_nombramiento"));
+                newProyecto.setRes_cambioTitulo(rs.getString("res_cambioTitulo"));
                 newProyecto.setOtros(rs.getString("otros"));
                 newProyecto.setEspecialidad(new Especialidad(rs.getString("nombre_especialidad")));
                 newProyecto.setEs_proyecto(rs.getString("es_proyecto"));

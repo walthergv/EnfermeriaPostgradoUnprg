@@ -36,7 +36,7 @@
 	<subDataset name="dsReporteProyecto" uuid="4f1f968d-82eb-4a1f-8f74-3bbbdb8e1b84">
 		<queryString language="SQL">
 			<![CDATA[SELECT py.id,py.titulo,py.asesora,py.jurado,py.res_designacion,py.res_ejecucion,
-py.res_cambioJurado, py.res_sustentacion,py.res_nombramiento,py.otros,es.nombre as "especialidad"
+py.res_cambioJurado, py.res_sustentacion,py.res_cambioTitulo,py.otros,es.nombre as "especialidad"
 FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 		</queryString>
 		<field name="id" class="java.lang.Integer"/>
@@ -47,13 +47,13 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 		<field name="res_ejecucion" class="java.lang.String"/>
 		<field name="res_cambioJurado" class="java.lang.String"/>
 		<field name="res_sustentacion" class="java.lang.String"/>
-		<field name="res_nombramiento" class="java.lang.String"/>
+		<field name="res_cambioTitulo" class="java.lang.String"/>
 		<field name="otros" class="java.lang.String"/>
 		<field name="especialidad" class="java.lang.String"/>
 	</subDataset>
 	<queryString language="SQL">
 		<![CDATA[SELECT py.id,py.titulo,py.asesora,py.jurado,py.res_designacion,py.res_ejecucion,
-py.res_cambioJurado, py.res_sustentacion,py.res_nombramiento,py.otros,es.nombre as "especialidad"
+py.res_cambioJurado, py.res_sustentacion,py.res_cambioTitulo,py.otros,es.nombre as "especialidad"
 FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer"/>
@@ -64,7 +64,7 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 	<field name="res_ejecucion" class="java.lang.String"/>
 	<field name="res_cambioJurado" class="java.lang.String"/>
 	<field name="res_sustentacion" class="java.lang.String"/>
-	<field name="res_nombramiento" class="java.lang.String"/>
+	<field name="res_cambioTitulo" class="java.lang.String"/>
 	<field name="otros" class="java.lang.String"/>
 	<field name="especialidad" class="java.lang.String"/>
 	<background>
@@ -315,14 +315,14 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
 									<font fontName="Arial" size="12" isBold="true"/>
 								</textElement>
-								<text><![CDATA[Res. Nombramiento]]></text>
+								<text><![CDATA[Res. Cambio de titulo]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="98" height="53" uuid="fa7bdfa2-357e-4230-bdef-bd329953f792"/>
 								<textElement textAlignment="Center"/>
-								<textFieldExpression><![CDATA[$F{res_nombramiento}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{res_cambioTitulo}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

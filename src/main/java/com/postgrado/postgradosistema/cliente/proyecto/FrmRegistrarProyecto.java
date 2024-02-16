@@ -58,8 +58,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jtxtResSustentacionProyecto = new javax.swing.JTextField();
-        jtxtResNombramientoProyecto = new javax.swing.JTextField();
+        jtxtResCambioTitulo = new javax.swing.JTextField();
+        jtxtResSustentacion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtxtTituloProyecto = new javax.swing.JTextArea();
@@ -144,8 +144,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jLabel11.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel11.setText("OTROS");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, -1));
-        jPanel2.add(jtxtResSustentacionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, 350, 30));
-        jPanel2.add(jtxtResNombramientoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 350, 30));
+        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, 350, 30));
+        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 350, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar02.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
@@ -290,8 +290,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         String res_designacion = jtxtBuscarResDesignacion.getText().trim();
         String res_ejecucion = jtxtResEjecucionProyecto.getText().trim();
         String res_cambioJurado = jtxtResCambioJuradoProyecto.getText().trim();
-        String res_sustentacion = jtxtResSustentacionProyecto.getText().trim();
-        String res_nombramiento = jtxtResNombramientoProyecto.getText().trim();
+        String res_sustentacion = jtxtResSustentacion.getText().trim();
+        String res_cambioTitulo =jtxtResCambioTitulo.getText().trim() ;
         String otro = jtxtOtrosProyecto.getText().trim();
         String nombreEspecialidad = (String) jcomboboxEspecilidad.getSelectedItem();
         if (!titulo.isEmpty() && !asesora.isEmpty() && !jurado.isEmpty() && !res_designacion.isEmpty()) {
@@ -308,7 +308,7 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
                 proyecto.setRes_ejecucion(res_ejecucion);
                 proyecto.setRes_cambioJurado(res_cambioJurado);
                 proyecto.setRes_sustentacion(res_sustentacion);
-                proyecto.setRes_nombramiento(res_nombramiento);
+                proyecto.setRes_cambioTitulo(res_cambioTitulo);
                 proyecto.setOtros(otro);
                 proyecto.setEspecialidad(especialidadSeleccionda);
 
@@ -321,8 +321,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
                 jtxtBuscarResDesignacion.setText("");
                 jtxtResEjecucionProyecto.setText("");
                 jtxtResCambioJuradoProyecto.setText("");
-                jtxtResSustentacionProyecto.setText("");
-                jtxtResNombramientoProyecto.setText("");
+                jtxtResCambioTitulo.setText("");
+                jtxtResSustentacion.setText("");
                 jtxtOtrosProyecto.setText("");
                 jcomboboxEspecilidad.setSelectedIndex(-1);
 
@@ -422,9 +422,9 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
     private javax.swing.JTextArea jtxtJuradoProyecto;
     private javax.swing.JTextArea jtxtOtrosProyecto;
     private javax.swing.JTextField jtxtResCambioJuradoProyecto;
+    private javax.swing.JTextField jtxtResCambioTitulo;
     private javax.swing.JTextField jtxtResEjecucionProyecto;
-    private javax.swing.JTextField jtxtResNombramientoProyecto;
-    private javax.swing.JTextField jtxtResSustentacionProyecto;
+    private javax.swing.JTextField jtxtResSustentacion;
     private javax.swing.JTextArea jtxtTituloProyecto;
     // End of variables declaration//GEN-END:variables
 }

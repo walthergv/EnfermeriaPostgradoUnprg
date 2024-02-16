@@ -63,8 +63,8 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jtxtResSustentacionProyecto = new javax.swing.JTextField();
-        jtxtResNombramientoProyecto = new javax.swing.JTextField();
+        jtxtResCambioTitulo = new javax.swing.JTextField();
+        jtxtResSustentacion = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtxtJuradoProyecto = new javax.swing.JTextArea();
@@ -176,8 +176,14 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jLabel11.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel11.setText("OTROS");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, -1));
-        jPanel2.add(jtxtResSustentacionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 311, 30));
-        jPanel2.add(jtxtResNombramientoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 410, 311, 30));
+
+        jtxtResCambioTitulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtResCambioTituloActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 311, 30));
+        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 410, 311, 30));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar02.png"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 36, -1, -1));
@@ -286,8 +292,8 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         String res_designacion = jtxtResDesignacionProyecto.getText();
         String res_ejecucion = jtxtResEjecucionProyecto.getText();
         String res_cambioJurado = jtxtResCambioJuradoProyecto.getText();
-        String res_sustentacion = jtxtResSustentacionProyecto.getText();
-        String res_nombramiento = jtxtResNombramientoProyecto.getText();
+        String res_sustentacion = jtxtResSustentacion.getText().trim();
+        String res_cambioTitulo =jtxtResCambioTitulo.getText().trim() ;
         String otro = jtxtOtrosProyecto.getText().trim();
         String nombreEspecialidad = (String) jcomboboxEspecilidadProyecto.getSelectedItem();
         if (!titulo.isEmpty() && !asesora.isEmpty() && !jurado.isEmpty() && !res_designacion.isEmpty()) {
@@ -307,7 +313,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
                     proyecto.setRes_ejecucion(res_ejecucion);
                     proyecto.setRes_cambioJurado(res_cambioJurado);
                     proyecto.setRes_sustentacion(res_sustentacion);
-                    proyecto.setRes_nombramiento(res_nombramiento);
+                    proyecto.setRes_cambioTitulo(res_cambioTitulo);
                     proyecto.setOtros(otro);
                     proyecto.setEspecialidad(especialidadSeleccionda);
                     if (proyectoLogic.modificarProyecto(proyecto)) {
@@ -342,6 +348,10 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
             jcomboboxEspecilidadProyecto.setModel(new DefaultComboBoxModel<>());
         }
     }//GEN-LAST:event_jtxtEspecialidadProyectoKeyReleased
+
+    private void jtxtResCambioTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtResCambioTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtResCambioTituloActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,7 +395,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         });
     }
 
-    public void setDatos(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_nombramiento, String nombre_Especialidad, String otro) {
+    public void setDatos(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String nombre_Especialidad, String otro) {
         jtxtIdProyecto.setText(String.valueOf(id));
         jtxtTituloProyecto.setText(titulo);
         jtxtAsesoraProyecto.setText(asesora);
@@ -393,8 +403,8 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jtxtResDesignacionProyecto.setText(res_designacion);
         jtxtResEjecucionProyecto.setText(res_ejecucion);
         jtxtResCambioJuradoProyecto.setText(res_cambioJurado);
-        jtxtResSustentacionProyecto.setText(res_sustentacion);
-        jtxtResNombramientoProyecto.setText(res_nombramiento);
+        jtxtResCambioTitulo.setText(res_cambioTitulo);
+        jtxtResSustentacion.setText(res_sustentacion);
         jtxtOtrosProyecto.setText(otro);
         jtxtEspecialidadProyecto.setText(nombre_Especialidad);
 
@@ -429,10 +439,10 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     private javax.swing.JTextArea jtxtJuradoProyecto;
     private javax.swing.JTextArea jtxtOtrosProyecto;
     private javax.swing.JTextField jtxtResCambioJuradoProyecto;
+    private javax.swing.JTextField jtxtResCambioTitulo;
     private javax.swing.JTextField jtxtResDesignacionProyecto;
     private javax.swing.JTextField jtxtResEjecucionProyecto;
-    private javax.swing.JTextField jtxtResNombramientoProyecto;
-    private javax.swing.JTextField jtxtResSustentacionProyecto;
+    private javax.swing.JTextField jtxtResSustentacion;
     private javax.swing.JTextField jtxtTituloProyecto;
     // End of variables declaration//GEN-END:variables
 }

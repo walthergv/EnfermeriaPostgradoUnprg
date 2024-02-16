@@ -17,6 +17,8 @@ import com.postgrado.postgradosistema.configuracion.Conexion;
 import com.postgrado.postgradosistema.logic.ProyectoLogic;
 import com.postgrado.postgradosistema.modelo.Proyecto;
 import login.FrmLogin1;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -51,6 +53,7 @@ public class FrmProyecto extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
+        listarTablaProyecto();
     }
 
     /**
@@ -308,7 +311,7 @@ public class FrmProyecto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "TITULO", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_NOMBRAMIENTO", "ESPECIALIDAD", "OTROS", "ESTADO"
+                "ID", "TITULO", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_CAMBIO DE TITULO", "ESPECIALIDAD", "OTROS", "ESTADO"
             }
         ));
         jTableEspecialidad.setViewportView(jTableProyecto);
@@ -439,12 +442,12 @@ public class FrmProyecto extends javax.swing.JFrame {
                 String res_ejecucion = jTableProyecto.getValueAt(filaSeleccionada, 5).toString();
                 String res_cambioJurado = jTableProyecto.getValueAt(filaSeleccionada, 6).toString();
                 String res_sustentacion = jTableProyecto.getValueAt(filaSeleccionada, 7).toString();
-                String res_nombramiento = jTableProyecto.getValueAt(filaSeleccionada, 8).toString();
+                String res_cambioTitulo = jTableProyecto.getValueAt(filaSeleccionada, 8).toString();
                 String nombre_Especialidad = jTableProyecto.getValueAt(filaSeleccionada, 9).toString();
                 String otro = jTableProyecto.getValueAt(filaSeleccionada, 10).toString();
 
                 FrmModificarProyecto frmModificarProyecto = new FrmModificarProyecto(this, true);
-                frmModificarProyecto.setDatos(id, titulo, asesora, jurado, res_designacion, res_ejecucion, res_cambioJurado, res_sustentacion, res_nombramiento, nombre_Especialidad, otro);
+                frmModificarProyecto.setDatos(id, titulo, asesora, jurado, res_designacion, res_ejecucion, res_cambioJurado, res_sustentacion, res_cambioTitulo, nombre_Especialidad, otro);
                 frmModificarProyecto.setVisible(true);
             }
         } else {
@@ -558,7 +561,7 @@ public class FrmProyecto extends javax.swing.JFrame {
                 ob[5] = proyectos.get(i).getRes_ejecucion();
                 ob[6] = proyectos.get(i).getRes_cambioJurado();
                 ob[7] = proyectos.get(i).getRes_sustentacion();
-                ob[8] = proyectos.get(i).getRes_nombramiento();
+                ob[8] = proyectos.get(i).getRes_cambioTitulo();
                 ob[9] = proyectos.get(i).getEspecialidad().getNombre();
                 ob[10] = proyectos.get(i).getOtros();
                 ob[11] = proyectos.get(i).getEs_proyecto();
@@ -586,7 +589,7 @@ public class FrmProyecto extends javax.swing.JFrame {
                 ob[5] = proyectos.get(i).getRes_ejecucion();
                 ob[6] = proyectos.get(i).getRes_cambioJurado();
                 ob[7] = proyectos.get(i).getRes_sustentacion();
-                ob[8] = proyectos.get(i).getRes_nombramiento();
+                ob[8] = proyectos.get(i).getRes_cambioTitulo();
                 ob[9] = proyectos.get(i).getEspecialidad().getNombre();
                 ob[10] = proyectos.get(i).getOtros();
                 ob[11] = proyectos.get(i).getEs_proyecto();
@@ -608,17 +611,33 @@ public class FrmProyecto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnPdfProyectoActionPerformed
 
     private void jbtnPdfProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnPdfProyectoMouseClicked
-        JasperReport reporte;
-    try {
-        //reporte
-        reporte = JasperCompileManager.compileReport("src/main/java/com/postgrado/postgradosistema/reportes/reporteProyectos.jrxml");
-        JasperPrint jp = JasperFillManager.fillReport(reporte, null, cnxn.getConnection());
-        JasperViewer.viewReport(jp, true);
-    } catch (JRException e) {
-        e.printStackTrace();
-        // Manejar excepción cuando no se encuentra el archivo del informe
-        JOptionPane.showMessageDialog(this, "No se encontró el archivo del informe.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
+   
+    
+      JasperReport reporte;
+        try {
+            // Reporte
+            reporte = JasperCompileManager.compileReport("src/main/java/com/postgrado/postgradosistema/reportes/reporteProyectos.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cnxn.getConnection());
+
+            // Crear un JasperViewer personalizado
+            JasperViewer viewer = new JasperViewer(jp, false);
+            viewer.setDefaultCloseOperation(JasperViewer.DO_NOTHING_ON_CLOSE); // No cerrar al presionar el botón de cierre
+            
+            viewer.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    // Ocultar la ventana en lugar de cerrarla
+                    viewer.setVisible(false);
+                }
+            });
+
+            viewer.setVisible(true); // Mostrar el reporte
+        } catch (JRException e) {
+            e.printStackTrace();
+            // Manejar excepción cuando no se encuentra el archivo del informe
+            JOptionPane.showMessageDialog(this, "No se encontró el archivo del informe.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    
     }//GEN-LAST:event_jbtnPdfProyectoMouseClicked
 
     /**
@@ -677,7 +696,7 @@ public class FrmProyecto extends javax.swing.JFrame {
             ob[5] = proyectos.get(i).getRes_ejecucion();
             ob[6] = proyectos.get(i).getRes_cambioJurado();
             ob[7] = proyectos.get(i).getRes_sustentacion();
-            ob[8] = proyectos.get(i).getRes_nombramiento();
+            ob[8] = proyectos.get(i).getRes_cambioTitulo();
             ob[9] = proyectos.get(i).getEspecialidad().getNombre();
             ob[10] = proyectos.get(i).getOtros();
             ob[11] = proyectos.get(i).getEs_proyecto();

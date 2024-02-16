@@ -12,7 +12,7 @@ public class Proyecto {
     private String res_ejecucion;
     private String res_cambioJurado;
     private String res_sustentacion;
-    private String res_nombramiento;
+    private String res_cambioTitulo;
     private String otros;
     private String es_proyecto;
     private Especialidad especialidad;
@@ -21,7 +21,7 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_nombramiento, String otros, Especialidad especialidad) {
+    public Proyecto(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String otros, Especialidad especialidad) {
         this.id = id;
         this.titulo = titulo;
         this.asesora = asesora;
@@ -30,12 +30,12 @@ public class Proyecto {
         this.res_ejecucion = res_ejecucion;
         this.res_cambioJurado = res_cambioJurado;
         this.res_sustentacion = res_sustentacion;
-        this.res_nombramiento = res_nombramiento;
+        this.res_cambioTitulo = res_cambioTitulo;
         this.otros = otros;
         this.especialidad = especialidad;
     }
 
-    public Proyecto(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_nombramiento, String otros, Especialidad especialidad, List<Ingresante> ingresantes) {
+    public Proyecto(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String otros, Especialidad especialidad, List<Ingresante> ingresantes) {
         this.id = id;
         this.titulo = titulo;
         this.asesora = asesora;
@@ -44,7 +44,7 @@ public class Proyecto {
         this.res_ejecucion = res_ejecucion;
         this.res_cambioJurado = res_cambioJurado;
         this.res_sustentacion = res_sustentacion;
-        this.res_nombramiento = res_nombramiento;
+        this.res_cambioTitulo = res_cambioTitulo;
         this.otros = otros;
         this.especialidad = especialidad;
         this.ingresantes = ingresantes;
@@ -138,12 +138,12 @@ public class Proyecto {
         this.res_sustentacion = res_sustentacion;
     }
 
-    public String getRes_nombramiento() {
-        return res_nombramiento;
+    public String getRes_cambioTitulo() {
+        return res_cambioTitulo;
     }
 
-    public void setRes_nombramiento(String res_nombramiento) {
-        this.res_nombramiento = res_nombramiento;
+    public void setRes_cambioTitulo(String res_cambioTitulo) {
+        this.res_cambioTitulo = res_cambioTitulo;
     }
 
     public String getOtros() {
@@ -173,7 +173,7 @@ public class Proyecto {
                 ", res_ejecucion='" + res_ejecucion + '\'' + "\n" +
                 ", res_cambioJurado='" + res_cambioJurado + '\'' +
                 ", res_sustentacion='" + res_sustentacion + '\'' +
-                ", res_nombramiento='" + res_nombramiento + '\'' +
+                ", res_cambioTitulo='" + res_cambioTitulo + '\'' +
                 ", otros='" + otros + '\'' +
                 ", especialidad=" + especialidad.getNombre() + "\n" +
                 '}';
