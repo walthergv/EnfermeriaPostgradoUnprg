@@ -16,6 +16,8 @@ import com.postgrado.postgradosistema.configuracion.Conexion;
 import com.postgrado.postgradosistema.logic.IngresanteLogic;
 import com.postgrado.postgradosistema.modelo.Ingresante;
 import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -43,7 +45,8 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmIngresante extends javax.swing.JFrame {
-     Conexion cnxn = new Conexion();
+
+    Conexion cnxn = new Conexion();
     IngresanteLogic ingresanteLogic = new IngresanteLogic();
     DefaultTableModel modelo = new DefaultTableModel();
 
@@ -61,7 +64,7 @@ public class FrmIngresante extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
-        
+
         listarTablaIngresante();
     }
 
@@ -553,22 +556,36 @@ public class FrmIngresante extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemUsuarioActionPerformed
 
     private void jbtnPdfProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnPdfProyectoActionPerformed
-      
+
     }//GEN-LAST:event_jbtnPdfProyectoActionPerformed
 
     private void jbtnPdfProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnPdfProyectoMouseClicked
-    JasperReport reporte;
-    try {
-        //reporte
-        reporte = JasperCompileManager.compileReport("src/main/java/com/postgrado/postgradosistema/reportes/reporteEstudiantes.jrxml");
-        JasperPrint jp = JasperFillManager.fillReport(reporte, null, cnxn.getConnection());
-        JasperViewer.viewReport(jp, true);
-    } catch (JRException e) {
-        e.printStackTrace();
-        // Manejar excepción cuando no se encuentra el archivo del informe
-        JOptionPane.showMessageDialog(this, "No se encontró el archivo del informe.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
-  
+        JasperReport reporte;
+        try {
+            //reporte
+            reporte = JasperCompileManager.compileReport("src/main/java/com/postgrado/postgradosistema/reportes/reporteEstudiantes.jrxml");
+            JasperPrint jp = JasperFillManager.fillReport(reporte, null, cnxn.getConnection());
+
+            // Crear un JasperViewer personalizado
+            JasperViewer viewer = new JasperViewer(jp, false);
+            viewer.setDefaultCloseOperation(JasperViewer.DO_NOTHING_ON_CLOSE); // No cerrar al presionar el botón de cierre
+            
+            viewer.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    // Ocultar la ventana en lugar de cerrarla
+                    viewer.setVisible(false);
+                }
+            });
+
+            viewer.setVisible(true); // Mostrar el reporte
+
+        } catch (JRException e) {
+            e.printStackTrace();
+            // Manejar excepción cuando no se encuentra el archivo del informe
+            JOptionPane.showMessageDialog(this, "No se encontró el archivo del informe.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jbtnPdfProyectoMouseClicked
 
     public void listarTablaIngresante() {
