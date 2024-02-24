@@ -109,17 +109,17 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel3.setText("DNI");
+        jLabel3.setText("DNI *");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel4.setText("NOMBRE");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        jLabel4.setText("NOMBRE *");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
         jPanel2.add(jtxtNombreIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 290, 40));
 
         jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel5.setText("CODIGO");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        jLabel5.setText("CODIGO *");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
         jPanel2.add(jtxtCodigoIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 290, 40));
 
         jtxtIdIngresante.setEditable(false);
@@ -128,7 +128,7 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jPanel2.add(jtxtDniIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 206, 290, 38));
 
         jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel6.setText("CICLO");
+        jLabel6.setText("CICLO *");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
 
         jPanel2.add(jcomboboxCicloIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 430, 38));
@@ -141,7 +141,7 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jPanel2.add(jtxtBuscarCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 182, 38));
 
         jLabel7.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel7.setText("SEDE");
+        jLabel7.setText("SEDE *");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
 
         jtxtBuscarSede.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -159,8 +159,8 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jPanel2.add(jcomboboxSedeIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 430, 38));
 
         jLabel8.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel8.setText("ESPECIALIDAD");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
+        jLabel8.setText("ESPECIALIDAD *");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
 
         jtxtBuscarEspecailidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

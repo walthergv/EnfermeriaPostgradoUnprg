@@ -115,16 +115,16 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel3.setText("TITULO");
+        jLabel3.setText("TITULO *");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel4.setText("ASESORA");
+        jLabel4.setText("ASESOR(A) *");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
         jPanel2.add(jtxtAsesoraProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 340, 30));
 
         jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel5.setText("JURADO");
+        jLabel5.setText("JURADO *");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jtxtIdProyecto.setEditable(false);
@@ -133,22 +133,22 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jPanel2.add(jtxtTituloProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 920, 30));
 
         jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel6.setText("RESOLUCIÓN-DESIGNACIÓN");
+        jLabel6.setText("RES. - DESIGNACIÓN *");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, -1, -1));
         jPanel2.add(jtxtResDesignacionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 210, 311, 30));
 
         jLabel7.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel7.setText("RESOLUCIÓN-EJECUCIÓN");
+        jLabel7.setText("RES. -EJECUCIÓN");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
         jPanel2.add(jtxtResEjecucionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 260, 311, 30));
 
         jLabel8.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel8.setText("RESOLUCIÓN-CAMBIOJURADO");
+        jLabel8.setText("RES. -CAMBIOJURADO");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
         jPanel2.add(jtxtResCambioJuradoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 311, 30));
 
         PROYECTO.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        PROYECTO.setText("RESOLUCIÓN-CAMBIOTITULO");
+        PROYECTO.setText("RES. -CAMBIOTITULO");
         jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
 
         jtxtEspecialidadProyecto.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -166,11 +166,11 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jPanel2.add(jcomboboxEspecilidadProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 340, 30));
 
         jLabel9.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel9.setText("ESPECIALIDAD");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        jLabel9.setText("ESPECIALIDAD *");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel10.setText("RESOLUCIÓN-SUSTENTACIÓN");
+        jLabel10.setText("RES. -SUSTENTACIÓN");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N

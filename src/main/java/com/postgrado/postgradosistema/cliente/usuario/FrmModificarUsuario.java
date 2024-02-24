@@ -87,22 +87,22 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel3.setText("DNI");
+        jLabel3.setText("DNI *");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel4.setText("NOMBRE");
+        jLabel4.setText("NOMBRE *");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, -1, -1));
         jPanel2.add(jtxtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 290, 40));
 
         jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel5.setText("PASSWORD");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 200, -1, -1));
+        jLabel5.setText("PASSWORD *");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, -1, -1));
         jPanel2.add(jtxtPasswordUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 290, 50));
         jPanel2.add(jtxtDniUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 178, 290, 50));
 
         jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel6.setText("ROL");
+        jLabel6.setText("ROL *");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
         jtxtRolUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -283,12 +283,5 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField jtxtNombreUsuario;
     private javax.swing.JTextField jtxtPasswordUsuario;
     private javax.swing.JTextField jtxtRolUsuario;
-
-    public void setDatos(String dni, String nombre, String password, String rol) {
-        jtxtDniUsuario.setText(dni);
-        jtxtNombreUsuario.setText(nombre);
-        jtxtPasswordUsuario.setText(password);
-        jtxtRolUsuario.setText(rol);
-    }
     // End of variables declaration//GEN-END:variables
 }

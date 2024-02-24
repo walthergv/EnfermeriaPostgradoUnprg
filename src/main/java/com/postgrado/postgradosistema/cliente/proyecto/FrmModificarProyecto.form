@@ -115,7 +115,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="TITULO"/>
+                <Property name="text" type="java.lang.String" value="TITULO *"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -128,7 +128,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ASESORA"/>
+                <Property name="text" type="java.lang.String" value="ASESOR(A) *"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -148,7 +148,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="JURADO"/>
+                <Property name="text" type="java.lang.String" value="JURADO *"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -179,7 +179,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="RESOLUCI&#xd3;N-DESIGNACI&#xd3;N"/>
+                <Property name="text" type="java.lang.String" value="RES. - DESIGNACI&#xd3;N *"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -199,7 +199,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="RESOLUCI&#xd3;N-EJECUCI&#xd3;N"/>
+                <Property name="text" type="java.lang.String" value="RES. -EJECUCI&#xd3;N"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -219,7 +219,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="RESOLUCI&#xd3;N-CAMBIOJURADO"/>
+                <Property name="text" type="java.lang.String" value="RES. -CAMBIOJURADO"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -239,7 +239,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="RESOLUCI&#xd3;N-CAMBIOTITULO"/>
+                <Property name="text" type="java.lang.String" value="RES. -CAMBIOTITULO"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -280,11 +280,11 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="ESPECIALIDAD"/>
+                <Property name="text" type="java.lang.String" value="ESPECIALIDAD *"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="210" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="10" y="210" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -293,7 +293,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Sitka Display" size="18" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="RESOLUCI&#xd3;N-SUSTENTACI&#xd3;N"/>
+                <Property name="text" type="java.lang.String" value="RES. -SUSTENTACI&#xd3;N"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
