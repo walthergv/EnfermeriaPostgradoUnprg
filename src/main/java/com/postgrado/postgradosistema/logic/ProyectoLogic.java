@@ -1,5 +1,5 @@
 package com.postgrado.postgradosistema.logic;
-
+//package
 import com.postgrado.postgradosistema.dao.ProyectoDao;
 import com.postgrado.postgradosistema.modelo.Proyecto;
 
