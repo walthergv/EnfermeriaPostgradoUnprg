@@ -44,8 +44,8 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
         jtxtPasswordUsuario = new javax.swing.JTextField();
         jtxtDniUsuario = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jtxtRolUsuario = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jComboRolMod = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jbtnModificarUsuario = new javax.swing.JButton();
         jbtnSalirModificarUsuario = new javax.swing.JButton();
@@ -105,15 +105,16 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
         jLabel6.setText("ROL *");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, -1, -1));
 
-        jtxtRolUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtRolUsuarioKeyReleased(evt);
-            }
-        });
-        jPanel2.add(jtxtRolUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 268, 290, 50));
-
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar02.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
+
+        jComboRolMod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Asistente" }));
+        jComboRolMod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboRolModActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboRolMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 270, 290, 50));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1220, 460));
 
@@ -176,15 +177,11 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtxtRolUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtRolUsuarioKeyReleased
-
-    }//GEN-LAST:event_jtxtRolUsuarioKeyReleased
-
     private void jbtnModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarUsuarioActionPerformed
         String dni = jtxtDniUsuario.getText();
         String nombre = jtxtNombreUsuario.getText();
         String contraseña = jtxtPasswordUsuario.getText();
-        String rol = jtxtRolUsuario.getText();
+        String rol= (String)jComboRolMod.getSelectedItem();
         if (!dni.isEmpty() && !nombre.isEmpty() && !contraseña.isEmpty() && !rol.isEmpty()) {
             Usuario usuario = new Usuario();
             usuario.setDni(Integer.parseInt(dni));
@@ -197,7 +194,6 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
                 jtxtDniUsuario.setText("");
                 jtxtNombreUsuario.setText("");
                 jtxtPasswordUsuario.setText("");
-                jtxtRolUsuario.setText("");
             } else {
                 JOptionPane.showMessageDialog(null, "Error al modificar usuario");
             }
@@ -223,6 +219,10 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
+
+    private void jComboRolModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboRolModActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboRolModActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,8 +265,16 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
             }
         });
     }
+    
+    public void setDatos(String usuario, String nombre_usuario,String pw_usuario, String rol) {
+        jtxtDniUsuario.setText(usuario);
+        jtxtNombreUsuario.setText(nombre_usuario);
+        jtxtPasswordUsuario.setText(pw_usuario);
+        jComboRolMod.setSelectedItem(rol);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> jComboRolMod;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -282,6 +290,5 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
     private javax.swing.JTextField jtxtDniUsuario;
     private javax.swing.JTextField jtxtNombreUsuario;
     private javax.swing.JTextField jtxtPasswordUsuario;
-    private javax.swing.JTextField jtxtRolUsuario;
     // End of variables declaration//GEN-END:variables
 }
