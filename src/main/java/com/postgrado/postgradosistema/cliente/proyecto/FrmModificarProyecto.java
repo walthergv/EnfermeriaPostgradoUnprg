@@ -6,8 +6,10 @@
 package com.postgrado.postgradosistema.cliente.proyecto;
 
 import com.postgrado.postgradosistema.logic.EspecialidadLogic;
+import com.postgrado.postgradosistema.logic.IngresanteLogic;
 import com.postgrado.postgradosistema.logic.ProyectoLogic;
 import com.postgrado.postgradosistema.modelo.Especialidad;
+import com.postgrado.postgradosistema.modelo.Ingresante;
 import com.postgrado.postgradosistema.modelo.Proyecto;
 
 import javax.swing.*;
@@ -17,7 +19,9 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmModificarProyecto extends javax.swing.JDialog {
+
     EspecialidadLogic especialidadLogic = new EspecialidadLogic();
+    IngresanteLogic ingresanteLogic = new IngresanteLogic();
     ProyectoLogic proyectoLogic = new ProyectoLogic();
     int xMouse, yMouse;
 
@@ -58,8 +62,8 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jtxtResCambioJuradoProyecto = new javax.swing.JTextField();
         PROYECTO = new javax.swing.JLabel();
-        jtxtEspecialidadProyecto = new javax.swing.JTextField();
-        jcomboboxEspecilidadProyecto = new javax.swing.JComboBox<>();
+        jtxtalumnoproyecto3 = new javax.swing.JTextField();
+        jcomboboxalumno3 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -70,6 +74,15 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jtxtJuradoProyecto = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtxtOtrosProyecto = new javax.swing.JTextArea();
+        jtxtEspecialidadProyecto1 = new javax.swing.JTextField();
+        jtxalumnoproyecto1 = new javax.swing.JTextField();
+        jtxtalumnoproyecto2 = new javax.swing.JTextField();
+        jcomboboxEspecilidadProyecto1 = new javax.swing.JComboBox<>();
+        jcomboboxalumno1 = new javax.swing.JComboBox<>();
+        jcomboboxalumno2 = new javax.swing.JComboBox<>();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jbtnModificarProyecto = new javax.swing.JButton();
         jbtnSalirModificarProyecto = new javax.swing.JButton();
@@ -94,14 +107,14 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1120, Short.MAX_VALUE)
+            .addGap(0, 1400, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1120, 50));
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 30));
 
         jPanel2.setBackground(new java.awt.Color(153, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,78 +125,78 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel2.setText("ID");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel3.setText("TITULO *");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jLabel3.setText("ALUMNO - 03");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 470, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel4.setText("ASESOR(A) *");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
-        jPanel2.add(jtxtAsesoraProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 340, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 690, -1, -1));
+        jPanel2.add(jtxtAsesoraProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 680, 400, 40));
 
         jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel5.setText("JURADO *");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, -1, -1));
 
         jtxtIdProyecto.setEditable(false);
         jtxtIdProyecto.setEnabled(false);
-        jPanel2.add(jtxtIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 80, 30));
-        jPanel2.add(jtxtTituloProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 920, 30));
+        jPanel2.add(jtxtIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 150, 40));
+        jPanel2.add(jtxtTituloProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 1080, 40));
 
         jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel6.setText("RES. - DESIGNACIÓN *");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, -1, -1));
-        jPanel2.add(jtxtResDesignacionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 210, 311, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, -1));
+        jPanel2.add(jtxtResDesignacionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 380, 40));
 
         jLabel7.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel7.setText("RES. -EJECUCIÓN");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, -1, -1));
-        jPanel2.add(jtxtResEjecucionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 260, 311, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
+        jPanel2.add(jtxtResEjecucionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 380, 380, 40));
 
         jLabel8.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel8.setText("RES. -CAMBIOJURADO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 310, -1, -1));
-        jPanel2.add(jtxtResCambioJuradoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 310, 311, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, -1));
+        jPanel2.add(jtxtResCambioJuradoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 380, 40));
 
         PROYECTO.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         PROYECTO.setText("RES. -CAMBIOTITULO");
-        jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
+        jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
 
-        jtxtEspecialidadProyecto.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxtalumnoproyecto3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtEspecialidadProyectoKeyReleased(evt);
+                jtxtalumnoproyecto3KeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtEspecialidadProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 340, 30));
+        jPanel2.add(jtxtalumnoproyecto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 400, 40));
 
-        jcomboboxEspecilidadProyecto.addActionListener(new java.awt.event.ActionListener() {
+        jcomboboxalumno3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcomboboxEspecilidadProyectoActionPerformed(evt);
+                jcomboboxalumno3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jcomboboxEspecilidadProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 340, 30));
+        jPanel2.add(jcomboboxalumno3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 400, 40));
 
         jLabel9.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel9.setText("ESPECIALIDAD *");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 580, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel10.setText("RES. -SUSTENTACIÓN");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel11.setText("OTROS");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 460, -1, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 660, -1, -1));
 
         jtxtResCambioTitulo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtxtResCambioTituloActionPerformed(evt);
             }
         });
-        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 360, 311, 30));
-        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 410, 311, 30));
+        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 380, 40));
+        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 380, 40));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar02.png"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 36, -1, -1));
@@ -193,15 +206,69 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jtxtJuradoProyecto.setRows(5);
         jScrollPane1.setViewportView(jtxtJuradoProyecto);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 340, -1));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 230, 380, 70));
 
         jtxtOtrosProyecto.setColumns(20);
         jtxtOtrosProyecto.setRows(5);
         jScrollPane2.setViewportView(jtxtOtrosProyecto);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 450, 310, -1));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 630, 380, -1));
 
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1120, 560));
+        jtxtEspecialidadProyecto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtEspecialidadProyecto1KeyReleased(evt);
+            }
+        });
+        jPanel2.add(jtxtEspecialidadProyecto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 400, 40));
+
+        jtxalumnoproyecto1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxalumnoproyecto1KeyReleased(evt);
+            }
+        });
+        jPanel2.add(jtxalumnoproyecto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 400, 40));
+
+        jtxtalumnoproyecto2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtalumnoproyecto2KeyReleased(evt);
+            }
+        });
+        jPanel2.add(jtxtalumnoproyecto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 400, 40));
+
+        jcomboboxEspecilidadProyecto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcomboboxEspecilidadProyecto1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jcomboboxEspecilidadProyecto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 400, 40));
+
+        jcomboboxalumno1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcomboboxalumno1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jcomboboxalumno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 400, 40));
+
+        jcomboboxalumno2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcomboboxalumno2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jcomboboxalumno2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 400, 40));
+
+        jLabel13.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        jLabel13.setText("TITULO *");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        jLabel14.setText("ALUMNO - 01 *");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 253, -1, 20));
+
+        jLabel15.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        jLabel15.setText("ALUMNO - 02 ");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1330, 760));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -230,33 +297,35 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(318, 318, 318)
+                .addGap(368, 368, 368)
                 .addComponent(jbtnModificarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133)
+                .addGap(192, 192, 192)
                 .addComponent(jbtnSalirModificarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(297, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnModificarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtnSalirModificarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(jbtnSalirModificarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtnModificarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
-
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 1120, 70));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1329, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,9 +349,9 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         yMouse = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
 
-    private void jcomboboxEspecilidadProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxEspecilidadProyectoActionPerformed
+    private void jcomboboxalumno3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxalumno3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcomboboxEspecilidadProyectoActionPerformed
+    }//GEN-LAST:event_jcomboboxalumno3ActionPerformed
 
     private void jbtnModificarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarProyectoActionPerformed
         String idTxt = jtxtIdProyecto.getText();
@@ -293,15 +362,26 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         String res_ejecucion = jtxtResEjecucionProyecto.getText();
         String res_cambioJurado = jtxtResCambioJuradoProyecto.getText();
         String res_sustentacion = jtxtResSustentacion.getText().trim();
-        String res_cambioTitulo =jtxtResCambioTitulo.getText().trim() ;
+        String res_cambioTitulo = jtxtResCambioTitulo.getText().trim();
         String otro = jtxtOtrosProyecto.getText().trim();
-        String nombreEspecialidad = (String) jcomboboxEspecilidadProyecto.getSelectedItem();
+        String nombreEspecialidad = (String) jcomboboxEspecilidadProyecto1.getSelectedItem();
+        String nombreIngresante1 = (String) jcomboboxalumno1.getSelectedItem();
+        String nombreIngresante2 = (String) jcomboboxalumno2.getSelectedItem();
+        String nombreIngresante3 = (String) jcomboboxalumno3.getSelectedItem();
+
         if (!titulo.isEmpty() && !asesora.isEmpty() && !jurado.isEmpty() && !res_designacion.isEmpty()) {
             try {
 
                 EspecialidadLogic especialidadLogic = new EspecialidadLogic();
+                IngresanteLogic ingresanteLogic = new IngresanteLogic();
                 List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(nombreEspecialidad);
+                List<Ingresante> ingresantes1 = ingresanteLogic.buscaringresantePorNombre(nombreIngresante1);
+                List<Ingresante> ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreIngresante2);
+                List<Ingresante> ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreIngresante3);
                 Especialidad especialidadSeleccionda = especialidades.get(0);
+                Ingresante ingresante1Seleccionda = ingresantes1.get(0);
+                Ingresante ingresante2Seleccionda = ingresantes2.get(0);
+                Ingresante ingresante3Seleccionda = ingresantes3.get(0);
                 if (!especialidades.isEmpty()) {
                     int id = Integer.parseInt(idTxt);
                     Proyecto proyecto = new Proyecto();
@@ -316,6 +396,9 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
                     proyecto.setRes_cambioTitulo(res_cambioTitulo);
                     proyecto.setOtros(otro);
                     proyecto.setEspecialidad(especialidadSeleccionda);
+                    proyecto.setIngresante1(ingresante1Seleccionda);
+                    proyecto.setIngresante2(ingresante2Seleccionda);
+                    proyecto.setIngresante3(ingresante3Seleccionda);
                     if (proyectoLogic.modificarProyecto(proyecto)) {
                         JOptionPane.showMessageDialog(null, "Proyecto modificado correctamente");
                         this.dispose();
@@ -334,8 +417,29 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jbtnModificarProyectoActionPerformed
 
-    private void jtxtEspecialidadProyectoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtEspecialidadProyectoKeyReleased
-        String especialidad_nombre = jtxtEspecialidadProyecto.getText().trim();
+    private void jtxtalumnoproyecto3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtalumnoproyecto3KeyReleased
+        String ingresante_nombre = jtxtalumnoproyecto3.getText().trim();
+
+        if (!ingresante_nombre.isEmpty()) {
+            List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante_nombre);
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+            for (Ingresante ingresante : ingresantes) {
+                model.addElement(ingresante.getNombre());
+            }
+            jcomboboxalumno3.setModel(model);
+        } else {
+            jcomboboxalumno3.setModel(new DefaultComboBoxModel<>());
+        }
+    }//GEN-LAST:event_jtxtalumnoproyecto3KeyReleased
+
+    private void jtxtResCambioTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtResCambioTituloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtResCambioTituloActionPerformed
+
+    private void jtxtEspecialidadProyecto1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtEspecialidadProyecto1KeyReleased
+        // TODO add your handling code here:
+
+        String especialidad_nombre = jtxtalumnoproyecto3.getText().trim();
 
         if (!especialidad_nombre.isEmpty()) {
             List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(especialidad_nombre);
@@ -343,15 +447,58 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
             for (Especialidad especialidad : especialidades) {
                 model.addElement(especialidad.getNombre());
             }
-            jcomboboxEspecilidadProyecto.setModel(model);
+            jcomboboxalumno3.setModel(model);
         } else {
-            jcomboboxEspecilidadProyecto.setModel(new DefaultComboBoxModel<>());
+            jcomboboxalumno3.setModel(new DefaultComboBoxModel<>());
         }
-    }//GEN-LAST:event_jtxtEspecialidadProyectoKeyReleased
+    }//GEN-LAST:event_jtxtEspecialidadProyecto1KeyReleased
 
-    private void jtxtResCambioTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtResCambioTituloActionPerformed
+    private void jtxalumnoproyecto1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxalumnoproyecto1KeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jtxtResCambioTituloActionPerformed
+
+        String ingresante_nombre = jtxalumnoproyecto1.getText().trim();
+
+        if (!ingresante_nombre.isEmpty()) {
+            List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante_nombre);
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+            for (Ingresante ingresante : ingresantes) {
+                model.addElement(ingresante.getNombre());
+            }
+            jcomboboxalumno1.setModel(model);
+        } else {
+            jcomboboxalumno1.setModel(new DefaultComboBoxModel<>());
+        }
+    }//GEN-LAST:event_jtxalumnoproyecto1KeyReleased
+
+    private void jtxtalumnoproyecto2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtalumnoproyecto2KeyReleased
+        // TODO add your handling code here:
+        String ingresante_nombre = jtxtalumnoproyecto2.getText().trim();
+
+        if (!ingresante_nombre.isEmpty()) {
+            List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante_nombre);
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+            for (Ingresante ingresante : ingresantes) {
+                model.addElement(ingresante.getNombre());
+            }
+            jcomboboxalumno2.setModel(model);
+        } else {
+            jcomboboxalumno2.setModel(new DefaultComboBoxModel<>());
+        }
+
+
+    }//GEN-LAST:event_jtxtalumnoproyecto2KeyReleased
+
+    private void jcomboboxEspecilidadProyecto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxEspecilidadProyecto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcomboboxEspecilidadProyecto1ActionPerformed
+
+    private void jcomboboxalumno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxalumno1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcomboboxalumno1ActionPerformed
+
+    private void jcomboboxalumno2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxalumno2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcomboboxalumno2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -395,7 +542,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         });
     }
 
-    public void setDatos(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String nombre_Especialidad, String otro) {
+    public void setDatos(int id, String titulo, String nombre_ingresante1, String nombre_ingresante2 , String nombre_ingresante3,  String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String nombre_Especialidad, String otro) {
         jtxtIdProyecto.setText(String.valueOf(id));
         jtxtTituloProyecto.setText(titulo);
         jtxtAsesoraProyecto.setText(asesora);
@@ -406,8 +553,10 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jtxtResCambioTitulo.setText(res_cambioTitulo);
         jtxtResSustentacion.setText(res_sustentacion);
         jtxtOtrosProyecto.setText(otro);
-        jtxtEspecialidadProyecto.setText(nombre_Especialidad);
-
+        jtxtEspecialidadProyecto1.setText(nombre_Especialidad);
+        jtxalumnoproyecto1.setText(nombre_ingresante1);
+        jtxtalumnoproyecto2.setText(nombre_ingresante2);
+        jtxtalumnoproyecto3.setText(nombre_ingresante3);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -416,6 +565,9 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -432,9 +584,13 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbtnModificarProyecto;
     private javax.swing.JButton jbtnSalirModificarProyecto;
-    private javax.swing.JComboBox<String> jcomboboxEspecilidadProyecto;
+    private javax.swing.JComboBox<String> jcomboboxEspecilidadProyecto1;
+    private javax.swing.JComboBox<String> jcomboboxalumno1;
+    private javax.swing.JComboBox<String> jcomboboxalumno2;
+    private javax.swing.JComboBox<String> jcomboboxalumno3;
+    private javax.swing.JTextField jtxalumnoproyecto1;
     private javax.swing.JTextField jtxtAsesoraProyecto;
-    private javax.swing.JTextField jtxtEspecialidadProyecto;
+    private javax.swing.JTextField jtxtEspecialidadProyecto1;
     private javax.swing.JTextField jtxtIdProyecto;
     private javax.swing.JTextArea jtxtJuradoProyecto;
     private javax.swing.JTextArea jtxtOtrosProyecto;
@@ -444,5 +600,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     private javax.swing.JTextField jtxtResEjecucionProyecto;
     private javax.swing.JTextField jtxtResSustentacion;
     private javax.swing.JTextField jtxtTituloProyecto;
+    private javax.swing.JTextField jtxtalumnoproyecto2;
+    private javax.swing.JTextField jtxtalumnoproyecto3;
     // End of variables declaration//GEN-END:variables
 }

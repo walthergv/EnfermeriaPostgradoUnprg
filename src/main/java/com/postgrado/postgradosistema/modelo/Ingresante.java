@@ -38,6 +38,10 @@ public class Ingresante {
         this.especialidad = especialidad;
     }
 
+    public Ingresante(String nombre) {
+        this.nombre= nombre;
+    }
+
     public int getId() {
         return id;
     }

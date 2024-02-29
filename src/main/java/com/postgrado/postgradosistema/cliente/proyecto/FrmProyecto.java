@@ -35,7 +35,8 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmProyecto extends javax.swing.JFrame {
-     Conexion cnxn = new Conexion();
+
+    Conexion cnxn = new Conexion();
     ProyectoLogic proyectoLogic = new ProyectoLogic();
     DefaultTableModel modelo = new DefaultTableModel();
 
@@ -73,8 +74,6 @@ public class FrmProyecto extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jtxtBuscarPorNombreProyecto = new javax.swing.JTextField();
         jbtnMostrar = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jtxtBuscarPorAñoProyecto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbtnPdfProyecto = new javax.swing.JButton();
@@ -143,15 +142,6 @@ public class FrmProyecto extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel4.setText("Año");
-
-        jtxtBuscarPorAñoProyecto.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtBuscarPorAñoProyectoKeyReleased(evt);
-            }
-        });
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-proyecto.png"))); // NOI18N
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
@@ -173,31 +163,28 @@ public class FrmProyecto extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 389, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(51, 51, 51)
                 .addComponent(jLabel1)
                 .addGap(290, 290, 290))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxtBuscarPorNombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(162, 162, 162)
+                        .addComponent(jbtnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(151, 151, 151)
+                        .addComponent(jbtnPdfProyecto)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jtxtBuscarPorNombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jLabel4)
-                .addGap(34, 34, 34)
-                .addComponent(jtxtBuscarPorAñoProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addComponent(jbtnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(jbtnPdfProyecto)
-                .addGap(31, 31, 31))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,15 +202,13 @@ public class FrmProyecto extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxtBuscarPorNombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jtxtBuscarPorAñoProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbtnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(48, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtnPdfProyecto)
-                        .addGap(40, 40, 40))))
+                        .addGap(39, 39, 39))))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1290, 240));
@@ -300,6 +285,7 @@ public class FrmProyecto extends javax.swing.JFrame {
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 1290, 80));
 
         jTableEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        jTableEspecialidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableEspecialidad.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 jTableEspecialidadComponentHidden(evt);
@@ -311,13 +297,13 @@ public class FrmProyecto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "TITULO", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_CAMBIO DE TITULO", "ESPECIALIDAD", "OTROS", "ESTADO"
+                "ID", "TITULO", "AUTOR1", "AUTOR2", "AUTOR3", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_CAMBIO DE TITULO", "ESPECIALIDAD", "OTROS", "ESTADO"
             }
         ));
         jTableEspecialidad.setViewportView(jTableProyecto);
         if (jTableProyecto.getColumnModel().getColumnCount() > 0) {
             jTableProyecto.getColumnModel().getColumn(0).setPreferredWidth(15);
-            jTableProyecto.getColumnModel().getColumn(11).setPreferredWidth(10);
+            jTableProyecto.getColumnModel().getColumn(14).setPreferredWidth(10);
         }
 
         jPanel1.add(jTableEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 1290, 310));
@@ -431,23 +417,26 @@ public class FrmProyecto extends javax.swing.JFrame {
 
         int filaSeleccionada = jTableProyecto.getSelectedRow();
         if (filaSeleccionada != -1) {
-            if (jTableProyecto.getValueAt(filaSeleccionada, 11).toString().equals("I")) {
+            if (jTableProyecto.getValueAt(filaSeleccionada, 14).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un Proyecto inactiva");
             } else {
                 int id = Integer.parseInt(jTableProyecto.getValueAt(filaSeleccionada, 0).toString());
-                String titulo = jTableProyecto.getValueAt(filaSeleccionada, 1).toString();
-                String asesora = jTableProyecto.getValueAt(filaSeleccionada, 2).toString();
-                String jurado = jTableProyecto.getValueAt(filaSeleccionada, 3).toString();
-                String res_designacion = jTableProyecto.getValueAt(filaSeleccionada, 4).toString();
-                String res_ejecucion = jTableProyecto.getValueAt(filaSeleccionada, 5).toString();
-                String res_cambioJurado = jTableProyecto.getValueAt(filaSeleccionada, 6).toString();
-                String res_sustentacion = jTableProyecto.getValueAt(filaSeleccionada, 7).toString();
-                String res_cambioTitulo = jTableProyecto.getValueAt(filaSeleccionada, 8).toString();
-                String nombre_Especialidad = jTableProyecto.getValueAt(filaSeleccionada, 9).toString();
-                String otro = jTableProyecto.getValueAt(filaSeleccionada, 10).toString();
+                String nombre_ingresante1 = jTableProyecto.getValueAt(filaSeleccionada, 1).toString();
+                String nombre_ingresante2 = jTableProyecto.getValueAt(filaSeleccionada, 2).toString();
+                String nombre_ingresante3 = jTableProyecto.getValueAt(filaSeleccionada, 3).toString();
+                String titulo = jTableProyecto.getValueAt(filaSeleccionada, 4).toString();
+                String asesora = jTableProyecto.getValueAt(filaSeleccionada, 5).toString();
+                String jurado = jTableProyecto.getValueAt(filaSeleccionada, 6).toString();
+                String res_designacion = jTableProyecto.getValueAt(filaSeleccionada, 7).toString();
+                String res_ejecucion = jTableProyecto.getValueAt(filaSeleccionada, 8).toString();
+                String res_cambioJurado = jTableProyecto.getValueAt(filaSeleccionada, 9).toString();
+                String res_sustentacion = jTableProyecto.getValueAt(filaSeleccionada, 10).toString();
+                String res_cambioTitulo = jTableProyecto.getValueAt(filaSeleccionada, 11).toString();
+                String nombre_Especialidad = jTableProyecto.getValueAt(filaSeleccionada, 12).toString();
+                String otro = jTableProyecto.getValueAt(filaSeleccionada, 13).toString();
 
                 FrmModificarProyecto frmModificarProyecto = new FrmModificarProyecto(this, true);
-                frmModificarProyecto.setDatos(id, titulo, asesora, jurado, res_designacion, res_ejecucion, res_cambioJurado, res_sustentacion, res_cambioTitulo, nombre_Especialidad, otro);
+                frmModificarProyecto.setDatos(id, titulo, nombre_ingresante1, nombre_ingresante2, nombre_ingresante3, asesora, jurado, res_designacion, res_ejecucion, res_cambioJurado, res_sustentacion, res_cambioTitulo, nombre_Especialidad, otro);
                 frmModificarProyecto.setVisible(true);
             }
         } else {
@@ -551,54 +540,29 @@ public class FrmProyecto extends javax.swing.JFrame {
             List<Proyecto> proyectos = proyectoLogic.buscarProyectoPorNombre(nombre);
             modelo = (DefaultTableModel) jTableProyecto.getModel();
             modelo.setRowCount(0);
-            Object[] ob = new Object[12];
+            Object[] ob = new Object[15];
             for (int i = proyectos.size() - 1; i >= 0; i--) {
                 ob[0] = proyectos.get(i).getId();
                 ob[1] = proyectos.get(i).getTitulo();
-                ob[2] = proyectos.get(i).getAsesora();
-                ob[3] = proyectos.get(i).getJurado();
-                ob[4] = proyectos.get(i).getRes_designacion();
-                ob[5] = proyectos.get(i).getRes_ejecucion();
-                ob[6] = proyectos.get(i).getRes_cambioJurado();
-                ob[7] = proyectos.get(i).getRes_sustentacion();
-                ob[8] = proyectos.get(i).getRes_cambioTitulo();
-                ob[9] = proyectos.get(i).getEspecialidad().getNombre();
-                ob[10] = proyectos.get(i).getOtros();
-                ob[11] = proyectos.get(i).getEs_proyecto();
+                ob[2] = proyectos.get(i).getIngresante1().getNombre();
+                ob[3] = proyectos.get(i).getIngresante2().getNombre();
+                ob[4] = proyectos.get(i).getIngresante3().getNombre();
+                ob[5] = proyectos.get(i).getAsesora();
+                ob[6] = proyectos.get(i).getJurado();
+                ob[7] = proyectos.get(i).getRes_designacion();
+                ob[8] = proyectos.get(i).getRes_ejecucion();
+                ob[9] = proyectos.get(i).getRes_cambioJurado();
+                ob[10] = proyectos.get(i).getRes_sustentacion();
+                ob[11] = proyectos.get(i).getRes_cambioTitulo();
+                ob[12] = proyectos.get(i).getEspecialidad().getNombre();
+                ob[13] = proyectos.get(i).getOtros();
+                ob[14] = proyectos.get(i).getEs_proyecto();
                 modelo.addRow(ob);
             }
         } else {
             listarTablaProyecto();
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jtxtBuscarPorNombreProyectoKeyReleased
-
-    private void jtxtBuscarPorAñoProyectoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarPorAñoProyectoKeyReleased
-        String nombre = jtxtBuscarPorAñoProyecto.getText().trim();
-
-        if (!nombre.isEmpty()) {
-            List<Proyecto> proyectos = proyectoLogic.buscarProyectoPorAño(nombre);
-            modelo = (DefaultTableModel) jTableProyecto.getModel();
-            modelo.setRowCount(0);
-            Object[] ob = new Object[12];
-            for (int i = proyectos.size() - 1; i >= 0; i--) {
-                ob[0] = proyectos.get(i).getId();
-                ob[1] = proyectos.get(i).getTitulo();
-                ob[2] = proyectos.get(i).getAsesora();
-                ob[3] = proyectos.get(i).getJurado();
-                ob[4] = proyectos.get(i).getRes_designacion();
-                ob[5] = proyectos.get(i).getRes_ejecucion();
-                ob[6] = proyectos.get(i).getRes_cambioJurado();
-                ob[7] = proyectos.get(i).getRes_sustentacion();
-                ob[8] = proyectos.get(i).getRes_cambioTitulo();
-                ob[9] = proyectos.get(i).getEspecialidad().getNombre();
-                ob[10] = proyectos.get(i).getOtros();
-                ob[11] = proyectos.get(i).getEs_proyecto();
-                modelo.addRow(ob);
-            }
-        } else {
-            listarTablaProyecto();
-        }
-    }//GEN-LAST:event_jtxtBuscarPorAñoProyectoKeyReleased
 
     private void jMenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuarioActionPerformed
         this.setVisible(false);
@@ -611,9 +575,8 @@ public class FrmProyecto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnPdfProyectoActionPerformed
 
     private void jbtnPdfProyectoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbtnPdfProyectoMouseClicked
-   
-    
-      JasperReport reporte;
+
+        JasperReport reporte;
         try {
             // Reporte
             reporte = JasperCompileManager.compileReport("src/main/java/com/postgrado/postgradosistema/reportes/reporteProyectos.jrxml");
@@ -622,7 +585,7 @@ public class FrmProyecto extends javax.swing.JFrame {
             // Crear un JasperViewer personalizado
             JasperViewer viewer = new JasperViewer(jp, false);
             viewer.setDefaultCloseOperation(JasperViewer.DO_NOTHING_ON_CLOSE); // No cerrar al presionar el botón de cierre
-            
+
             viewer.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
@@ -637,7 +600,7 @@ public class FrmProyecto extends javax.swing.JFrame {
             // Manejar excepción cuando no se encuentra el archivo del informe
             JOptionPane.showMessageDialog(this, "No se encontró el archivo del informe.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    
+
     }//GEN-LAST:event_jbtnPdfProyectoMouseClicked
 
     /**
@@ -686,20 +649,23 @@ public class FrmProyecto extends javax.swing.JFrame {
         List<Proyecto> proyectos = proyectoLogic.listaProyectos();
         modelo = (DefaultTableModel) jTableProyecto.getModel();
         modelo.setRowCount(0);
-        Object[] ob = new Object[12];
+        Object[] ob = new Object[15];
         for (int i = proyectos.size() - 1; i >= 0; i--) {
             ob[0] = proyectos.get(i).getId();
             ob[1] = proyectos.get(i).getTitulo();
-            ob[2] = proyectos.get(i).getAsesora();
-            ob[3] = proyectos.get(i).getJurado();
-            ob[4] = proyectos.get(i).getRes_designacion();
-            ob[5] = proyectos.get(i).getRes_ejecucion();
-            ob[6] = proyectos.get(i).getRes_cambioJurado();
-            ob[7] = proyectos.get(i).getRes_sustentacion();
-            ob[8] = proyectos.get(i).getRes_cambioTitulo();
-            ob[9] = proyectos.get(i).getEspecialidad().getNombre();
-            ob[10] = proyectos.get(i).getOtros();
-            ob[11] = proyectos.get(i).getEs_proyecto();
+            ob[2] = proyectos.get(i).getIngresante1().getNombre();
+            ob[3] = proyectos.get(i).getIngresante2().getNombre();
+            ob[4] = proyectos.get(i).getIngresante3().getNombre();
+            ob[5] = proyectos.get(i).getAsesora();
+            ob[6] = proyectos.get(i).getJurado();
+            ob[7] = proyectos.get(i).getRes_designacion();
+            ob[8] = proyectos.get(i).getRes_ejecucion();
+            ob[9] = proyectos.get(i).getRes_cambioJurado();
+            ob[10] = proyectos.get(i).getRes_sustentacion();
+            ob[11] = proyectos.get(i).getRes_cambioTitulo();
+            ob[12] = proyectos.get(i).getEspecialidad().getNombre();
+            ob[13] = proyectos.get(i).getOtros();
+            ob[14] = proyectos.get(i).getEs_proyecto();
             modelo.addRow(ob);
         }
         jTableProyecto.setModel(modelo);
@@ -712,7 +678,6 @@ public class FrmProyecto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
@@ -738,7 +703,6 @@ public class FrmProyecto extends javax.swing.JFrame {
     private javax.swing.JButton jbtnMostrar;
     private javax.swing.JButton jbtnPdfProyecto;
     private javax.swing.JButton jbtnRegistrarProyecto;
-    private javax.swing.JTextField jtxtBuscarPorAñoProyecto;
     private javax.swing.JTextField jtxtBuscarPorNombreProyecto;
     // End of variables declaration//GEN-END:variables
 }

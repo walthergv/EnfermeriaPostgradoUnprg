@@ -7,6 +7,9 @@ public class Proyecto {
     private int id;
     private String titulo;
     private String asesora;
+    private Ingresante ingresante1;
+    private Ingresante ingresante2;
+    private Ingresante ingresante3;
     private String jurado;
     private String res_designacion;
     private String res_ejecucion;
@@ -21,8 +24,12 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(int id, String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String otros, Especialidad especialidad) {
+    public Proyecto(int id, Ingresante ingresante1, Ingresante ingresante2, Ingresante ingresante3, 
+            String titulo, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String otros, Especialidad especialidad) {
         this.id = id;
+        this.ingresante1= ingresante1;
+        this.ingresante2= ingresante2;
+        this.ingresante3= ingresante3;
         this.titulo = titulo;
         this.asesora = asesora;
         this.jurado = jurado;
@@ -57,7 +64,30 @@ public class Proyecto {
     public Proyecto(String titulo) {
         this.titulo = titulo;
     }
+    
+    
+    public Ingresante getIngresante1() {
+        return ingresante1;
+    }
 
+    public void setIngresante1(Ingresante ingresante1) {
+        this.ingresante1 = ingresante1;
+    }
+      public Ingresante getIngresante2() {
+        return ingresante2;
+    }
+
+    public void setIngresante2(Ingresante ingresante2) {
+        this.ingresante2 = ingresante2;
+    }
+      public Ingresante getIngresante3() {
+        return ingresante3;
+    }
+
+    public void setIngresante3(Ingresante ingresante3) {
+        this.ingresante3 = ingresante3;
+    }
+    
     public int getId() {
         return id;
     }

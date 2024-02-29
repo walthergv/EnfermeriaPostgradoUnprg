@@ -6,8 +6,10 @@
 package com.postgrado.postgradosistema.cliente.proyecto;
 
 import com.postgrado.postgradosistema.logic.EspecialidadLogic;
+import com.postgrado.postgradosistema.logic.IngresanteLogic;
 import com.postgrado.postgradosistema.logic.ProyectoLogic;
 import com.postgrado.postgradosistema.modelo.Especialidad;
+import com.postgrado.postgradosistema.modelo.Ingresante;
 import com.postgrado.postgradosistema.modelo.Proyecto;
 
 import javax.swing.*;
@@ -17,7 +19,9 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmRegistrarProyecto extends javax.swing.JDialog {
+
     EspecialidadLogic especialidadLogic = new EspecialidadLogic();
+    IngresanteLogic ingresanteLogic = new IngresanteLogic();
     int xMouse, yMouse;
 
     /**
@@ -53,8 +57,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jtxtResCambioJuradoProyecto = new javax.swing.JTextField();
         PROYECTO = new javax.swing.JLabel();
-        jtxtBuscarEspecialidad = new javax.swing.JTextField();
-        jcomboboxEspecilidad = new javax.swing.JComboBox<>();
+        jtxtBuscarIngresan3 = new javax.swing.JTextField();
+        jcomboboxIngresant2 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -67,6 +71,15 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jtxtJuradoProyecto = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jtxtOtrosProyecto = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
+        jtxtBuscarEspecialidad = new javax.swing.JTextField();
+        jtxtBuscarIngresante1 = new javax.swing.JTextField();
+        jtxtBuscarIngresant2 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jcomboboxEspecilidad = new javax.swing.JComboBox<>();
+        jcomboboxIngresan3 = new javax.swing.JComboBox<>();
+        jcomboboxIngresante1 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jbtnRegistrarProyecto = new javax.swing.JButton();
@@ -93,59 +106,59 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel3.setText("TITULO *");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 98, 109, -1));
+        jLabel3.setText("ALUMNO - 03*");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 109, -1));
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel4.setText("ASESOR(A)*");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 109, -1));
-        jPanel2.add(jtxtAsesoraProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 360, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 109, -1));
+        jPanel2.add(jtxtAsesoraProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, 410, 30));
 
         jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel5.setText("JURADO *");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 109, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 109, -1));
 
         jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel6.setText("RES. - DESIGNACIÓN *");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, -1, -1));
-        jPanel2.add(jtxtBuscarResDesignacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 100, 350, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, -1, -1));
+        jPanel2.add(jtxtBuscarResDesignacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, 410, 30));
 
         jLabel7.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel7.setText("RES. - EJECUCIÓN");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, -1, -1));
-        jPanel2.add(jtxtResEjecucionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 150, 350, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, -1));
+        jPanel2.add(jtxtResEjecucionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 410, 30));
 
         jLabel8.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel8.setText("RES. - CAMBIOJURADO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 200, -1, -1));
-        jPanel2.add(jtxtResCambioJuradoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 350, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
+        jPanel2.add(jtxtResCambioJuradoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 380, 410, 30));
 
         PROYECTO.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         PROYECTO.setText("RES. - CAMBIOTITULO");
-        jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
+        jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, -1));
 
-        jtxtBuscarEspecialidad.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxtBuscarIngresan3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtBuscarEspecialidadKeyReleased(evt);
+                jtxtBuscarIngresan3KeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtBuscarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 360, 30));
+        jPanel2.add(jtxtBuscarIngresan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 410, 30));
 
-        jPanel2.add(jcomboboxEspecilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 360, 30));
+        jPanel2.add(jcomboboxIngresant2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 410, 30));
 
         jLabel9.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel9.setText("ESPECIALIDAD*");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel10.setText("RES. - SUSTENTACIÓN");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel11.setText("OTROS");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, -1));
-        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, 350, 30));
-        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 300, 350, 30));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, -1, -1));
+        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 410, 30));
+        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 410, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar02.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
@@ -155,21 +168,70 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jtxtTituloProyecto.setRows(5);
         jScrollPane1.setViewportView(jtxtTituloProyecto);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 360, 100));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 410, 80));
 
         jtxtJuradoProyecto.setColumns(20);
         jtxtJuradoProyecto.setLineWrap(true);
         jtxtJuradoProyecto.setRows(5);
         jScrollPane2.setViewportView(jtxtJuradoProyecto);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 360, -1));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 120, 410, 90));
 
         jtxtOtrosProyecto.setColumns(20);
         jtxtOtrosProyecto.setLineWrap(true);
         jtxtOtrosProyecto.setRows(5);
         jScrollPane3.setViewportView(jtxtOtrosProyecto);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 350, 350, -1));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 410, -1));
+
+        jLabel12.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        jLabel12.setText("TITULO *");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 109, -1));
+
+        jtxtBuscarEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxtBuscarEspecialidadActionPerformed(evt);
+            }
+        });
+        jtxtBuscarEspecialidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtBuscarEspecialidadKeyReleased(evt);
+            }
+        });
+        jPanel2.add(jtxtBuscarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, 410, 30));
+
+        jtxtBuscarIngresante1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtBuscarIngresante1KeyReleased(evt);
+            }
+        });
+        jPanel2.add(jtxtBuscarIngresante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 410, 30));
+
+        jtxtBuscarIngresant2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtxtBuscarIngresant2KeyReleased(evt);
+            }
+        });
+        jPanel2.add(jtxtBuscarIngresant2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 410, 30));
+
+        jLabel13.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        jLabel13.setText("ALUMNO - 01*");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 109, -1));
+
+        jLabel14.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
+        jLabel14.setText("ALUMNO - 02*");
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 109, -1));
+
+        jcomboboxEspecilidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcomboboxEspecilidadActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jcomboboxEspecilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, 410, 30));
+
+        jPanel2.add(jcomboboxIngresan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 410, 30));
+
+        jPanel2.add(jcomboboxIngresante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 410, 30));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -177,11 +239,26 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1341, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -213,40 +290,18 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbtnRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159)
+                .addGap(182, 182, 182)
                 .addComponent(jbtnSalirRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(283, 283, 283))
+                .addGap(282, 282, 282))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnSalirRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17))
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1158, Short.MAX_VALUE)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -254,12 +309,14 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -285,20 +342,31 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
 
     private void jbtnRegistrarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarProyectoActionPerformed
         String titulo = jtxtTituloProyecto.getText().trim();
+        String nombreingresante1 = (String) jcomboboxIngresante1.getSelectedItem();
+        String nombreingresante2 = (String) jcomboboxIngresant2.getSelectedItem();
+        String nombreingresante3 = (String) jcomboboxIngresan3.getSelectedItem();
         String asesora = jtxtAsesoraProyecto.getText().trim();
         String jurado = jtxtJuradoProyecto.getText().trim();
         String res_designacion = jtxtBuscarResDesignacion.getText().trim();
         String res_ejecucion = jtxtResEjecucionProyecto.getText().trim();
         String res_cambioJurado = jtxtResCambioJuradoProyecto.getText().trim();
         String res_sustentacion = jtxtResSustentacion.getText().trim();
-        String res_cambioTitulo =jtxtResCambioTitulo.getText().trim() ;
+        String res_cambioTitulo = jtxtResCambioTitulo.getText().trim();
         String otro = jtxtOtrosProyecto.getText().trim();
         String nombreEspecialidad = (String) jcomboboxEspecilidad.getSelectedItem();
+
         if (!titulo.isEmpty() && !asesora.isEmpty() && !jurado.isEmpty() && !res_designacion.isEmpty()) {
             EspecialidadLogic especialidadLogic = new EspecialidadLogic();
+            IngresanteLogic ingresanteLogic = new IngresanteLogic();
             List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(nombreEspecialidad);
+            List<Ingresante> ingresantes1 = ingresanteLogic.buscaringresantePorNombre(nombreingresante1);
+            List<Ingresante> ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreingresante2);
+            List<Ingresante> ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreingresante3);
             if (!especialidades.isEmpty()) {
                 Especialidad especialidadSeleccionda = especialidades.get(0);
+                Ingresante ingresante1Seleccionda = ingresantes1.get(0);
+                Ingresante ingresante2Seleccionda = ingresantes2.get(0);
+                Ingresante ingresante3Seleccionda = ingresantes3.get(0);
 
                 Proyecto proyecto = new Proyecto();
                 proyecto.setTitulo(titulo);
@@ -311,6 +379,9 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
                 proyecto.setRes_cambioTitulo(res_cambioTitulo);
                 proyecto.setOtros(otro);
                 proyecto.setEspecialidad(especialidadSeleccionda);
+                proyecto.setIngresante1(ingresante1Seleccionda);
+                proyecto.setIngresante2(ingresante2Seleccionda);
+                proyecto.setIngresante3(ingresante3Seleccionda);
 
                 ProyectoLogic proyectoLogic = new ProyectoLogic();
                 proyectoLogic.registrarProyecto(proyecto);
@@ -325,7 +396,9 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
                 jtxtResSustentacion.setText("");
                 jtxtOtrosProyecto.setText("");
                 jcomboboxEspecilidad.setSelectedIndex(-1);
-
+                jcomboboxIngresante1.setSelectedIndex(-1);
+                jcomboboxIngresant2.setSelectedIndex(-1);
+                jcomboboxIngresan3.setSelectedIndex(-1);
 
             } else {
                 JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique que la Especilidad no este vacio");
@@ -335,7 +408,27 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jbtnRegistrarProyectoActionPerformed
 
+    private void jtxtBuscarIngresan3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarIngresan3KeyReleased
+
+        String ingresante3_nombre = jtxtBuscarIngresan3.getText().trim();
+
+        if (!ingresante3_nombre.isEmpty()) {
+            List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante3_nombre);
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+            for (Ingresante ingresante : ingresantes) {
+                model.addElement(ingresante.getNombre());
+            }
+            jcomboboxIngresan3.setModel(model);
+        } else {
+            jcomboboxIngresan3.setModel(new DefaultComboBoxModel<>());
+        }
+
+
+    }//GEN-LAST:event_jtxtBuscarIngresan3KeyReleased
+
+
     private void jtxtBuscarEspecialidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarEspecialidadKeyReleased
+        // TODO add your handling code here:yu
         String especialidad_nombre = jtxtBuscarEspecialidad.getText().trim();
 
         if (!especialidad_nombre.isEmpty()) {
@@ -347,9 +440,52 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
             jcomboboxEspecilidad.setModel(model);
         } else {
             jcomboboxEspecilidad.setModel(new DefaultComboBoxModel<>());
-        }
     }//GEN-LAST:event_jtxtBuscarEspecialidadKeyReleased
+    }
+    private void jtxtBuscarIngresante1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarIngresante1KeyReleased
+        // TODO add your handling code here:
+        String ingresante1_nombre = jtxtBuscarIngresante1.getText().trim();
 
+        if (!ingresante1_nombre.isEmpty()) {
+            List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante1_nombre);
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+            for (Ingresante ingresante : ingresantes) {
+                model.addElement(ingresante.getNombre());
+            }
+            jcomboboxIngresante1.setModel(model);
+        } else {
+            jcomboboxIngresante1.setModel(new DefaultComboBoxModel<>());
+        }
+
+
+    }//GEN-LAST:event_jtxtBuscarIngresante1KeyReleased
+
+    private void jtxtBuscarIngresant2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarIngresant2KeyReleased
+        // TODO add your handling code here:
+
+        String ingresante2_nombre = jtxtBuscarIngresant2.getText().trim();
+
+        if (!ingresante2_nombre.isEmpty()) {
+            List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante2_nombre);
+            DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+            for (Ingresante ingresante : ingresantes) {
+                model.addElement(ingresante.getNombre());
+            }
+            jcomboboxIngresant2.setModel(model);
+        } else {
+            jcomboboxIngresant2.setModel(new DefaultComboBoxModel<>());
+        }
+
+
+    }//GEN-LAST:event_jtxtBuscarIngresant2KeyReleased
+
+    private void jtxtBuscarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtBuscarEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxtBuscarEspecialidadActionPerformed
+
+    private void jcomboboxEspecilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxEspecilidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcomboboxEspecilidadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,6 +534,9 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -416,8 +555,14 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
     private javax.swing.JButton jbtnRegistrarProyecto;
     private javax.swing.JButton jbtnSalirRegistrarProyecto;
     private javax.swing.JComboBox<String> jcomboboxEspecilidad;
+    private javax.swing.JComboBox<String> jcomboboxIngresan3;
+    private javax.swing.JComboBox<String> jcomboboxIngresant2;
+    private javax.swing.JComboBox<String> jcomboboxIngresante1;
     private javax.swing.JTextField jtxtAsesoraProyecto;
     private javax.swing.JTextField jtxtBuscarEspecialidad;
+    private javax.swing.JTextField jtxtBuscarIngresan3;
+    private javax.swing.JTextField jtxtBuscarIngresant2;
+    private javax.swing.JTextField jtxtBuscarIngresante1;
     private javax.swing.JTextField jtxtBuscarResDesignacion;
     private javax.swing.JTextArea jtxtJuradoProyecto;
     private javax.swing.JTextArea jtxtOtrosProyecto;

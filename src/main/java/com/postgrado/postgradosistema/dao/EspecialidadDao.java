@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EspecialidadDao {
+
     Conexion cnxn = new Conexion();
     Connection cntn;
     PreparedStatement ps;
@@ -89,13 +90,13 @@ public class EspecialidadDao {
 
     public List<Especialidad> listaEspecialidades() {
         List<Especialidad> especialidades = new ArrayList<>();
-        String sql = "SELECT" +
-                " especialidad.id, " +
-                "especialidad.nombre, " +
-                "area.nombre AS nombre_area, " +
-                "especialidad.es_especialidad " +
-                "FROM especialidad " +
-                " INNER JOIN area ON especialidad.area_id = area.id";
+        String sql = "SELECT"
+                + " especialidad.id, "
+                + "especialidad.nombre, "
+                + "area.nombre AS nombre_area, "
+                + "especialidad.es_especialidad "
+                + "FROM especialidad "
+                + " INNER JOIN area ON especialidad.area_id = area.id";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
@@ -117,13 +118,13 @@ public class EspecialidadDao {
 
     public List<Especialidad> buscarEspecialidadPorNombre(String nombre) {
         List<Especialidad> especialidades = new ArrayList<>();
-        String sql = "SELECT" +
-                " especialidad.id, " +
-                "especialidad.nombre, " +
-                "area.nombre AS nombre_area, " +
-                "especialidad.es_especialidad " +
-                "FROM especialidad " +
-                " INNER JOIN area ON especialidad.area_id = area.id"
+        String sql = "SELECT"
+                + " especialidad.id, "
+                + "especialidad.nombre, "
+                + "area.nombre AS nombre_area, "
+                + "especialidad.es_especialidad "
+                + "FROM especialidad "
+                + " INNER JOIN area ON especialidad.area_id = area.id"
                 + " WHERE especialidad.nombre LIKE ?";
         try {
             cntn = cnxn.getConnection();
