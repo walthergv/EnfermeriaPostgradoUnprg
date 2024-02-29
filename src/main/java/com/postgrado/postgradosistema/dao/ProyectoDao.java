@@ -55,7 +55,7 @@ public class ProyectoDao {
 
     /*comentario*/
     public boolean modificarProyecto(Proyecto proyecto) {
-        String sql = "UPDATE proyecto SET titulo = ?, asesora = ?, jurado = ?, res_designacion = ?, res_ejecucion = ?, res_cambioJurado = ?, res_sustentacion = ?, res_cambioTitulo = ?, otros = ?, especialidad_id= ? id_student= ? id_student2= ? id_student3= ? WHERE id = ?";
+        String sql = "UPDATE proyecto SET titulo = ?, asesora = ?, jurado = ?, res_designacion = ?, res_ejecucion = ?, res_cambioJurado = ?, res_sustentacion = ?, res_cambioTitulo = ?, otros = ?, especialidad_id= ?, id_student= ?, id_student2= ?, id_student3= ? WHERE id = ?";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
@@ -70,8 +70,8 @@ public class ProyectoDao {
             ps.setString(9, proyecto.getOtros());
             ps.setInt(10, proyecto.getEspecialidad().getId());
             ps.setInt(11, proyecto.getIngresante1().getId());
-            ps.setInt(12, proyecto.getIngresante2().getId());
-            ps.setInt(13, proyecto.getIngresante3().getId());
+            ps.setInt(12, (proyecto.getIngresante2() != null) ? proyecto.getIngresante2().getId() : 0);
+            ps.setInt(13, (proyecto.getIngresante3() != null) ? proyecto.getIngresante3().getId() : 0);
             ps.setInt(14, proyecto.getId());
             ps.executeUpdate();
             return true;

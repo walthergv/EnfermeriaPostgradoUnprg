@@ -297,13 +297,13 @@ public class FrmProyecto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "TITULO", "AUTORES", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_CAMBIO DE TITULO", "ESPECIALIDAD", "OTROS", "ESTADO"
+                "ID", "TITULO", "AUTOR1", "AUTOR2", "AUTOR3", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_CAMBIO DE TITULO", "ESPECIALIDAD", "OTROS", "ESTADO"
             }
         ));
         jTableEspecialidad.setViewportView(jTableProyecto);
         if (jTableProyecto.getColumnModel().getColumnCount() > 0) {
             jTableProyecto.getColumnModel().getColumn(0).setPreferredWidth(15);
-            jTableProyecto.getColumnModel().getColumn(12).setPreferredWidth(10);
+            jTableProyecto.getColumnModel().getColumn(14).setPreferredWidth(10);
         }
 
         jPanel1.add(jTableEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 1290, 310));
@@ -423,8 +423,16 @@ public class FrmProyecto extends javax.swing.JFrame {
                 int id = Integer.parseInt(jTableProyecto.getValueAt(filaSeleccionada, 0).toString());
                 String titulo = jTableProyecto.getValueAt(filaSeleccionada, 1).toString();
                 String nombre_ingresante1 = jTableProyecto.getValueAt(filaSeleccionada, 2).toString();
-                String nombre_ingresante2 = jTableProyecto.getValueAt(filaSeleccionada, 3).toString();
-                String nombre_ingresante3 = jTableProyecto.getValueAt(filaSeleccionada, 4).toString();
+                String nombre_ingresante2 = null;
+                if (jTableProyecto.getValueAt(filaSeleccionada, 3) != null && !jTableProyecto.getValueAt(filaSeleccionada, 3).toString().isEmpty()) {
+                    nombre_ingresante2 = jTableProyecto.getValueAt(filaSeleccionada, 3).toString();
+                }
+                String nombre_ingresante3 = null;
+                if (jTableProyecto.getValueAt(filaSeleccionada, 4) != null && !jTableProyecto.getValueAt(filaSeleccionada, 4).toString().isEmpty()) {
+                    nombre_ingresante3 = jTableProyecto.getValueAt(filaSeleccionada, 4).toString();
+                }
+                //String nombre_ingresante2 = null; //jTableProyecto.getValueAt(filaSeleccionada, 3).toString();
+                //String nombre_ingresante3 = null; //jTableProyecto.getValueAt(filaSeleccionada, 4).toString();
                 String asesora = jTableProyecto.getValueAt(filaSeleccionada, 5).toString();
                 String jurado = jTableProyecto.getValueAt(filaSeleccionada, 6).toString();
                 String res_designacion = jTableProyecto.getValueAt(filaSeleccionada, 7).toString();
@@ -660,11 +668,12 @@ public class FrmProyecto extends javax.swing.JFrame {
         List<Proyecto> proyectos = proyectoLogic.listaProyectos();
         modelo = (DefaultTableModel) jTableProyecto.getModel();
         modelo.setRowCount(0);
-        Object[] ob = new Object[13];
+        Object[] ob = new Object[15];
         for (int i = proyectos.size() - 1; i >= 0; i--) {
             ob[0] = proyectos.get(i).getId();
             ob[1] = proyectos.get(i).getTitulo();
-            String ingresantes = "";
+
+            /*String ingresantes = "";
             if (proyectos.get(i).getIngresante1().getNombre() != null) {
                 ingresantes += proyectos.get(i).getIngresante1().getNombre() + "; ";
             }
@@ -676,18 +685,20 @@ public class FrmProyecto extends javax.swing.JFrame {
             }
             if (!ingresantes.isEmpty() && ingresantes.endsWith("; ")) {
                 ingresantes = ingresantes.substring(0, ingresantes.length() - 2);
-            }
-            ob[2] = ingresantes;
-            ob[3] = proyectos.get(i).getAsesora();
-            ob[4] = proyectos.get(i).getJurado();
-            ob[5] = proyectos.get(i).getRes_designacion();
-            ob[6] = proyectos.get(i).getRes_ejecucion();
-            ob[7] = proyectos.get(i).getRes_cambioJurado();
-            ob[8] = proyectos.get(i).getRes_sustentacion();
-            ob[9] = proyectos.get(i).getRes_cambioTitulo();
-            ob[10] = proyectos.get(i).getEspecialidad().getNombre();
-            ob[11] = proyectos.get(i).getOtros();
-            ob[12] = proyectos.get(i).getEs_proyecto();
+            }*/
+            ob[2] = proyectos.get(i).getIngresante1().getNombre();
+            ob[3] = proyectos.get(i).getIngresante2().getNombre();
+            ob[4] = proyectos.get(i).getIngresante3().getNombre();
+            ob[5] = proyectos.get(i).getAsesora();
+            ob[6] = proyectos.get(i).getJurado();
+            ob[7] = proyectos.get(i).getRes_designacion();
+            ob[8] = proyectos.get(i).getRes_ejecucion();
+            ob[9] = proyectos.get(i).getRes_cambioJurado();
+            ob[10] = proyectos.get(i).getRes_sustentacion();
+            ob[11] = proyectos.get(i).getRes_cambioTitulo();
+            ob[12] = proyectos.get(i).getEspecialidad().getNombre();
+            ob[13] = proyectos.get(i).getOtros();
+            ob[14] = proyectos.get(i).getEs_proyecto();
             modelo.addRow(ob);
         }
         jTableProyecto.setModel(modelo);

@@ -11,6 +11,7 @@ import com.postgrado.postgradosistema.logic.ProyectoLogic;
 import com.postgrado.postgradosistema.modelo.Especialidad;
 import com.postgrado.postgradosistema.modelo.Ingresante;
 import com.postgrado.postgradosistema.modelo.Proyecto;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import java.util.List;
@@ -365,9 +366,9 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         String res_cambioTitulo = jtxtResCambioTitulo.getText().trim();
         String otro = jtxtOtrosProyecto.getText().trim();
         String nombreEspecialidad = (String) jcomboboxEspecilidadProyecto1.getSelectedItem();
-        String nombreIngresante1 = (String) jcomboboxalumno1.getSelectedItem();
-        String nombreIngresante2 = (String) jcomboboxalumno2.getSelectedItem();
-        String nombreIngresante3 = (String) jcomboboxalumno3.getSelectedItem();
+        String nombreingresante1 = (String) jcomboboxalumno1.getSelectedItem();
+        String nombreingresante2 = (String) jcomboboxalumno2.getSelectedItem();
+        String nombreingresante3 = (String) jcomboboxalumno3.getSelectedItem();
 
         if (!titulo.isEmpty() && !asesora.isEmpty() && !jurado.isEmpty() && !res_designacion.isEmpty()) {
             try {
@@ -375,14 +376,23 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
                 EspecialidadLogic especialidadLogic = new EspecialidadLogic();
                 IngresanteLogic ingresanteLogic = new IngresanteLogic();
                 List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(nombreEspecialidad);
-                List<Ingresante> ingresantes1 = ingresanteLogic.buscaringresantePorNombre(nombreIngresante1);
-                List<Ingresante> ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreIngresante2);
-                List<Ingresante> ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreIngresante3);
-                Especialidad especialidadSeleccionda = especialidades.get(0);
-                Ingresante ingresante1Seleccionda = ingresantes1.get(0);
-                Ingresante ingresante2Seleccionda = ingresantes2.get(0);
-                Ingresante ingresante3Seleccionda = ingresantes3.get(0);
+                List<Ingresante> ingresantes1 = ingresanteLogic.buscaringresantePorNombre(nombreingresante1);
+
+                List<Ingresante> ingresantes2 = new ArrayList<>();
+                List<Ingresante> ingresantes3 = new ArrayList<>();
+                if (nombreingresante2 != null && !nombreingresante2.isEmpty()) {
+                    ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreingresante2);
+                }
+                if (nombreingresante3 != null && !nombreingresante3.isEmpty()) {
+                    ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreingresante3);
+                }
+
                 if (!especialidades.isEmpty()) {
+                    Especialidad especialidadSeleccionda = especialidades.get(0);
+                    Ingresante ingresante1Seleccionda = ingresantes1.get(0);
+                    Ingresante ingresante2Seleccionda = (!ingresantes2.isEmpty()) ? ingresantes2.get(0) : null;
+                    Ingresante ingresante3Seleccionda = (!ingresantes3.isEmpty()) ? ingresantes3.get(0) : null;
+
                     int id = Integer.parseInt(idTxt);
                     Proyecto proyecto = new Proyecto();
                     proyecto.setId(id);
@@ -410,7 +420,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(this, "Debe ingresar un nombre especialidad");
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Error al modificar proyecto");
+                JOptionPane.showMessageDialog(null, "Error al modificar proyecto: " + ex.getMessage());
             }
         } else {
             JOptionPane.showMessageDialog(this, "Debe llenar los campos");
