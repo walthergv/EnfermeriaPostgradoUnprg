@@ -36,8 +36,8 @@ public class ProyectoDao {
             ps.setString(9, proyecto.getOtros());
             ps.setInt(10, proyecto.getEspecialidad().getId());
             ps.setInt(11, proyecto.getIngresante1().getId());
-            ps.setInt(12, proyecto.getIngresante2().getId());
-            ps.setInt(13, proyecto.getIngresante3().getId());
+            ps.setInt(12, (proyecto.getIngresante2() != null) ? proyecto.getIngresante2().getId() : 0);
+            ps.setInt(13, (proyecto.getIngresante3() != null) ? proyecto.getIngresante3().getId() : 0);
             ps.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -188,11 +188,17 @@ public class ProyectoDao {
                 + " LEFT JOIN ingresante ingresante1 ON proyecto.id_student = ingresante1.id"
                 + " LEFT JOIN ingresante ingresante2 ON proyecto.id_student2 = ingresante2.id"
                 + " LEFT JOIN ingresante ingresante3 ON proyecto.id_student3 = ingresante3.id"
-                + " LEFT proyecto.titulo LIKE ?";
+                + " WHERE proyecto.titulo LIKE ? "
+                + " OR ingresante1.nombre LIKE ? "
+                + " OR ingresante2.nombre LIKE ? "
+                + " OR ingresante3.nombre LIKE ? ";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);
-            ps.setString(1, "%" + titulo + "%");
+            String parametro = '%' + titulo + '%';
+            for (int i = 1; i <= 4; i++) {
+                ps.setString(i, parametro);
+            }
             rs = ps.executeQuery();
             while (rs.next()) {
                 Proyecto proyecto = new Proyecto();

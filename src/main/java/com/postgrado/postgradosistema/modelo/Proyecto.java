@@ -73,7 +73,7 @@ public class Proyecto {
     public void setIngresante1(Ingresante ingresante1) {
         this.ingresante1 = ingresante1;
     }
-      public Ingresante getIngresante2() {
+    public Ingresante getIngresante2() {
         return ingresante2;
     }
 

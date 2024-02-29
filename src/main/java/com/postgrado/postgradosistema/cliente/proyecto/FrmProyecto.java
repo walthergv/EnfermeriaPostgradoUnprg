@@ -122,10 +122,10 @@ public class FrmProyecto extends javax.swing.JFrame {
         jLabel1.setText("PROYECTO DE TESIS DE SEGUNDA ESPECIALIDAD");
 
         jLabel2.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel2.setText("BUSCAR");
+        jLabel2.setText("BUSCAR POR:");
 
         jLabel3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
-        jLabel3.setText("Nombre");
+        jLabel3.setText("Titulo o Autores");
 
         jtxtBuscarPorNombreProyecto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -163,7 +163,7 @@ public class FrmProyecto extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 389, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(51, 51, 51)
                 .addComponent(jLabel1)
@@ -297,13 +297,13 @@ public class FrmProyecto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "TITULO", "AUTOR1", "AUTOR2", "AUTOR3", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_CAMBIO DE TITULO", "ESPECIALIDAD", "OTROS", "ESTADO"
+                "ID", "TITULO", "AUTORES", "ASESORA", "JURADO", "RES_DESIGNACION", "RES_EJECUCIÓN", "RES_CAMBIO DE JURADO", "RES_SUSTENTACIÓN", "RES_CAMBIO DE TITULO", "ESPECIALIDAD", "OTROS", "ESTADO"
             }
         ));
         jTableEspecialidad.setViewportView(jTableProyecto);
         if (jTableProyecto.getColumnModel().getColumnCount() > 0) {
             jTableProyecto.getColumnModel().getColumn(0).setPreferredWidth(15);
-            jTableProyecto.getColumnModel().getColumn(14).setPreferredWidth(10);
+            jTableProyecto.getColumnModel().getColumn(12).setPreferredWidth(10);
         }
 
         jPanel1.add(jTableEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 1290, 310));
@@ -540,23 +540,34 @@ public class FrmProyecto extends javax.swing.JFrame {
             List<Proyecto> proyectos = proyectoLogic.buscarProyectoPorNombre(nombre);
             modelo = (DefaultTableModel) jTableProyecto.getModel();
             modelo.setRowCount(0);
-            Object[] ob = new Object[15];
+            Object[] ob = new Object[13];
             for (int i = proyectos.size() - 1; i >= 0; i--) {
                 ob[0] = proyectos.get(i).getId();
                 ob[1] = proyectos.get(i).getTitulo();
-                ob[2] = proyectos.get(i).getIngresante1().getNombre();
-                ob[3] = proyectos.get(i).getIngresante2().getNombre();
-                ob[4] = proyectos.get(i).getIngresante3().getNombre();
-                ob[5] = proyectos.get(i).getAsesora();
-                ob[6] = proyectos.get(i).getJurado();
-                ob[7] = proyectos.get(i).getRes_designacion();
-                ob[8] = proyectos.get(i).getRes_ejecucion();
-                ob[9] = proyectos.get(i).getRes_cambioJurado();
-                ob[10] = proyectos.get(i).getRes_sustentacion();
-                ob[11] = proyectos.get(i).getRes_cambioTitulo();
-                ob[12] = proyectos.get(i).getEspecialidad().getNombre();
-                ob[13] = proyectos.get(i).getOtros();
-                ob[14] = proyectos.get(i).getEs_proyecto();
+                String ingresantes = "";
+                if (proyectos.get(i).getIngresante1().getNombre() != null) {
+                    ingresantes += proyectos.get(i).getIngresante1().getNombre() + "; ";
+                }
+                if (proyectos.get(i).getIngresante2().getNombre() != null) {
+                    ingresantes += proyectos.get(i).getIngresante2().getNombre() + "; ";
+                }
+                if (proyectos.get(i).getIngresante3().getNombre() != null) {
+                    ingresantes += proyectos.get(i).getIngresante3().getNombre();
+                }
+                if (!ingresantes.isEmpty() && ingresantes.endsWith("; ")) {
+                    ingresantes = ingresantes.substring(0, ingresantes.length() - 2);
+                }
+                ob[2] = ingresantes;
+                ob[3] = proyectos.get(i).getAsesora();
+                ob[4] = proyectos.get(i).getJurado();
+                ob[5] = proyectos.get(i).getRes_designacion();
+                ob[6] = proyectos.get(i).getRes_ejecucion();
+                ob[7] = proyectos.get(i).getRes_cambioJurado();
+                ob[8] = proyectos.get(i).getRes_sustentacion();
+                ob[9] = proyectos.get(i).getRes_cambioTitulo();
+                ob[10] = proyectos.get(i).getEspecialidad().getNombre();
+                ob[11] = proyectos.get(i).getOtros();
+                ob[12] = proyectos.get(i).getEs_proyecto();
                 modelo.addRow(ob);
             }
         } else {
@@ -649,23 +660,34 @@ public class FrmProyecto extends javax.swing.JFrame {
         List<Proyecto> proyectos = proyectoLogic.listaProyectos();
         modelo = (DefaultTableModel) jTableProyecto.getModel();
         modelo.setRowCount(0);
-        Object[] ob = new Object[15];
+        Object[] ob = new Object[13];
         for (int i = proyectos.size() - 1; i >= 0; i--) {
             ob[0] = proyectos.get(i).getId();
             ob[1] = proyectos.get(i).getTitulo();
-            ob[2] = proyectos.get(i).getIngresante1().getNombre();
-            ob[3] = proyectos.get(i).getIngresante2().getNombre();
-            ob[4] = proyectos.get(i).getIngresante3().getNombre();
-            ob[5] = proyectos.get(i).getAsesora();
-            ob[6] = proyectos.get(i).getJurado();
-            ob[7] = proyectos.get(i).getRes_designacion();
-            ob[8] = proyectos.get(i).getRes_ejecucion();
-            ob[9] = proyectos.get(i).getRes_cambioJurado();
-            ob[10] = proyectos.get(i).getRes_sustentacion();
-            ob[11] = proyectos.get(i).getRes_cambioTitulo();
-            ob[12] = proyectos.get(i).getEspecialidad().getNombre();
-            ob[13] = proyectos.get(i).getOtros();
-            ob[14] = proyectos.get(i).getEs_proyecto();
+            String ingresantes = "";
+            if (proyectos.get(i).getIngresante1().getNombre() != null) {
+                ingresantes += proyectos.get(i).getIngresante1().getNombre() + "; ";
+            }
+            if (proyectos.get(i).getIngresante2().getNombre() != null) {
+                ingresantes += proyectos.get(i).getIngresante2().getNombre() + "; ";
+            }
+            if (proyectos.get(i).getIngresante3().getNombre() != null) {
+                ingresantes += proyectos.get(i).getIngresante3().getNombre();
+            }
+            if (!ingresantes.isEmpty() && ingresantes.endsWith("; ")) {
+                ingresantes = ingresantes.substring(0, ingresantes.length() - 2);
+            }
+            ob[2] = ingresantes;
+            ob[3] = proyectos.get(i).getAsesora();
+            ob[4] = proyectos.get(i).getJurado();
+            ob[5] = proyectos.get(i).getRes_designacion();
+            ob[6] = proyectos.get(i).getRes_ejecucion();
+            ob[7] = proyectos.get(i).getRes_cambioJurado();
+            ob[8] = proyectos.get(i).getRes_sustentacion();
+            ob[9] = proyectos.get(i).getRes_cambioTitulo();
+            ob[10] = proyectos.get(i).getEspecialidad().getNombre();
+            ob[11] = proyectos.get(i).getOtros();
+            ob[12] = proyectos.get(i).getEs_proyecto();
             modelo.addRow(ob);
         }
         jTableProyecto.setModel(modelo);

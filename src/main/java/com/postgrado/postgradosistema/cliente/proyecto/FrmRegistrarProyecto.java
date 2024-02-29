@@ -11,6 +11,7 @@ import com.postgrado.postgradosistema.logic.ProyectoLogic;
 import com.postgrado.postgradosistema.modelo.Especialidad;
 import com.postgrado.postgradosistema.modelo.Ingresante;
 import com.postgrado.postgradosistema.modelo.Proyecto;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import java.util.List;
@@ -360,13 +361,19 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
             IngresanteLogic ingresanteLogic = new IngresanteLogic();
             List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(nombreEspecialidad);
             List<Ingresante> ingresantes1 = ingresanteLogic.buscaringresantePorNombre(nombreingresante1);
-            List<Ingresante> ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreingresante2);
-            List<Ingresante> ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreingresante3);
+            List<Ingresante> ingresantes2 = new ArrayList<>();
+            List<Ingresante> ingresantes3 = new ArrayList<>();
+            if (nombreingresante2 != null && !nombreingresante2.isEmpty()) {
+                ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreingresante2);
+            }
+            if (nombreingresante3 != null && !nombreingresante3.isEmpty()) {
+                ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreingresante3);
+            }
             if (!especialidades.isEmpty()) {
                 Especialidad especialidadSeleccionda = especialidades.get(0);
                 Ingresante ingresante1Seleccionda = ingresantes1.get(0);
-                Ingresante ingresante2Seleccionda = ingresantes2.get(0);
-                Ingresante ingresante3Seleccionda = ingresantes3.get(0);
+                Ingresante ingresante2Seleccionda = (!ingresantes2.isEmpty()) ? ingresantes2.get(0) : null;
+                Ingresante ingresante3Seleccionda = (!ingresantes3.isEmpty()) ? ingresantes3.get(0) : null;
 
                 Proyecto proyecto = new Proyecto();
                 proyecto.setTitulo(titulo);
