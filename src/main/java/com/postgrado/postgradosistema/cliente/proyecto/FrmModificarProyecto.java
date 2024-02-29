@@ -62,7 +62,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jtxtResCambioJuradoProyecto = new javax.swing.JTextField();
         PROYECTO = new javax.swing.JLabel();
-        jtxtalumnoproyecto3 = new javax.swing.JTextField();
+        jtxtingresante3 = new javax.swing.JTextField();
         jcomboboxalumno3 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -75,8 +75,8 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtxtOtrosProyecto = new javax.swing.JTextArea();
         jtxtEspecialidadProyecto1 = new javax.swing.JTextField();
-        jtxalumnoproyecto1 = new javax.swing.JTextField();
-        jtxtalumnoproyecto2 = new javax.swing.JTextField();
+        jtxingresante1 = new javax.swing.JTextField();
+        jtxtingresante2 = new javax.swing.JTextField();
         jcomboboxEspecilidadProyecto1 = new javax.swing.JComboBox<>();
         jcomboboxalumno1 = new javax.swing.JComboBox<>();
         jcomboboxalumno2 = new javax.swing.JComboBox<>();
@@ -164,12 +164,12 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         PROYECTO.setText("RES. -CAMBIOTITULO");
         jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 510, -1, -1));
 
-        jtxtalumnoproyecto3.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxtingresante3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtalumnoproyecto3KeyReleased(evt);
+                jtxtingresante3KeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtalumnoproyecto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 400, 40));
+        jPanel2.add(jtxtingresante3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 400, 40));
 
         jcomboboxalumno3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,19 +221,19 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         });
         jPanel2.add(jtxtEspecialidadProyecto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 400, 40));
 
-        jtxalumnoproyecto1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxingresante1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxalumnoproyecto1KeyReleased(evt);
+                jtxingresante1KeyReleased(evt);
             }
         });
-        jPanel2.add(jtxalumnoproyecto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 400, 40));
+        jPanel2.add(jtxingresante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 400, 40));
 
-        jtxtalumnoproyecto2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jtxtingresante2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtxtalumnoproyecto2KeyReleased(evt);
+                jtxtingresante2KeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtalumnoproyecto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 400, 40));
+        jPanel2.add(jtxtingresante2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 400, 40));
 
         jcomboboxEspecilidadProyecto1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,11 +261,11 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel14.setText("ALUMNO - 01 *");
+        jLabel14.setText("AUTOR- 01 *");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 253, -1, 20));
 
         jLabel15.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel15.setText("ALUMNO - 02 ");
+        jLabel15.setText("AUTOR - 02 ");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1330, 760));
@@ -417,8 +417,8 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jbtnModificarProyectoActionPerformed
 
-    private void jtxtalumnoproyecto3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtalumnoproyecto3KeyReleased
-        String ingresante_nombre = jtxtalumnoproyecto3.getText().trim();
+    private void jtxtingresante3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtingresante3KeyReleased
+        String ingresante_nombre = jtxtingresante3.getText().trim();
 
         if (!ingresante_nombre.isEmpty()) {
             List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante_nombre);
@@ -430,7 +430,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         } else {
             jcomboboxalumno3.setModel(new DefaultComboBoxModel<>());
         }
-    }//GEN-LAST:event_jtxtalumnoproyecto3KeyReleased
+    }//GEN-LAST:event_jtxtingresante3KeyReleased
 
     private void jtxtResCambioTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtResCambioTituloActionPerformed
         // TODO add your handling code here:
@@ -439,7 +439,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     private void jtxtEspecialidadProyecto1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtEspecialidadProyecto1KeyReleased
         // TODO add your handling code here:
 
-        String especialidad_nombre = jtxtalumnoproyecto3.getText().trim();
+        String especialidad_nombre = jtxtEspecialidadProyecto1.getText().trim();
 
         if (!especialidad_nombre.isEmpty()) {
             List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(especialidad_nombre);
@@ -447,16 +447,16 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
             for (Especialidad especialidad : especialidades) {
                 model.addElement(especialidad.getNombre());
             }
-            jcomboboxalumno3.setModel(model);
+            jcomboboxEspecilidadProyecto1.setModel(model);
         } else {
-            jcomboboxalumno3.setModel(new DefaultComboBoxModel<>());
+            jcomboboxEspecilidadProyecto1.setModel(new DefaultComboBoxModel<>());
         }
     }//GEN-LAST:event_jtxtEspecialidadProyecto1KeyReleased
 
-    private void jtxalumnoproyecto1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxalumnoproyecto1KeyReleased
+    private void jtxingresante1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxingresante1KeyReleased
         // TODO add your handling code here:
 
-        String ingresante_nombre = jtxalumnoproyecto1.getText().trim();
+        String ingresante_nombre = jtxingresante1.getText().trim();
 
         if (!ingresante_nombre.isEmpty()) {
             List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante_nombre);
@@ -468,11 +468,11 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         } else {
             jcomboboxalumno1.setModel(new DefaultComboBoxModel<>());
         }
-    }//GEN-LAST:event_jtxalumnoproyecto1KeyReleased
+    }//GEN-LAST:event_jtxingresante1KeyReleased
 
-    private void jtxtalumnoproyecto2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtalumnoproyecto2KeyReleased
+    private void jtxtingresante2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtingresante2KeyReleased
         // TODO add your handling code here:
-        String ingresante_nombre = jtxtalumnoproyecto2.getText().trim();
+        String ingresante_nombre = jtxtingresante2.getText().trim();
 
         if (!ingresante_nombre.isEmpty()) {
             List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(ingresante_nombre);
@@ -486,7 +486,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         }
 
 
-    }//GEN-LAST:event_jtxtalumnoproyecto2KeyReleased
+    }//GEN-LAST:event_jtxtingresante2KeyReleased
 
     private void jcomboboxEspecilidadProyecto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxEspecilidadProyecto1ActionPerformed
         // TODO add your handling code here:
@@ -542,9 +542,13 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         });
     }
 
-    public void setDatos(int id, String titulo, String nombre_ingresante1, String nombre_ingresante2 , String nombre_ingresante3,  String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String nombre_Especialidad, String otro) {
+    public void setDatos(int id, String titulo, String nombre_estudiante1, String nombre_estudiante2, String nombre_estudiante3, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String nombre_Especialidad, String otro) {
         jtxtIdProyecto.setText(String.valueOf(id));
         jtxtTituloProyecto.setText(titulo);
+        jtxingresante1.setText(nombre_estudiante1);
+        jtxtingresante2.setText(nombre_estudiante2);
+        jtxtingresante3.setText(nombre_estudiante3);
+        jtxtEspecialidadProyecto1.setText(nombre_Especialidad);
         jtxtAsesoraProyecto.setText(asesora);
         jtxtJuradoProyecto.setText(jurado);
         jtxtResDesignacionProyecto.setText(res_designacion);
@@ -553,10 +557,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
         jtxtResCambioTitulo.setText(res_cambioTitulo);
         jtxtResSustentacion.setText(res_sustentacion);
         jtxtOtrosProyecto.setText(otro);
-        jtxtEspecialidadProyecto1.setText(nombre_Especialidad);
-        jtxalumnoproyecto1.setText(nombre_ingresante1);
-        jtxtalumnoproyecto2.setText(nombre_ingresante2);
-        jtxtalumnoproyecto3.setText(nombre_ingresante3);
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -588,7 +589,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> jcomboboxalumno1;
     private javax.swing.JComboBox<String> jcomboboxalumno2;
     private javax.swing.JComboBox<String> jcomboboxalumno3;
-    private javax.swing.JTextField jtxalumnoproyecto1;
+    private javax.swing.JTextField jtxingresante1;
     private javax.swing.JTextField jtxtAsesoraProyecto;
     private javax.swing.JTextField jtxtEspecialidadProyecto1;
     private javax.swing.JTextField jtxtIdProyecto;
@@ -600,7 +601,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
     private javax.swing.JTextField jtxtResEjecucionProyecto;
     private javax.swing.JTextField jtxtResSustentacion;
     private javax.swing.JTextField jtxtTituloProyecto;
-    private javax.swing.JTextField jtxtalumnoproyecto2;
-    private javax.swing.JTextField jtxtalumnoproyecto3;
+    private javax.swing.JTextField jtxtingresante2;
+    private javax.swing.JTextField jtxtingresante3;
     // End of variables declaration//GEN-END:variables
 }

@@ -421,10 +421,10 @@ public class FrmProyecto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un Proyecto inactiva");
             } else {
                 int id = Integer.parseInt(jTableProyecto.getValueAt(filaSeleccionada, 0).toString());
-                String nombre_ingresante1 = jTableProyecto.getValueAt(filaSeleccionada, 1).toString();
-                String nombre_ingresante2 = jTableProyecto.getValueAt(filaSeleccionada, 2).toString();
-                String nombre_ingresante3 = jTableProyecto.getValueAt(filaSeleccionada, 3).toString();
-                String titulo = jTableProyecto.getValueAt(filaSeleccionada, 4).toString();
+                String titulo = jTableProyecto.getValueAt(filaSeleccionada, 1).toString();
+                String nombre_ingresante1 = jTableProyecto.getValueAt(filaSeleccionada, 2).toString();
+                String nombre_ingresante2 = jTableProyecto.getValueAt(filaSeleccionada, 3).toString();
+                String nombre_ingresante3 = jTableProyecto.getValueAt(filaSeleccionada, 4).toString();
                 String asesora = jTableProyecto.getValueAt(filaSeleccionada, 5).toString();
                 String jurado = jTableProyecto.getValueAt(filaSeleccionada, 6).toString();
                 String res_designacion = jTableProyecto.getValueAt(filaSeleccionada, 7).toString();

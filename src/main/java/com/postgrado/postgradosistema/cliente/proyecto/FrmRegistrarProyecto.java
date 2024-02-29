@@ -106,7 +106,7 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel3.setText("ALUMNO - 03*");
+        jLabel3.setText("AUTOR - 03");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 109, -1));
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
@@ -215,11 +215,11 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jPanel2.add(jtxtBuscarIngresant2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 410, 30));
 
         jLabel13.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel13.setText("ALUMNO - 01*");
+        jLabel13.setText("AUTOR - 01*");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 109, -1));
 
         jLabel14.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel14.setText("ALUMNO - 02*");
+        jLabel14.setText("AUTOR - 02");
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 109, -1));
 
         jcomboboxEspecilidad.addActionListener(new java.awt.event.ActionListener() {
