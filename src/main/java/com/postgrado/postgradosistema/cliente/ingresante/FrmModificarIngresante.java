@@ -16,6 +16,7 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmModificarIngresante extends javax.swing.JDialog {
+    int idIngresanteModificar;
     CicloLogic cicloLogic = new CicloLogic();
     EspecialidadLogic especialidadLogic = new EspecialidadLogic();
     SedeLogic sedeLogic = new SedeLogic();
@@ -46,13 +47,11 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jtxtNombreIngresante = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtxtCodigoIngresante = new javax.swing.JTextField();
-        jtxtIdIngresante = new javax.swing.JTextField();
         jtxtDniIngresante = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jcomboboxCicloIngresante = new javax.swing.JComboBox<>();
@@ -104,63 +103,55 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jLabel1.setText("MODIFICAR ESTUDIANTE");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
-        jLabel2.setText("ID");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-
         jLabel3.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel3.setText("DNI *");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel4.setText("NOMBRE *");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
-        jPanel2.add(jtxtNombreIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 290, 40));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jtxtNombreIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 290, 40));
 
         jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel5.setText("CODIGO *");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
-        jPanel2.add(jtxtCodigoIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 290, 40));
-
-        jtxtIdIngresante.setEditable(false);
-        jtxtIdIngresante.setEnabled(false);
-        jPanel2.add(jtxtIdIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 130, 30));
-        jPanel2.add(jtxtDniIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 206, 290, 38));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        jPanel2.add(jtxtCodigoIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 290, 40));
+        jPanel2.add(jtxtDniIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 290, 38));
 
         jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel6.setText("CICLO *");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, -1, -1));
 
-        jPanel2.add(jcomboboxCicloIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 430, 38));
+        jPanel2.add(jcomboboxCicloIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 130, 430, 38));
 
         jtxtBuscarCiclo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtxtBuscarCicloKeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtBuscarCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 200, 182, 38));
+        jPanel2.add(jtxtBuscarCiclo, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 182, 38));
 
         jLabel7.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel7.setText("SEDE *");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, -1, -1));
 
         jtxtBuscarSede.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtxtBuscarSedeKeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtBuscarSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, 182, 38));
+        jPanel2.add(jtxtBuscarSede, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 182, 38));
 
         jcomboboxSedeIngresante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcomboboxSedeIngresanteActionPerformed(evt);
             }
         });
-        jPanel2.add(jcomboboxSedeIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 430, 38));
+        jPanel2.add(jcomboboxSedeIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 270, 430, 38));
 
         jLabel8.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel8.setText("ESPECIALIDAD *");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
 
         jtxtBuscarEspecailidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -172,14 +163,14 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
                 jtxtBuscarEspecailidadKeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtBuscarEspecailidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, 182, 40));
+        jPanel2.add(jtxtBuscarEspecailidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 182, 40));
 
-        jPanel2.add(jcomboboxEspecialidadIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 260, 430, 40));
+        jPanel2.add(jcomboboxEspecialidadIngresante, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 430, 40));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar02.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, -1, -1));
 
-        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1220, 460));
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1220, 380));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -217,14 +208,14 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnModificarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnSalirModificarIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                .addGap(30, 30, 30))
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 1220, 110));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 1220, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,7 +225,9 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 617, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -259,7 +252,8 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
     }//GEN-LAST:event_jPanel3MousePressed
 
     private void jbtnModificarIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarIngresanteActionPerformed
-        String idTxt = jtxtIdIngresante.getText();
+        //String idTxt = jtxtIdIngresante.getText();
+        int id=idIngresanteModificar;
         String dni = jtxtDniIngresante.getText();
         String nombre = jtxtNombreIngresante.getText();
         String codigo = jtxtCodigoIngresante.getText();
@@ -283,7 +277,7 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, "Error al modificar, verifique que ciclo, especialidad, sede y proyecto no estén vacíos");
                 return;
             }
-            int id = Integer.parseInt(idTxt);
+            //int id = Integer.parseInt(idTxt);
             Ingresante ingresante = new Ingresante();
             ingresante.setId(id);
             ingresante.setDni(dni);
@@ -395,7 +389,6 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -417,12 +410,12 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
     private javax.swing.JTextField jtxtBuscarSede;
     private javax.swing.JTextField jtxtCodigoIngresante;
     private javax.swing.JTextField jtxtDniIngresante;
-    private javax.swing.JTextField jtxtIdIngresante;
     private javax.swing.JTextField jtxtNombreIngresante;
     // End of variables declaration//GEN-END:variables
 
-    void setDatos(int id, String dni, String nombre, String codigoUni, String ciclo, String especialidad, String sede) {
-        jtxtIdIngresante.setText(String.valueOf(id));
+    void setDatos(int idIng, String dni, String nombre, String codigoUni, String ciclo, String especialidad, String sede) {
+       // jtxtIdIngresante.setText(String.valueOf(id));
+        idIngresanteModificar=idIng;
         jtxtDniIngresante.setText(dni);
         jtxtNombreIngresante.setText(nombre);
         jtxtCodigoIngresante.setText(codigoUni);

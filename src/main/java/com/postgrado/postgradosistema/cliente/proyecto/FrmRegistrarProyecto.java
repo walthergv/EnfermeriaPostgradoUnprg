@@ -112,31 +112,31 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel4.setText("ASESOR(A)*");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 620, 109, -1));
-        jPanel2.add(jtxtAsesoraProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 630, 410, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, 109, -1));
+        jPanel2.add(jtxtAsesoraProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 480, 410, 30));
 
         jLabel5.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel5.setText("JURADO *");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 160, 109, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 109, -1));
 
         jLabel6.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel6.setText("RES. - DESIGNACIÓN *");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, -1, -1));
-        jPanel2.add(jtxtBuscarResDesignacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, 410, 30));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, -1, -1));
+        jPanel2.add(jtxtBuscarResDesignacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 190, 410, 30));
 
         jLabel7.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel7.setText("RES. - EJECUCIÓN");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 330, -1, -1));
-        jPanel2.add(jtxtResEjecucionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 320, 410, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, -1, -1));
+        jPanel2.add(jtxtResEjecucionProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 240, 410, 30));
 
         jLabel8.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel8.setText("RES. - CAMBIOJURADO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
-        jPanel2.add(jtxtResCambioJuradoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 380, 410, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, -1, -1));
+        jPanel2.add(jtxtResCambioJuradoProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 310, 410, 30));
 
         PROYECTO.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         PROYECTO.setText("RES. - CAMBIOTITULO");
-        jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, -1));
+        jPanel2.add(PROYECTO, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
 
         jtxtBuscarIngresan3.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -145,7 +145,7 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         });
         jPanel2.add(jtxtBuscarIngresan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 410, 30));
 
-        jPanel2.add(jcomboboxIngresant2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 410, 30));
+        jPanel2.add(jcomboboxIngresant2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 410, 30));
 
         jLabel9.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel9.setText("ESPECIALIDAD*");
@@ -153,13 +153,13 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
 
         jLabel10.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel10.setText("RES. - SUSTENTACIÓN");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, -1, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel11.setText("OTROS");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, -1, -1));
-        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 440, 410, 30));
-        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, 410, 30));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, -1, -1));
+        jPanel2.add(jtxtResCambioTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 360, 410, 30));
+        jPanel2.add(jtxtResSustentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 430, 410, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar02.png"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
@@ -169,21 +169,21 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jtxtTituloProyecto.setRows(5);
         jScrollPane1.setViewportView(jtxtTituloProyecto);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 410, 80));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 410, 40));
 
         jtxtJuradoProyecto.setColumns(20);
         jtxtJuradoProyecto.setLineWrap(true);
         jtxtJuradoProyecto.setRows(5);
         jScrollPane2.setViewportView(jtxtJuradoProyecto);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 120, 410, 90));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 120, 410, 40));
 
         jtxtOtrosProyecto.setColumns(20);
         jtxtOtrosProyecto.setLineWrap(true);
         jtxtOtrosProyecto.setRows(5);
         jScrollPane3.setViewportView(jtxtOtrosProyecto);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 560, 410, -1));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 530, 410, -1));
 
         jLabel12.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel12.setText("TITULO *");
@@ -199,40 +199,40 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
                 jtxtBuscarEspecialidadKeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtBuscarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, 410, 30));
+        jPanel2.add(jtxtBuscarEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 530, 410, 30));
 
         jtxtBuscarIngresante1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtxtBuscarIngresante1KeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtBuscarIngresante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 410, 30));
+        jPanel2.add(jtxtBuscarIngresante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 410, 30));
 
         jtxtBuscarIngresant2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtxtBuscarIngresant2KeyReleased(evt);
             }
         });
-        jPanel2.add(jtxtBuscarIngresant2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 410, 30));
+        jPanel2.add(jtxtBuscarIngresant2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 410, 30));
 
         jLabel13.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel13.setText("AUTOR - 01*");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 109, -1));
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 109, -1));
 
         jLabel14.setFont(new java.awt.Font("Sitka Display", 0, 18)); // NOI18N
         jLabel14.setText("AUTOR - 02");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 109, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 109, -1));
 
         jcomboboxEspecilidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcomboboxEspecilidadActionPerformed(evt);
             }
         });
-        jPanel2.add(jcomboboxEspecilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 580, 410, 30));
+        jPanel2.add(jcomboboxEspecilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 410, 30));
 
         jPanel2.add(jcomboboxIngresan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 410, 30));
 
-        jPanel2.add(jcomboboxIngresante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 410, 30));
+        jPanel2.add(jcomboboxIngresante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 410, 30));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -259,7 +259,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 652, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
@@ -291,18 +292,18 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbtnRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(182, 182, 182)
+                .addGap(110, 110, 110)
                 .addComponent(jbtnSalirRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(282, 282, 282))
+                .addGap(425, 425, 425))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(10, 10, 10)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnSalirRegistrarProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -315,9 +316,9 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
