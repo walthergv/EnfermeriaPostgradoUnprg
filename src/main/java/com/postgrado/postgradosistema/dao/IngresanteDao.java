@@ -91,7 +91,8 @@ public class IngresanteDao {
                 "  ingresante\n" +
                 "  INNER JOIN ciclo ON ingresante.ciclo_id = ciclo.id\n" +
                 "  INNER JOIN especialidad ON ingresante.especialidad_id = especialidad.id\n" +
-                "  INNER JOIN sede ON ingresante.sede_id = sede.id;" ;
+                "  INNER JOIN sede ON ingresante.sede_id = sede.id"+
+                "  ORDER BY ingresante.id DESC ;";
         try {
             cntn = cnxn.getConnection();
             ps = cntn.prepareStatement(sql);

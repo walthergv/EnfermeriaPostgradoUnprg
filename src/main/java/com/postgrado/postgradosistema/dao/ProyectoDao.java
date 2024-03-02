@@ -134,7 +134,8 @@ public class ProyectoDao {
                 + " INNER JOIN especialidad ON proyecto.especialidad_id = especialidad.id"
                 + " LEFT JOIN ingresante ingresante1 ON proyecto.id_student = ingresante1.id"
                 + " LEFT JOIN ingresante ingresante2 ON proyecto.id_student2 = ingresante2.id"
-                + " LEFT JOIN ingresante ingresante3 ON proyecto.id_student3 = ingresante3.id";
+                + " LEFT JOIN ingresante ingresante3 ON proyecto.id_student3 = ingresante3.id"
+                + " ORDER BY proyecto.id DESC ;";
 
         try {
             cntn = cnxn.getConnection();
