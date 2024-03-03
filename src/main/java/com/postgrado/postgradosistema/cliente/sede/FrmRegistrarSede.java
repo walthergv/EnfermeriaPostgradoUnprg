@@ -14,6 +14,7 @@ import javax.swing.*;
  * @author ESTUDIANTE
  */
 public class FrmRegistrarSede extends javax.swing.JDialog {
+
     int xMouse, yMouse;
 
     /**
@@ -48,6 +49,11 @@ public class FrmRegistrarSede extends javax.swing.JDialog {
         jbtnSalirRegistrarSede = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -181,8 +187,9 @@ public class FrmRegistrarSede extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSalirRegistrarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirRegistrarSedeActionPerformed
-
         this.dispose();
+        FrmSede s = new FrmSede();
+        s.setVisible(true);
     }//GEN-LAST:event_jbtnSalirRegistrarSedeActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -207,6 +214,9 @@ public class FrmRegistrarSede extends javax.swing.JDialog {
             if (sedeLogic.registrarSede(sede)) {
                 JOptionPane.showMessageDialog(null, "Sede registrada correctamente");
                 jtxtNombreSede.setText("");
+                this.setVisible(false);
+                FrmSede s = new FrmSede();
+                s.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al registrar sede");
             }
@@ -214,6 +224,12 @@ public class FrmRegistrarSede extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Ingrese el nombre de la sede");
         }
     }//GEN-LAST:event_jbtnRegistrarSedeActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmSede s = new FrmSede();
+        s.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

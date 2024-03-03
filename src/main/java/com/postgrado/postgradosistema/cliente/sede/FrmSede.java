@@ -62,7 +62,6 @@ public class FrmSede extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jtxtBuscarPorNombreSede = new javax.swing.JTextField();
-        jbtnMostrarTablaSede = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -121,15 +120,6 @@ public class FrmSede extends javax.swing.JFrame {
             }
         });
 
-        jbtnMostrarTablaSede.setBackground(new java.awt.Color(204, 204, 204));
-        jbtnMostrarTablaSede.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jbtnMostrarTablaSede.setText("Mostrar");
-        jbtnMostrarTablaSede.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnMostrarTablaSedeActionPerformed(evt);
-            }
-        });
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sede.png"))); // NOI18N
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
@@ -139,28 +129,23 @@ public class FrmSede extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addComponent(jLabel3)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(66, 66, 66)
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel1))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jtxtBuscarPorNombreSede, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2))))
+                                .addGap(27, 27, 27)
+                                .addComponent(jtxtBuscarPorNombreSede, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(jbtnMostrarTablaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -181,16 +166,13 @@ public class FrmSede extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtxtBuscarPorNombreSede, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
-                .addComponent(jbtnMostrarTablaSede, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 530, 510));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jbtnRegistrarSede.setBackground(new java.awt.Color(255, 255, 255));
         jbtnRegistrarSede.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         jbtnRegistrarSede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registrar.png"))); // NOI18N
         jbtnRegistrarSede.setText("Registrar");
@@ -205,9 +187,9 @@ public class FrmSede extends javax.swing.JFrame {
         jbtnModificarSede.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar.png"))); // NOI18N
         jbtnModificarSede.setText("Modificar");
         jbtnModificarSede.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jbtnModificarSedeAncestorRemoved(evt);
@@ -383,6 +365,7 @@ public class FrmSede extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnRegistrarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarSedeActionPerformed
+        this.setVisible(false);
         FrmRegistrarSede regissede = new FrmRegistrarSede(this, true);
         regissede.setVisible(true);
         // TODO add your handling code here:
@@ -394,6 +377,7 @@ public class FrmSede extends javax.swing.JFrame {
             if (jTableSede.getValueAt(filaSeleccionada, 2).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un área inactiva");
             } else {
+                this.setVisible(false);
                 String id = jTableSede.getValueAt(filaSeleccionada, 0).toString();
                 String nombre = jTableSede.getValueAt(filaSeleccionada, 1).toString();
                 Sede sede = new Sede();
@@ -461,10 +445,6 @@ public class FrmSede extends javax.swing.JFrame {
         i.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemIngresanteActionPerformed
 
-    private void jbtnMostrarTablaSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarTablaSedeActionPerformed
-        listarTablaSede();
-    }//GEN-LAST:event_jbtnMostrarTablaSedeActionPerformed
-
     private void jbtnModificarSedeAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jbtnModificarSedeAncestorRemoved
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtnModificarSedeAncestorRemoved
@@ -483,6 +463,7 @@ public class FrmSede extends javax.swing.JFrame {
 
                     if (sedeLogic.eliminarSede(sede)) {
                         JOptionPane.showMessageDialog(null, "Sede eliminada");
+                          listarTablaSede();
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al eliminar sede");
                     }
@@ -603,7 +584,6 @@ public class FrmSede extends javax.swing.JFrame {
     private javax.swing.JButton jbtnEliminarSede;
     private javax.swing.JButton jbtnMenu;
     private javax.swing.JButton jbtnModificarSede;
-    private javax.swing.JButton jbtnMostrarTablaSede;
     private javax.swing.JButton jbtnRegistrarSede;
     private javax.swing.JTextField jtxtBuscarPorNombreSede;
     // End of variables declaration//GEN-END:variables

@@ -16,6 +16,7 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmRegistrarIngresante extends javax.swing.JDialog {
+
     CicloLogic cicloLogic = new CicloLogic();
     SedeLogic sedeLogic = new SedeLogic();
     EspecialidadLogic especialidadLogic = new EspecialidadLogic();
@@ -67,6 +68,11 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         jbtnSalirRegistrarIngresante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -234,8 +240,9 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSalirRegistrarIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirRegistrarIngresanteActionPerformed
-
         this.dispose();
+        FrmIngresante i = new FrmIngresante();
+        i.setVisible(true);
     }//GEN-LAST:event_jbtnSalirRegistrarIngresanteActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -259,7 +266,7 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
         String nombreEspecialidad = (String) jcomboboxEspecialidad.getSelectedItem();
         String nombreSede = (String) jcomboboxSede.getSelectedItem();
 
-        if (!nombre.isEmpty() && !codigo.isEmpty() && !nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty() ) {
+        if (!nombre.isEmpty() && !codigo.isEmpty() && !nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty()) {
             CicloLogic cicloLogic = new CicloLogic();
             List<Ciclo> ciclos = cicloLogic.buscarCicloPorNombre(nombreCiclo);
 
@@ -269,13 +276,10 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
             SedeLogic sedeLogic = new SedeLogic();
             List<Sede> sedes = sedeLogic.buscarSedePorNombre(nombreSede);
 
-
-
-            if (!nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty() ) {
+            if (!nombreCiclo.isEmpty() && !nombreEspecialidad.isEmpty() && !nombreSede.isEmpty()) {
                 Ciclo cicloSeleccionado = ciclos.get(0);
                 Especialidad especialidadSeleccionada = especialidades.get(0);
                 Sede sedeSeleccionada = sedes.get(0);
-
 
                 Ingresante ingresante = new Ingresante();
                 ingresante.setDni(dni);
@@ -284,7 +288,6 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
                 ingresante.setCiclo(cicloSeleccionado);
                 ingresante.setEspecialidad(especialidadSeleccionada);
                 ingresante.setSede(sedeSeleccionada);
-
 
                 IngresanteLogic ingresanteLogic = new IngresanteLogic();
                 if (ingresanteLogic.registrarIngresante(ingresante)) {
@@ -295,7 +298,9 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
                     jcomboboxCiclo.setSelectedIndex(-1);
                     jcomboboxEspecialidad.setSelectedIndex(-1);
                     jcomboboxSede.setSelectedIndex(-1);
-
+                    this.setVisible(false);
+                    FrmIngresante i = new FrmIngresante();
+                    i.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error al registrar ingresante");
                 }
@@ -353,6 +358,12 @@ public class FrmRegistrarIngresante extends javax.swing.JDialog {
     private void jtxtNombreIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtNombreIngresanteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtNombreIngresanteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmIngresante i = new FrmIngresante();
+        i.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

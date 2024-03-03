@@ -15,13 +15,17 @@ import javax.swing.*;
  * @author ESTUDIANTE
  */
 public class FrmModificarUsuario extends javax.swing.JDialog {
+
     int xMouse, yMouse;
+
     /**
      * Creates new form FrmModificarUsuario
      */
     public FrmModificarUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
+         setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
     }
 
     /**
@@ -51,6 +55,11 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
         jbtnSalirModificarUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -181,7 +190,7 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
         String dni = jtxtDniUsuario.getText();
         String nombre = jtxtNombreUsuario.getText();
         String contraseña = jtxtPasswordUsuario.getText();
-        String rol= (String)jComboRolMod.getSelectedItem();
+        String rol = (String) jComboRolMod.getSelectedItem();
         if (!dni.isEmpty() && !nombre.isEmpty() && !contraseña.isEmpty() && !rol.isEmpty()) {
             Usuario usuario = new Usuario();
             usuario.setDni(Integer.parseInt(dni));
@@ -194,6 +203,9 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
                 jtxtDniUsuario.setText("");
                 jtxtNombreUsuario.setText("");
                 jtxtPasswordUsuario.setText("");
+                this.setVisible(false);
+                FrmUsuario u = new FrmUsuario();
+                u.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al modificar usuario");
             }
@@ -203,8 +215,9 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
     }//GEN-LAST:event_jbtnModificarUsuarioActionPerformed
 
     private void jbtnSalirModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirModificarUsuarioActionPerformed
-
         this.dispose();
+        FrmUsuario u = new FrmUsuario();
+        u.setVisible(true);
     }//GEN-LAST:event_jbtnSalirModificarUsuarioActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -223,6 +236,12 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
     private void jComboRolModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboRolModActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboRolModActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmUsuario u = new FrmUsuario();
+        u.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -265,8 +284,8 @@ public class FrmModificarUsuario extends javax.swing.JDialog {
             }
         });
     }
-    
-    public void setDatos(String usuario, String nombre_usuario,String pw_usuario, String rol) {
+
+    public void setDatos(String usuario, String nombre_usuario, String pw_usuario, String rol) {
         jtxtDniUsuario.setText(usuario);
         jtxtNombreUsuario.setText(nombre_usuario);
         jtxtPasswordUsuario.setText(pw_usuario);

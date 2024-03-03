@@ -14,6 +14,7 @@ import javax.swing.*;
  * @author ESTUDIANTE
  */
 public class FrmModificarSede extends javax.swing.JDialog {
+
     SedeLogic sedeLogic = new SedeLogic();
     int xMouse, yMouse;
 
@@ -51,6 +52,11 @@ public class FrmModificarSede extends javax.swing.JDialog {
         jbtnSalirModificarSede = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -196,8 +202,9 @@ public class FrmModificarSede extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSalirModificarSedeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirModificarSedeActionPerformed
-
         this.dispose();
+        FrmSede s = new FrmSede();
+        s.setVisible(true);
     }//GEN-LAST:event_jbtnSalirModificarSedeActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -224,6 +231,9 @@ public class FrmModificarSede extends javax.swing.JDialog {
             if (sedeLogic.modificarSede(sede)) {
                 JOptionPane.showMessageDialog(null, "Sede modificada exitosamente");
                 this.dispose();
+                this.setVisible(false);
+                FrmSede s = new FrmSede();
+                s.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al modificar la sede");
             }
@@ -231,6 +241,12 @@ public class FrmModificarSede extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Debe llenar el campo nombre");
         }
     }//GEN-LAST:event_jbtnModificarSedeActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmSede s = new FrmSede();
+        s.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

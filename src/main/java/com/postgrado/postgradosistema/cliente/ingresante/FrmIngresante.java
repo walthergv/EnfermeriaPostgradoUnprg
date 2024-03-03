@@ -84,7 +84,6 @@ public class FrmIngresante extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jtxtBuscarPorNombreIngresante = new javax.swing.JTextField();
-        jbtnMostrarTablaIngresante = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbtnPdfProyecto = new javax.swing.JButton();
@@ -133,7 +132,7 @@ public class FrmIngresante extends javax.swing.JFrame {
         jLabel1.setText("ESTUDIANTE");
 
         jLabel2.setFont(new java.awt.Font("Sitka Display", 0, 24)); // NOI18N
-        jLabel2.setText("BUSCAR");
+        jLabel2.setText("BUSCAR POR:");
 
         jLabel3.setFont(new java.awt.Font("Perpetua", 0, 24)); // NOI18N
         jLabel3.setText("Nombre");
@@ -141,15 +140,6 @@ public class FrmIngresante extends javax.swing.JFrame {
         jtxtBuscarPorNombreIngresante.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtxtBuscarPorNombreIngresanteKeyReleased(evt);
-            }
-        });
-
-        jbtnMostrarTablaIngresante.setBackground(new java.awt.Color(204, 204, 204));
-        jbtnMostrarTablaIngresante.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jbtnMostrarTablaIngresante.setText("Mostrar");
-        jbtnMostrarTablaIngresante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnMostrarTablaIngresanteActionPerformed(evt);
             }
         });
 
@@ -174,28 +164,25 @@ public class FrmIngresante extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(550, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(516, 516, 516))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 256, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addGap(245, 245, 245))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(31, 31, 31)
-                        .addComponent(jtxtBuscarPorNombreIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
-                        .addComponent(jbtnMostrarTablaIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
-                        .addComponent(jbtnPdfProyecto)
-                        .addGap(38, 38, 38))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jtxtBuscarPorNombreIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jbtnPdfProyecto)
+                .addGap(38, 38, 38))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,12 +197,11 @@ public class FrmIngresante extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxtBuscarPorNombreIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(jbtnMostrarTablaIngresante, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel3))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -419,7 +405,7 @@ public class FrmIngresante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnRegistrarIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarIngresanteActionPerformed
-
+        this.setVisible(false);
         FrmRegistrarIngresante regisingresante = new FrmRegistrarIngresante(this, true);
         regisingresante.setVisible(true);
 
@@ -432,6 +418,7 @@ public class FrmIngresante extends javax.swing.JFrame {
             if (jTableIngresante.getValueAt(filaSeleccionada, 7).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un Estudiante inactivo");
             } else {
+                this.setVisible(false);
                 int id = Integer.parseInt(jTableIngresante.getValueAt(filaSeleccionada, 0).toString());
                 String dni = jTableIngresante.getValueAt(filaSeleccionada, 1).toString();
                 String nombre = jTableIngresante.getValueAt(filaSeleccionada, 2).toString();
@@ -500,10 +487,6 @@ public class FrmIngresante extends javax.swing.JFrame {
         i.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemIngresanteActionPerformed
 
-    private void jbtnMostrarTablaIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarTablaIngresanteActionPerformed
-        listarTablaIngresante();
-    }//GEN-LAST:event_jbtnMostrarTablaIngresanteActionPerformed
-
     private void jtxtBuscarPorNombreIngresanteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarPorNombreIngresanteKeyReleased
         String nombre = jtxtBuscarPorNombreIngresante.getText();
         List<Ingresante> ingresantes = ingresanteLogic.buscaringresantePorNombre(nombre);
@@ -526,7 +509,7 @@ public class FrmIngresante extends javax.swing.JFrame {
     private void jbtnEliminarIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarIngresanteActionPerformed
         int filaSeleccionada = jTableIngresante.getSelectedRow();
         if (filaSeleccionada != -1) {
-            if (jTableIngresante.getValueAt(filaSeleccionada, 8).toString().equals("I")) {
+            if (jTableIngresante.getValueAt(filaSeleccionada, 7).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede eliminar un Estudiante inactivo");
             } else {
                 int id = Integer.parseInt(jTableIngresante.getValueAt(filaSeleccionada, 0).toString());
@@ -537,6 +520,7 @@ public class FrmIngresante extends javax.swing.JFrame {
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     if (ingresanteLogic.eliminarIngresante(ingresante)) {
                         JOptionPane.showMessageDialog(null, "Ingresante eliminado");
+                        listarTablaIngresante();
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al eliminar ingresante");
                     }
@@ -569,7 +553,7 @@ public class FrmIngresante extends javax.swing.JFrame {
             // Crear un JasperViewer personalizado
             JasperViewer viewer = new JasperViewer(jp, false);
             viewer.setDefaultCloseOperation(JasperViewer.DO_NOTHING_ON_CLOSE); // No cerrar al presionar el botón de cierre
-            
+
             viewer.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
@@ -670,7 +654,6 @@ public class FrmIngresante extends javax.swing.JFrame {
     private javax.swing.JButton jbtnEliminarIngresante;
     private javax.swing.JButton jbtnMenu;
     private javax.swing.JButton jbtnModificarIngresante;
-    private javax.swing.JButton jbtnMostrarTablaIngresante;
     private javax.swing.JButton jbtnPdfProyecto;
     private javax.swing.JButton jbtnRegistrarIngresante;
     private javax.swing.JTextField jtxtBuscarPorNombreIngresante;

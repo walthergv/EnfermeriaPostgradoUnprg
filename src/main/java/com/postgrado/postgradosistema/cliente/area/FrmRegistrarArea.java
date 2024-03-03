@@ -14,6 +14,7 @@ import javax.swing.*;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmRegistrarArea extends javax.swing.JDialog {
+
     int xMouse, yMouse;
 
     /**
@@ -48,6 +49,11 @@ public class FrmRegistrarArea extends javax.swing.JDialog {
         jbtnSalirRegistrarArea = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -184,6 +190,8 @@ public class FrmRegistrarArea extends javax.swing.JDialog {
 
     private void jbtnSalirRegistrarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirRegistrarAreaActionPerformed
         this.dispose();
+        FrmArea a = new FrmArea();
+        a.setVisible(true);
     }//GEN-LAST:event_jbtnSalirRegistrarAreaActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -211,6 +219,9 @@ public class FrmRegistrarArea extends javax.swing.JDialog {
             if (areaLogic.registrarArea(area)) {
                 JOptionPane.showMessageDialog(this, "Se inserto correctamente");
                 jtxtNombreArea.setText("");
+                this.setVisible(false);
+                FrmArea a = new FrmArea();
+                a.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Error, no se pudo insertar");
             }
@@ -218,6 +229,12 @@ public class FrmRegistrarArea extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique que no este vacio");
         }
     }//GEN-LAST:event_jbtnRegistrarAreaActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+         this.dispose();
+        FrmArea a = new FrmArea();
+        a.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -17,6 +17,7 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmModificarEspecialidad extends javax.swing.JDialog {
+
     AreaLogic areaLogic = new AreaLogic();
     EspecialidadLogic especialidadLogic = new EspecialidadLogic();
     int xMouse, yMouse;
@@ -58,6 +59,11 @@ public class FrmModificarEspecialidad extends javax.swing.JDialog {
         jbtnSalirModificarEspecialidad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -184,8 +190,9 @@ public class FrmModificarEspecialidad extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSalirModificarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirModificarEspecialidadActionPerformed
-
         this.dispose();
+        FrmEspecialidad e = new FrmEspecialidad();
+        e.setVisible(true);
     }//GEN-LAST:event_jbtnSalirModificarEspecialidadActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -219,6 +226,9 @@ public class FrmModificarEspecialidad extends javax.swing.JDialog {
                     if (especialidadLogic.modificarEspecialidad(especialidad)) {
                         JOptionPane.showMessageDialog(null, "Especialidad modificada correctamente");
                         this.dispose();
+                        this.setVisible(false);
+                        FrmEspecialidad e = new FrmEspecialidad();
+                        e.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(null, "No se puedo modificar especialidad");
                     }
@@ -246,6 +256,12 @@ public class FrmModificarEspecialidad extends javax.swing.JDialog {
             jcomboboxArea.setModel(new DefaultComboBoxModel<>());
         }
     }//GEN-LAST:event_jtxtBuscarAreaKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmEspecialidad e = new FrmEspecialidad();
+        e.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

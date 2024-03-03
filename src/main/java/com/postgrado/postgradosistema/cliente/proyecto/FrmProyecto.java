@@ -73,7 +73,6 @@ public class FrmProyecto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jtxtBuscarPorNombreProyecto = new javax.swing.JTextField();
-        jbtnMostrar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jbtnPdfProyecto = new javax.swing.JButton();
@@ -133,15 +132,6 @@ public class FrmProyecto extends javax.swing.JFrame {
             }
         });
 
-        jbtnMostrar.setBackground(new java.awt.Color(204, 204, 204));
-        jbtnMostrar.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jbtnMostrar.setText("Mostrar");
-        jbtnMostrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnMostrarActionPerformed(evt);
-            }
-        });
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icono-proyecto.png"))); // NOI18N
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
@@ -180,11 +170,9 @@ public class FrmProyecto extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(jtxtBuscarPorNombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(162, 162, 162)
-                        .addComponent(jbtnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151)
+                        .addGap(447, 447, 447)
                         .addComponent(jbtnPdfProyecto)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +190,6 @@ public class FrmProyecto extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtxtBuscarPorNombreProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addContainerGap(48, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -407,6 +394,7 @@ public class FrmProyecto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnRegistrarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarProyectoActionPerformed
+        this.setVisible(false);
         FrmRegistrarProyecto regisproyecto = new FrmRegistrarProyecto(this, true);
         regisproyecto.setVisible(true);
 
@@ -414,12 +402,14 @@ public class FrmProyecto extends javax.swing.JFrame {
     }//GEN-LAST:event_jbtnRegistrarProyectoActionPerformed
 
     private void jbtnModificarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarProyectoActionPerformed
-
+   
         int filaSeleccionada = jTableProyecto.getSelectedRow();
         if (filaSeleccionada != -1) {
+            
             if (jTableProyecto.getValueAt(filaSeleccionada, 14).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un Proyecto inactiva");
             } else {
+                this.setVisible(false);
                 int id = Integer.parseInt(jTableProyecto.getValueAt(filaSeleccionada, 0).toString());
                 String titulo = jTableProyecto.getValueAt(filaSeleccionada, 1).toString();
                 String nombre_ingresante1 = jTableProyecto.getValueAt(filaSeleccionada, 2).toString();
@@ -446,6 +436,7 @@ public class FrmProyecto extends javax.swing.JFrame {
                 FrmModificarProyecto frmModificarProyecto = new FrmModificarProyecto(this, true);
                 frmModificarProyecto.setDatos(id, titulo, nombre_ingresante1, nombre_ingresante2, nombre_ingresante3, asesora, jurado, res_designacion, res_ejecucion, res_cambioJurado, res_sustentacion, res_cambioTitulo, nombre_Especialidad, otro);
                 frmModificarProyecto.setVisible(true);
+                     
             }
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione una fila");
@@ -504,10 +495,6 @@ public class FrmProyecto extends javax.swing.JFrame {
         i.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemIngresanteActionPerformed
 
-    private void jbtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarActionPerformed
-        listarTablaProyecto();
-    }//GEN-LAST:event_jbtnMostrarActionPerformed
-
     private void jbtnEliminarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEliminarProyectoActionPerformed
         int filaSeleccionada = jTableProyecto.getSelectedRow();
         if (filaSeleccionada != -1) {
@@ -525,6 +512,7 @@ public class FrmProyecto extends javax.swing.JFrame {
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     if (proyectoLogic.eliminarProyecto(proyecto)) {
                         JOptionPane.showMessageDialog(null, "Se elimino Correctamente");
+                         listarTablaProyecto();
                     } else {
                         JOptionPane.showMessageDialog(null, "Error al eliminar");
                     }
@@ -733,7 +721,6 @@ public class FrmProyecto extends javax.swing.JFrame {
     private javax.swing.JButton jbtnEliminarProyecto;
     private javax.swing.JButton jbtnMenu;
     private javax.swing.JButton jbtnModificarProyecto;
-    private javax.swing.JButton jbtnMostrar;
     private javax.swing.JButton jbtnPdfProyecto;
     private javax.swing.JButton jbtnRegistrarProyecto;
     private javax.swing.JTextField jtxtBuscarPorNombreProyecto;

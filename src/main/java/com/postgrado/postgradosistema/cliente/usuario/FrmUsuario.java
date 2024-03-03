@@ -62,7 +62,6 @@ public class FrmUsuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jtxtBuscarPorNombreUsuario = new javax.swing.JTextField();
-        jbtnMostrarTablaUsuario = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -120,15 +119,6 @@ public class FrmUsuario extends javax.swing.JFrame {
             }
         });
 
-        jbtnMostrarTablaUsuario.setBackground(new java.awt.Color(204, 204, 204));
-        jbtnMostrarTablaUsuario.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jbtnMostrarTablaUsuario.setText("Mostrar");
-        jbtnMostrarTablaUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnMostrarTablaUsuarioActionPerformed(evt);
-            }
-        });
-
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.png"))); // NOI18N
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
@@ -138,28 +128,23 @@ public class FrmUsuario extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
+                        .addComponent(jLabel3)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(66, 66, 66)
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel1))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jtxtBuscarPorNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(66, 66, 66)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2))))
+                                .addGap(27, 27, 27)
+                                .addComponent(jtxtBuscarPorNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(jbtnMostrarTablaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -180,16 +165,13 @@ public class FrmUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jtxtBuscarPorNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
-                .addComponent(jbtnMostrarTablaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 530, 510));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jbtnRegistrarUsuario.setBackground(new java.awt.Color(255, 255, 255));
         jbtnRegistrarUsuario.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
         jbtnRegistrarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/registrar.png"))); // NOI18N
         jbtnRegistrarUsuario.setText("Registrar");
@@ -204,9 +186,9 @@ public class FrmUsuario extends javax.swing.JFrame {
         jbtnModificarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar.png"))); // NOI18N
         jbtnModificarUsuario.setText("Modificar");
         jbtnModificarUsuario.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
                 jbtnModificarUsuarioAncestorRemoved(evt);
@@ -290,17 +272,6 @@ public class FrmUsuario extends javax.swing.JFrame {
             jTableUsuario.getColumnModel().getColumn(4).setMinWidth(50);
             jTableUsuario.getColumnModel().getColumn(4).setMaxWidth(80);
         }
-        // Define un renderizador personalizado para mostrar asteriscos en la columna de contraseña
-        DefaultTableCellRenderer passwordRenderer = new DefaultTableCellRenderer() {
-            @Override
-            protected void setValue(Object value) {
-                // Establece el valor como asteriscos
-                setText("********");
-            }
-        };
-
-        // Establece el renderizador personalizado para la columna de contraseña
-        jTableUsuario.getColumnModel().getColumn(2).setCellRenderer(passwordRenderer);
 
         jPanel1.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 530, 510));
 
@@ -468,12 +439,9 @@ public class FrmUsuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jtxtBuscarPorNombreUsuarioKeyReleased
 
-    private void jbtnMostrarTablaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarTablaUsuarioActionPerformed
-        listarTablaUsuario();
-    }//GEN-LAST:event_jbtnMostrarTablaUsuarioActionPerformed
-
     private void jbtnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarUsuarioActionPerformed
         if (FrmLogin1.tipoUsuario.equals("Administrador")){
+            this.setVisible(false);
             FrmRegistrarUsuario regisusu = new FrmRegistrarUsuario(this, true);
             regisusu.setVisible(true);
         }else {
@@ -493,6 +461,7 @@ public class FrmUsuario extends javax.swing.JFrame {
                 if (jTableUsuario.getValueAt(filaSeleccionada, 3).toString().equals("I")) {
                     JOptionPane.showMessageDialog(null, "No se puede modificar un Usuario inactiva");
                 } else {
+                    this.setVisible(false);
                     String dni = jTableUsuario.getValueAt(filaSeleccionada, 0).toString();
                     String nombre = jTableUsuario.getValueAt(filaSeleccionada, 1).toString();
                     String password = jTableUsuario.getValueAt(filaSeleccionada, 2).toString();
@@ -636,7 +605,6 @@ public class FrmUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jbtnEliminarUsuario;
     private javax.swing.JButton jbtnMenu;
     private javax.swing.JButton jbtnModificarUsuario;
-    private javax.swing.JButton jbtnMostrarTablaUsuario;
     private javax.swing.JButton jbtnRegistrarUsuario;
     private javax.swing.JTextField jtxtBuscarPorNombreUsuario;
     // End of variables declaration//GEN-END:variables

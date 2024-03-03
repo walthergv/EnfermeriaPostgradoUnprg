@@ -14,6 +14,7 @@ import javax.swing.*;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmRegistrarCiclo extends javax.swing.JDialog {
+
     CicloLogic cicloLogic = new CicloLogic();
     int xMouse, yMouse;
 
@@ -49,6 +50,11 @@ public class FrmRegistrarCiclo extends javax.swing.JDialog {
         jbtnSalirRegistrarCiclo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -181,8 +187,9 @@ public class FrmRegistrarCiclo extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSalirRegistrarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirRegistrarCicloActionPerformed
-
         this.dispose();
+        FrmCiclo c = new FrmCiclo();
+        c.setVisible(true);
     }//GEN-LAST:event_jbtnSalirRegistrarCicloActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -208,6 +215,9 @@ public class FrmRegistrarCiclo extends javax.swing.JDialog {
             if (cicloLogic.registrarCiclo(ciclo)) {
                 JOptionPane.showMessageDialog(null, "Ciclo registrado correctamente");
                 jtxtNombreCiclo.setText("");
+                this.setVisible(false);
+                FrmCiclo c = new FrmCiclo();
+                c.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al registrar ciclo");
             }
@@ -215,6 +225,12 @@ public class FrmRegistrarCiclo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Debe llenar los campos y el nombre del ciclo debe tener el formato correcto\nEjemplo: 2019-II");
         }
     }//GEN-LAST:event_jbtnRegistrarCicloActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmCiclo c = new FrmCiclo();
+        c.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -15,13 +15,16 @@ import javax.swing.*;
  * @author ESTUDIANTE
  */
 public class FrmRegistrarUsuario extends javax.swing.JDialog {
-int xMouse, yMouse;
+
+    int xMouse, yMouse;
+
     /**
      * Creates new form FrmRegistrarUsuario
      */
     public FrmRegistrarUsuario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/imagenes/enfermeria.png")).getImage());
     }
 
@@ -52,6 +55,11 @@ int xMouse, yMouse;
         jbtnSalirRegistrarUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -176,34 +184,38 @@ int xMouse, yMouse;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarUsuarioActionPerformed
-            String dni = jtxtDniUsuario.getText();
-            String nombre = jtxtNombreUsuario.getText();
-            String contraseña = jtxtPasswordUsuario.getText();
-            //String rol = jtxtRolUsuario.getText();
-            String rol= (String)jComboRol.getSelectedItem();
-            if (!dni.isEmpty() && !nombre.isEmpty() && !contraseña .isEmpty() && !rol.isEmpty()) {
-                Usuario usuario = new Usuario();
-                usuario.setNombre(nombre);
-                usuario.setContraseña(contraseña);
-                usuario.setRol(rol);
-                usuario.setDni(Integer.parseInt(dni));
-                UsuarioLogic usuarioLogic = new UsuarioLogic();
-                if (usuarioLogic.registrarUsuario(usuario)) {
-                    JOptionPane.showMessageDialog(null, "Usuario registrado");
-                    jtxtDniUsuario.setText("");
-                    jtxtNombreUsuario.setText("");
-                    jtxtPasswordUsuario.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al registrar usuario");
-                }
+        String dni = jtxtDniUsuario.getText();
+        String nombre = jtxtNombreUsuario.getText();
+        String contraseña = jtxtPasswordUsuario.getText();
+        //String rol = jtxtRolUsuario.getText();
+        String rol = (String) jComboRol.getSelectedItem();
+        if (!dni.isEmpty() && !nombre.isEmpty() && !contraseña.isEmpty() && !rol.isEmpty()) {
+            Usuario usuario = new Usuario();
+            usuario.setNombre(nombre);
+            usuario.setContraseña(contraseña);
+            usuario.setRol(rol);
+            usuario.setDni(Integer.parseInt(dni));
+            UsuarioLogic usuarioLogic = new UsuarioLogic();
+            if (usuarioLogic.registrarUsuario(usuario)) {
+                JOptionPane.showMessageDialog(null, "Usuario registrado");
+                jtxtDniUsuario.setText("");
+                jtxtNombreUsuario.setText("");
+                jtxtPasswordUsuario.setText("");
+                this.setVisible(false);
+                FrmUsuario u = new FrmUsuario();
+                u.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+                JOptionPane.showMessageDialog(null, "Error al registrar usuario");
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe llenar todos los campos");
+        }
     }//GEN-LAST:event_jbtnRegistrarUsuarioActionPerformed
 
     private void jbtnSalirRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirRegistrarUsuarioActionPerformed
-
         this.dispose();
+        FrmUsuario u = new FrmUsuario();
+        u.setVisible(true);
     }//GEN-LAST:event_jbtnSalirRegistrarUsuarioActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -218,6 +230,12 @@ int xMouse, yMouse;
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_jPanel3MousePressed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmUsuario u = new FrmUsuario();
+        u.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

@@ -12,7 +12,6 @@ import com.postgrado.postgradosistema.modelo.Especialidad;
 import com.postgrado.postgradosistema.modelo.Ingresante;
 import com.postgrado.postgradosistema.modelo.Proyecto;
 import java.util.ArrayList;
-
 import javax.swing.*;
 import java.util.List;
 
@@ -87,6 +86,11 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         jbtnSalirRegistrarProyecto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -327,6 +331,8 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
     private void jbtnSalirRegistrarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirRegistrarProyectoActionPerformed
 
         this.dispose();
+        FrmProyecto e = new FrmProyecto();
+        e.setVisible(true);
     }//GEN-LAST:event_jbtnSalirRegistrarProyectoActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -409,7 +415,9 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
                     jcomboboxIngresante1.setSelectedIndex(-1);
                     jcomboboxIngresant2.setSelectedIndex(-1);
                     jcomboboxIngresan3.setSelectedIndex(-1);
-
+                    this.setVisible(false);
+                    FrmProyecto e = new FrmProyecto();
+                    e.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique que la Especilidad no este vacio");
                 }
@@ -500,6 +508,12 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
     private void jcomboboxEspecilidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxEspecilidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcomboboxEspecilidadActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmProyecto es = new FrmProyecto();
+        es.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

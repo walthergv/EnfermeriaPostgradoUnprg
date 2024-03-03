@@ -62,7 +62,6 @@ public class FrmCiclo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jtxtBuscarPorNombreCiclo = new javax.swing.JTextField();
-        jbtnMostrarTablaCiclo = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -121,15 +120,6 @@ public class FrmCiclo extends javax.swing.JFrame {
             }
         });
 
-        jbtnMostrarTablaCiclo.setBackground(new java.awt.Color(255, 255, 255));
-        jbtnMostrarTablaCiclo.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jbtnMostrarTablaCiclo.setText("Mostrar");
-        jbtnMostrarTablaCiclo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnMostrarTablaCicloActionPerformed(evt);
-            }
-        });
-
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ciclo02.png"))); // NOI18N
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
@@ -157,10 +147,6 @@ public class FrmCiclo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel2)))))
                 .addContainerGap(100, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbtnMostrarTablaCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(196, 196, 196))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,9 +166,7 @@ public class FrmCiclo extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtBuscarPorNombreCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(63, 63, 63)
-                .addComponent(jbtnMostrarTablaCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 530, 520));
@@ -369,7 +353,7 @@ public class FrmCiclo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnRegistrarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarCicloActionPerformed
-
+        this.setVisible(false);
         FrmRegistrarCiclo regisciclo = new FrmRegistrarCiclo(this, true);
         regisciclo.setVisible(true);
         // TODO add your handling code here:
@@ -381,6 +365,7 @@ public class FrmCiclo extends javax.swing.JFrame {
             if (jTableCiclo.getValueAt(filaSeleccionada, 2).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un ciclo inactivo");
             } else {
+                this.setVisible(false);
                 int id = Integer.parseInt(jTableCiclo.getValueAt(filaSeleccionada, 0).toString());
                 String nombre = jTableCiclo.getValueAt(filaSeleccionada, 1).toString();
 
@@ -458,7 +443,7 @@ public class FrmCiclo extends javax.swing.JFrame {
                     ciclo.setId(id);
                     if (cicloLogic.eliminarCiclo(ciclo)) {
                         JOptionPane.showMessageDialog(null, "Se eliminó el ciclo correctamente");
-
+                         listarTablaCiclo();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo eliminar el ciclo.");
                     }
@@ -490,10 +475,6 @@ public class FrmCiclo extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jtxtBuscarPorNombreCicloKeyReleased
-
-    private void jbtnMostrarTablaCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarTablaCicloActionPerformed
-        listarTablaCiclo();
-    }//GEN-LAST:event_jbtnMostrarTablaCicloActionPerformed
 
     private void jMenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuarioActionPerformed
         this.setVisible(false);
@@ -586,7 +567,6 @@ public class FrmCiclo extends javax.swing.JFrame {
     private javax.swing.JButton jbtnCiclo;
     private javax.swing.JButton jbtnEliminarCiclo;
     private javax.swing.JButton jbtnModificarCiclo;
-    private javax.swing.JButton jbtnMostrarTablaCiclo;
     private javax.swing.JButton jbtnRegistrarCiclo;
     private javax.swing.JTextField jtxtBuscarPorNombreCiclo;
     // End of variables declaration//GEN-END:variables

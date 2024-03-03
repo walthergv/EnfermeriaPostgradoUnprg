@@ -64,7 +64,6 @@ public class FrmArea extends javax.swing.JFrame {
         jtxtBuscarPorNombreArea = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jbtnMostrarTablaArea = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jbtnRegistrarArea = new javax.swing.JButton();
         jbtnModificarArea = new javax.swing.JButton();
@@ -112,15 +111,6 @@ public class FrmArea extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
 
-        jbtnMostrarTablaArea.setBackground(new java.awt.Color(204, 204, 204));
-        jbtnMostrarTablaArea.setFont(new java.awt.Font("Perpetua", 0, 18)); // NOI18N
-        jbtnMostrarTablaArea.setText("Listar");
-        jbtnMostrarTablaArea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtnMostrarTablaAreaActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -141,12 +131,8 @@ public class FrmArea extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(jLabel3)
                         .addGap(27, 27, 27)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jtxtBuscarPorNombreArea, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jbtnMostrarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addComponent(jtxtBuscarPorNombreArea, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +149,7 @@ public class FrmArea extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtBuscarPorNombreArea, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(67, 67, 67)
-                .addComponent(jbtnMostrarTablaArea, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 530, 520));
@@ -416,9 +400,10 @@ public class FrmArea extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemIngresanteActionPerformed
 
     private void jbtnRegistrarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnRegistrarAreaActionPerformed
-
+        this.setVisible(false);
         FrmRegistrarArea regisarea = new FrmRegistrarArea(this, true);
         regisarea.setVisible(true);
+        
     }//GEN-LAST:event_jbtnRegistrarAreaActionPerformed
 
     private void jbtnModificarAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarAreaActionPerformed
@@ -428,6 +413,7 @@ public class FrmArea extends javax.swing.JFrame {
             if (jTableAreas.getValueAt(filaSeleccionada, 2).toString().equals("I")) {
                 JOptionPane.showMessageDialog(null, "No se puede modificar un área inactiva");
             } else {
+                this.setVisible(false);
                 int id = Integer.parseInt(jTableAreas.getValueAt(filaSeleccionada, 0).toString());
                 String nombre = jTableAreas.getValueAt(filaSeleccionada, 1).toString();
 
@@ -451,10 +437,6 @@ public class FrmArea extends javax.swing.JFrame {
             frmPrincipal.setVisible(true);
         }
     }//GEN-LAST:event_jbtnMenuActionPerformed
-
-    private void jbtnMostrarTablaAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnMostrarTablaAreaActionPerformed
-        listarTablaAreas();
-    }//GEN-LAST:event_jbtnMostrarTablaAreaActionPerformed
 
     private void jtxtBuscarPorNombreAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtBuscarPorNombreAreaKeyReleased
         String nombre = jtxtBuscarPorNombreArea.getText().trim();
@@ -490,7 +472,7 @@ public class FrmArea extends javax.swing.JFrame {
                     area.setId(id);
                     if (areaLogic.inactivarArea(area)) {
                         JOptionPane.showMessageDialog(null, "Se eliminó el área correctamente");
-
+                        listarTablaAreas();
                     } else {
                         JOptionPane.showMessageDialog(null, "No se pudo eliminar el área.");
                     }
@@ -593,7 +575,6 @@ public class FrmArea extends javax.swing.JFrame {
     private javax.swing.JButton jbtnEliminarArea;
     private javax.swing.JButton jbtnMenu;
     private javax.swing.JButton jbtnModificarArea;
-    private javax.swing.JButton jbtnMostrarTablaArea;
     private javax.swing.JButton jbtnRegistrarArea;
     private javax.swing.JTextField jtxtBuscarPorNombreArea;
     // End of variables declaration//GEN-END:variables

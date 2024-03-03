@@ -17,6 +17,7 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmRegistrarEspecialidad extends javax.swing.JDialog {
+
     AreaLogic areaLogic = new AreaLogic();
     int xMouse, yMouse;
 
@@ -55,6 +56,11 @@ public class FrmRegistrarEspecialidad extends javax.swing.JDialog {
         jbtnSalirRegistrarEspecialidad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -173,8 +179,9 @@ public class FrmRegistrarEspecialidad extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSalirRegistrarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirRegistrarEspecialidadActionPerformed
-
         this.dispose();
+        FrmEspecialidad e = new FrmEspecialidad();
+        e.setVisible(true);
     }//GEN-LAST:event_jbtnSalirRegistrarEspecialidadActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -212,6 +219,9 @@ public class FrmRegistrarEspecialidad extends javax.swing.JDialog {
                 // Limpiar los campos después de guardar la especialidad
                 jtxtNombreEspecialidad.setText("");
                 jcomboboxArea.setSelectedIndex(-1);
+                this.setVisible(false);
+                FrmEspecialidad e = new FrmEspecialidad();
+                e.setVisible(true);
             } else {
                 // Manejar el caso cuando no se encuentra el área correspondiente al nombre seleccionado
                 JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique que el area no este vacio");
@@ -236,6 +246,12 @@ public class FrmRegistrarEspecialidad extends javax.swing.JDialog {
             jcomboboxArea.setModel(new DefaultComboBoxModel<>());
         }
     }//GEN-LAST:event_jtxtBuscarAreaKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmEspecialidad e = new FrmEspecialidad();
+        e.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

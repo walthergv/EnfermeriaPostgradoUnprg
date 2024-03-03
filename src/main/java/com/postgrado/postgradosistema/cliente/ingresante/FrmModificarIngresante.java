@@ -16,6 +16,7 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmModificarIngresante extends javax.swing.JDialog {
+
     int idIngresanteModificar;
     CicloLogic cicloLogic = new CicloLogic();
     EspecialidadLogic especialidadLogic = new EspecialidadLogic();
@@ -68,6 +69,11 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
         jbtnSalirModificarIngresante = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -234,8 +240,9 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnSalirModificarIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnSalirModificarIngresanteActionPerformed
-
         this.dispose();
+        FrmIngresante i = new FrmIngresante();
+        i.setVisible(true);
     }//GEN-LAST:event_jbtnSalirModificarIngresanteActionPerformed
 
     private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
@@ -253,14 +260,13 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
 
     private void jbtnModificarIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarIngresanteActionPerformed
         //String idTxt = jtxtIdIngresante.getText();
-        int id=idIngresanteModificar;
+        int id = idIngresanteModificar;
         String dni = jtxtDniIngresante.getText();
         String nombre = jtxtNombreIngresante.getText();
         String codigo = jtxtCodigoIngresante.getText();
         String ciclo_nombre = (String) jcomboboxCicloIngresante.getSelectedItem();
         String especialidad_nombre = (String) jcomboboxEspecialidadIngresante.getSelectedItem();
         String sede_nombre = (String) jcomboboxSedeIngresante.getSelectedItem();
-
 
         if (nombre.isEmpty() || codigo.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Error al modificar, verifique que nombre y código no estén vacíos");
@@ -272,8 +278,7 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
             List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(especialidad_nombre);
             List<Sede> sedes = sedeLogic.buscarSedePorNombre(sede_nombre);
 
-
-            if (ciclos.isEmpty() || especialidades.isEmpty() || sedes.isEmpty() ) {
+            if (ciclos.isEmpty() || especialidades.isEmpty() || sedes.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Error al modificar, verifique que ciclo, especialidad, sede y proyecto no estén vacíos");
                 return;
             }
@@ -290,6 +295,9 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
             if (ingresanteLogic.actualizarIngresante(ingresante)) {
                 JOptionPane.showMessageDialog(null, "Ingresante modificado correctamente");
                 this.dispose();
+                this.setVisible(false);
+                FrmIngresante i = new FrmIngresante();
+                i.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al modificar ingresante");
             }
@@ -344,6 +352,12 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
     private void jcomboboxSedeIngresanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxSedeIngresanteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcomboboxSedeIngresanteActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.dispose();
+        FrmIngresante i = new FrmIngresante();
+        i.setVisible(true);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -414,8 +428,8 @@ public class FrmModificarIngresante extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     void setDatos(int idIng, String dni, String nombre, String codigoUni, String ciclo, String especialidad, String sede) {
-       // jtxtIdIngresante.setText(String.valueOf(id));
-        idIngresanteModificar=idIng;
+        // jtxtIdIngresante.setText(String.valueOf(id));
+        idIngresanteModificar = idIng;
         jtxtDniIngresante.setText(dni);
         jtxtNombreIngresante.setText(nombre);
         jtxtCodigoIngresante.setText(codigoUni);

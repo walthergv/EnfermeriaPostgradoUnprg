@@ -226,13 +226,11 @@
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jtxtBuscarPorNombreProyecto" min="-2" pref="431" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-                              <Component id="jbtnMostrar" min="-2" pref="134" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
                               <Component id="jbtnPdfProyecto" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="114" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -254,7 +252,6 @@
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jtxtBuscarPorNombreProyecto" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="jbtnMostrar" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="48" max="32767" attributes="0"/>
@@ -297,20 +294,6 @@
             <Component class="javax.swing.JTextField" name="jtxtBuscarPorNombreProyecto">
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtxtBuscarPorNombreProyectoKeyReleased"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jbtnMostrar">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Perpetua" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Mostrar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbtnMostrarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -460,7 +443,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor Por defecto"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <Events>
