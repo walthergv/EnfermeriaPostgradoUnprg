@@ -43,6 +43,7 @@ public class FrmSede extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
+        listarTablaSede();
     }
 
     /**

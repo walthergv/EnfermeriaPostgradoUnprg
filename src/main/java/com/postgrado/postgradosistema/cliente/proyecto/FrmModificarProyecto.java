@@ -20,6 +20,7 @@ import java.util.List;
  * @author ESTUDIANTE-WALTHER GALAN VITE
  */
 public class FrmModificarProyecto extends javax.swing.JDialog {
+
     int idProyectoMod;
     EspecialidadLogic especialidadLogic = new EspecialidadLogic();
     IngresanteLogic ingresanteLogic = new IngresanteLogic();
@@ -356,7 +357,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
 
     private void jbtnModificarProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnModificarProyectoActionPerformed
         //String idTxt = jtxtIdProyecto.getText();
-        int id= idProyectoMod;
+        int id = idProyectoMod;
         String titulo = jtxtTituloProyecto.getText();
         String asesora = jtxtAsesoraProyecto.getText();
         String jurado = jtxtJuradoProyecto.getText();
@@ -389,32 +390,38 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
                 }
 
                 if (!especialidades.isEmpty()) {
-                    Especialidad especialidadSeleccionda = especialidades.get(0);
-                    Ingresante ingresante1Seleccionda = ingresantes1.get(0);
-                    Ingresante ingresante2Seleccionda = (!ingresantes2.isEmpty()) ? ingresantes2.get(0) : null;
-                    Ingresante ingresante3Seleccionda = (!ingresantes3.isEmpty()) ? ingresantes3.get(0) : null;
+                    if ( nombreingresante1 != null && !nombreingresante1.isEmpty()) {
 
-                    //int id = Integer.parseInt(idTxt);
-                    Proyecto proyecto = new Proyecto();
-                    proyecto.setId(id);
-                    proyecto.setTitulo(titulo);
-                    proyecto.setAsesora(asesora);
-                    proyecto.setJurado(jurado);
-                    proyecto.setRes_designacion(res_designacion);
-                    proyecto.setRes_ejecucion(res_ejecucion);
-                    proyecto.setRes_cambioJurado(res_cambioJurado);
-                    proyecto.setRes_sustentacion(res_sustentacion);
-                    proyecto.setRes_cambioTitulo(res_cambioTitulo);
-                    proyecto.setOtros(otro);
-                    proyecto.setEspecialidad(especialidadSeleccionda);
-                    proyecto.setIngresante1(ingresante1Seleccionda);
-                    proyecto.setIngresante2(ingresante2Seleccionda);
-                    proyecto.setIngresante3(ingresante3Seleccionda);
-                    if (proyectoLogic.modificarProyecto(proyecto)) {
-                        JOptionPane.showMessageDialog(null, "Proyecto modificado correctamente");
-                        this.dispose();
+                        Especialidad especialidadSeleccionda = especialidades.get(0);
+                        Ingresante ingresante1Seleccionda = ingresantes1.get(0);
+                        Ingresante ingresante2Seleccionda = (!ingresantes2.isEmpty()) ? ingresantes2.get(0) : null;
+                        Ingresante ingresante3Seleccionda = (!ingresantes3.isEmpty()) ? ingresantes3.get(0) : null;
+
+                        //int id = Integer.parseInt(idTxt);
+                        Proyecto proyecto = new Proyecto();
+                        proyecto.setId(id);
+                        proyecto.setTitulo(titulo);
+                        proyecto.setAsesora(asesora);
+                        proyecto.setJurado(jurado);
+                        proyecto.setRes_designacion(res_designacion);
+                        proyecto.setRes_ejecucion(res_ejecucion);
+                        proyecto.setRes_cambioJurado(res_cambioJurado);
+                        proyecto.setRes_sustentacion(res_sustentacion);
+                        proyecto.setRes_cambioTitulo(res_cambioTitulo);
+                        proyecto.setOtros(otro);
+                        proyecto.setEspecialidad(especialidadSeleccionda);
+                        proyecto.setIngresante1(ingresante1Seleccionda);
+                        proyecto.setIngresante2(ingresante2Seleccionda);
+                        proyecto.setIngresante3(ingresante3Seleccionda);
+                        if (proyectoLogic.modificarProyecto(proyecto)) {
+                            JOptionPane.showMessageDialog(null, "Proyecto modificado correctamente");
+                            this.dispose();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "No se puede modificar el proyecto");
+                        }
+
                     } else {
-                        JOptionPane.showMessageDialog(null, "No se puede modificar el proyecto");
+                        JOptionPane.showMessageDialog(this, "Debe Ingresar un nombre para el Autor 1 ");
                     }
 
                 } else {
@@ -555,7 +562,7 @@ public class FrmModificarProyecto extends javax.swing.JDialog {
 
     public void setDatos(int idProyecto, String titulo, String nombre_estudiante1, String nombre_estudiante2, String nombre_estudiante3, String asesora, String jurado, String res_designacion, String res_ejecucion, String res_cambioJurado, String res_sustentacion, String res_cambioTitulo, String nombre_Especialidad, String otro) {
         //jtxtIdProyecto.setText(String.valueOf(id));
-        idProyectoMod=idProyecto;
+        idProyectoMod = idProyecto;
         jtxtTituloProyecto.setText(titulo);
         jtxingresante1.setText(nombre_estudiante1);
         jtxtingresante2.setText(nombre_estudiante2);

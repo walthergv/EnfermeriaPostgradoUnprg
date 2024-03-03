@@ -43,6 +43,7 @@ public class FrmUsuario extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
+        listarTablaUsuario();
     }
 
     /**

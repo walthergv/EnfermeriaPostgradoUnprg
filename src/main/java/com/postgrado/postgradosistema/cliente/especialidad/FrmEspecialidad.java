@@ -43,6 +43,7 @@ public class FrmEspecialidad extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
+           listarTablaEspecialidad();
     }
 
     /**

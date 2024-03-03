@@ -43,6 +43,7 @@ public class FrmCiclo extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
+            listarTablaCiclo();
     }
 
     /**

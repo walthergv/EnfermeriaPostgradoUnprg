@@ -44,6 +44,7 @@ public class FrmArea extends javax.swing.JFrame {
             jMenuMantenimiento.setVisible(true);
             jMenuRegistro.setVisible(false);
         }
+        listarTablaAreas();
     }
 
     /**

@@ -358,59 +358,65 @@ public class FrmRegistrarProyecto extends javax.swing.JDialog {
         String nombreEspecialidad = (String) jcomboboxEspecilidad.getSelectedItem();
 
         if (!titulo.isEmpty() && !asesora.isEmpty() && !jurado.isEmpty() && !res_designacion.isEmpty()) {
-            EspecialidadLogic especialidadLogic = new EspecialidadLogic();
-            IngresanteLogic ingresanteLogic = new IngresanteLogic();
-            List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(nombreEspecialidad);
-            List<Ingresante> ingresantes1 = ingresanteLogic.buscaringresantePorNombre(nombreingresante1);
-            List<Ingresante> ingresantes2 = new ArrayList<>();
-            List<Ingresante> ingresantes3 = new ArrayList<>();
-            if (nombreingresante2 != null && !nombreingresante2.isEmpty()) {
-                ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreingresante2);
-            }
-            if (nombreingresante3 != null && !nombreingresante3.isEmpty()) {
-                ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreingresante3);
-            }
-            if (!especialidades.isEmpty()) {
-                Especialidad especialidadSeleccionda = especialidades.get(0);
-                Ingresante ingresante1Seleccionda = ingresantes1.get(0);
-                Ingresante ingresante2Seleccionda = (!ingresantes2.isEmpty()) ? ingresantes2.get(0) : null;
-                Ingresante ingresante3Seleccionda = (!ingresantes3.isEmpty()) ? ingresantes3.get(0) : null;
+            if (nombreingresante1 != null && !nombreingresante1.isEmpty()) {
+                EspecialidadLogic especialidadLogic = new EspecialidadLogic();
+                IngresanteLogic ingresanteLogic = new IngresanteLogic();
+                List<Especialidad> especialidades = especialidadLogic.buscarEspecialidadPorNombre(nombreEspecialidad);
+                List<Ingresante> ingresantes1 = ingresanteLogic.buscaringresantePorNombre(nombreingresante1);
+                List<Ingresante> ingresantes2 = new ArrayList<>();
+                List<Ingresante> ingresantes3 = new ArrayList<>();
+                if (nombreingresante2 != null && !nombreingresante2.isEmpty()) {
+                    ingresantes2 = ingresanteLogic.buscaringresantePorNombre(nombreingresante2);
+                }
+                if (nombreingresante3 != null && !nombreingresante3.isEmpty()) {
+                    ingresantes3 = ingresanteLogic.buscaringresantePorNombre(nombreingresante3);
+                }
+                if (!especialidades.isEmpty()) {
 
-                Proyecto proyecto = new Proyecto();
-                proyecto.setTitulo(titulo);
-                proyecto.setAsesora(asesora);
-                proyecto.setJurado(jurado);
-                proyecto.setRes_designacion(res_designacion);
-                proyecto.setRes_ejecucion(res_ejecucion);
-                proyecto.setRes_cambioJurado(res_cambioJurado);
-                proyecto.setRes_sustentacion(res_sustentacion);
-                proyecto.setRes_cambioTitulo(res_cambioTitulo);
-                proyecto.setOtros(otro);
-                proyecto.setEspecialidad(especialidadSeleccionda);
-                proyecto.setIngresante1(ingresante1Seleccionda);
-                proyecto.setIngresante2(ingresante2Seleccionda);
-                proyecto.setIngresante3(ingresante3Seleccionda);
+                    Especialidad especialidadSeleccionda = especialidades.get(0);
+                    Ingresante ingresante1Seleccionda = ingresantes1.get(0);
+                    Ingresante ingresante2Seleccionda = (!ingresantes2.isEmpty()) ? ingresantes2.get(0) : null;
+                    Ingresante ingresante3Seleccionda = (!ingresantes3.isEmpty()) ? ingresantes3.get(0) : null;
 
-                ProyectoLogic proyectoLogic = new ProyectoLogic();
-                proyectoLogic.registrarProyecto(proyecto);
-                JOptionPane.showMessageDialog(this, "Se inserto correctamente");
-                jtxtTituloProyecto.setText("");
-                jtxtAsesoraProyecto.setText("");
-                jtxtJuradoProyecto.setText("");
-                jtxtBuscarResDesignacion.setText("");
-                jtxtResEjecucionProyecto.setText("");
-                jtxtResCambioJuradoProyecto.setText("");
-                jtxtResCambioTitulo.setText("");
-                jtxtResSustentacion.setText("");
-                jtxtOtrosProyecto.setText("");
-                jcomboboxEspecilidad.setSelectedIndex(-1);
-                jcomboboxIngresante1.setSelectedIndex(-1);
-                jcomboboxIngresant2.setSelectedIndex(-1);
-                jcomboboxIngresan3.setSelectedIndex(-1);
+                    Proyecto proyecto = new Proyecto();
+                    proyecto.setTitulo(titulo);
+                    proyecto.setAsesora(asesora);
+                    proyecto.setJurado(jurado);
+                    proyecto.setRes_designacion(res_designacion);
+                    proyecto.setRes_ejecucion(res_ejecucion);
+                    proyecto.setRes_cambioJurado(res_cambioJurado);
+                    proyecto.setRes_sustentacion(res_sustentacion);
+                    proyecto.setRes_cambioTitulo(res_cambioTitulo);
+                    proyecto.setOtros(otro);
+                    proyecto.setEspecialidad(especialidadSeleccionda);
+                    proyecto.setIngresante1(ingresante1Seleccionda);
+                    proyecto.setIngresante2(ingresante2Seleccionda);
+                    proyecto.setIngresante3(ingresante3Seleccionda);
 
+                    ProyectoLogic proyectoLogic = new ProyectoLogic();
+                    proyectoLogic.registrarProyecto(proyecto);
+                    JOptionPane.showMessageDialog(this, "Se inserto correctamente");
+                    jtxtTituloProyecto.setText("");
+                    jtxtAsesoraProyecto.setText("");
+                    jtxtJuradoProyecto.setText("");
+                    jtxtBuscarResDesignacion.setText("");
+                    jtxtResEjecucionProyecto.setText("");
+                    jtxtResCambioJuradoProyecto.setText("");
+                    jtxtResCambioTitulo.setText("");
+                    jtxtResSustentacion.setText("");
+                    jtxtOtrosProyecto.setText("");
+                    jcomboboxEspecilidad.setSelectedIndex(-1);
+                    jcomboboxIngresante1.setSelectedIndex(-1);
+                    jcomboboxIngresant2.setSelectedIndex(-1);
+                    jcomboboxIngresan3.setSelectedIndex(-1);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique que la Especilidad no este vacio");
+                }
             } else {
-                JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique que la Especilidad no este vacio");
+                JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique que el Autor 1 no este vacio");
             }
+
         } else {
             JOptionPane.showMessageDialog(this, "No se pudo insertar, verifique los campos obligatorios no esten vacio");
         }
