@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="174d6c02-9178-4720-aaa3-dd108873f562">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="3"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
@@ -294,23 +294,9 @@
 					<datasetRun subDataset="dsIngresante" uuid="b50f4fef-f769-4930-ac87-6a749ee75b54">
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
-					<jr:column uuid="55c82014-de62-4711-83a7-bfdbb746c3e5" width="90">
-						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
-							<staticText>
-								<reportElement uuid="a4013cf4-b0af-494d-92b3-6df884d0c5eb" x="0" y="0" width="90" height="30"/>
-								<textElement textAlignment="Center">
-									<font fontName="Arial" size="12" isBold="true"/>
-								</textElement>
-								<text><![CDATA[ID]]></text>
-							</staticText>
-						</jr:columnHeader>
-						<jr:detailCell style="table 2_TD" height="36" rowSpan="1">
-							<textField>
-								<reportElement uuid="e7caa895-894c-4dba-891c-b0387bc8f0c9" x="0" y="0" width="90" height="36"/>
-								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
-							</textField>
-						</jr:detailCell>
+					<jr:column uuid="55c82014-de62-4711-83a7-bfdbb746c3e5" width="0">
+						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 2_TD" height="36" rowSpan="1"/>
 					</jr:column>
 					<jr:column uuid="4aebb88f-5543-4973-95ad-7fd329279e16" width="90">
 						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
@@ -384,10 +370,10 @@
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="50565de3-5290-4ec1-8af3-fa862db0af47" width="126">
+					<jr:column uuid="50565de3-5290-4ec1-8af3-fa862db0af47" width="148">
 						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="7a16163e-b6d3-4881-b5fc-4d162c768c36" x="0" y="0" width="126" height="30"/>
+								<reportElement uuid="7a16163e-b6d3-4881-b5fc-4d162c768c36" x="0" y="0" width="148" height="30"/>
 								<textElement textAlignment="Center">
 									<font fontName="Arial" size="12" isBold="true"/>
 								</textElement>
@@ -396,16 +382,16 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 2_TD" height="36" rowSpan="1">
 							<textField>
-								<reportElement uuid="70c0cd3d-c81c-42c4-bed5-5e843e0fe899" x="0" y="0" width="126" height="36"/>
+								<reportElement uuid="70c0cd3d-c81c-42c4-bed5-5e843e0fe899" x="0" y="0" width="148" height="36"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{nombre_especialidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column uuid="170ac929-ee0c-4cef-ba08-140d7dca8c12" width="157">
+					<jr:column uuid="170ac929-ee0c-4cef-ba08-140d7dca8c12" width="223">
 						<jr:columnHeader style="table 2_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement uuid="312b0034-58b7-475b-9c6c-533e91e15b55" x="0" y="0" width="157" height="30"/>
+								<reportElement uuid="312b0034-58b7-475b-9c6c-533e91e15b55" x="0" y="0" width="223" height="30"/>
 								<textElement textAlignment="Center">
 									<font fontName="Arial" size="12" isBold="true"/>
 								</textElement>
@@ -414,7 +400,7 @@
 						</jr:columnHeader>
 						<jr:detailCell style="table 2_TD" height="36" rowSpan="1">
 							<textField>
-								<reportElement uuid="0a4a75ed-3477-4f91-b49a-1af1a37f0802" x="0" y="0" width="157" height="36"/>
+								<reportElement uuid="0a4a75ed-3477-4f91-b49a-1af1a37f0802" x="0" y="0" width="223" height="36"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{nombre_sede}]]></textFieldExpression>
 							</textField>
