@@ -35,9 +35,33 @@
 	</style>
 	<subDataset name="dsReporteProyecto" uuid="4f1f968d-82eb-4a1f-8f74-3bbbdb8e1b84">
 		<queryString language="SQL">
-			<![CDATA[SELECT py.id,py.titulo,py.asesora,py.jurado,py.res_designacion,py.res_ejecucion,
-py.res_cambioJurado, py.res_sustentacion,py.res_cambioTitulo,py.otros,es.nombre as "especialidad"
-FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
+			<![CDATA[SELECT 
+    py.id,
+    py.titulo,
+    py.asesora,
+    py.jurado,
+    py.res_designacion,
+    py.res_ejecucion,
+    py.res_cambioJurado, 
+    py.res_sustentacion,
+    py.res_cambioTitulo,
+    py.otros,
+    es.nombre as "especialidad",
+    ingresante1.nombre AS "autor1",
+    ingresante2.nombre AS "autor2",
+    ingresante3.nombre AS "autor3"
+FROM 
+    proyecto py 
+INNER JOIN 
+    especialidad es ON es.id = py.especialidad_id
+LEFT JOIN 
+    ingresante AS ingresante1 ON py.id_student = ingresante1.id
+LEFT JOIN 
+    ingresante AS ingresante2 ON py.id_student2 = ingresante2.id
+LEFT JOIN 
+    ingresante AS ingresante3 ON py.id_student3 = ingresante3.id
+ORDER BY 
+    py.id DESC;]]>
 		</queryString>
 		<field name="id" class="java.lang.Integer"/>
 		<field name="titulo" class="java.lang.String"/>
@@ -50,23 +74,73 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 		<field name="res_cambioTitulo" class="java.lang.String"/>
 		<field name="otros" class="java.lang.String"/>
 		<field name="especialidad" class="java.lang.String"/>
+		<field name="autor1" class="java.lang.String"/>
+		<field name="autor2" class="java.lang.String"/>
+		<field name="autor3" class="java.lang.String"/>
 	</subDataset>
-	<queryString language="SQL">
-		<![CDATA[SELECT py.id,py.titulo,py.asesora,py.jurado,py.res_designacion,py.res_ejecucion,
-py.res_cambioJurado, py.res_sustentacion,py.res_cambioTitulo,py.otros,es.nombre as "especialidad"
-FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
+	<queryString>
+		<![CDATA[SELECT 
+    py.id,
+    py.titulo,
+    py.asesora,
+    py.jurado,
+    py.res_designacion,
+    py.res_ejecucion,
+    py.res_cambioJurado, 
+    py.res_sustentacion,
+    py.res_cambioTitulo,
+    py.otros,
+    es.nombre as "especialidad",
+    ingresante1.nombre AS "autor1",
+    ingresante2.nombre AS "autor2",
+    ingresante3.nombre AS "autor3"
+FROM 
+    proyecto py 
+INNER JOIN 
+    especialidad es ON es.id = py.especialidad_id
+LEFT JOIN 
+    ingresante AS ingresante1 ON py.id_student = ingresante1.id
+LEFT JOIN 
+    ingresante AS ingresante2 ON py.id_student2 = ingresante2.id
+LEFT JOIN 
+    ingresante AS ingresante3 ON py.id_student3 = ingresante3.id
+ORDER BY 
+    py.id DESC;]]>
 	</queryString>
-	<field name="id" class="java.lang.Integer"/>
-	<field name="titulo" class="java.lang.String"/>
-	<field name="asesora" class="java.lang.String"/>
-	<field name="jurado" class="java.lang.String"/>
-	<field name="res_designacion" class="java.lang.String"/>
-	<field name="res_ejecucion" class="java.lang.String"/>
-	<field name="res_cambioJurado" class="java.lang.String"/>
-	<field name="res_sustentacion" class="java.lang.String"/>
-	<field name="res_cambioTitulo" class="java.lang.String"/>
-	<field name="otros" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="asesora" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jurado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="res_designacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="res_ejecucion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="res_cambioJurado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="res_sustentacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="res_cambioTitulo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="otros" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="especialidad" class="java.lang.String"/>
+	<field name="autor1" class="java.lang.String"/>
+	<field name="autor2" class="java.lang.String"/>
+	<field name="autor3" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -169,7 +243,7 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 							<staticText>
 								<reportElement x="0" y="0" width="26" height="30" uuid="658a3f0b-3ab3-4cf2-8800-cff448d8eccf"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[ID]]></text>
 							</staticText>
@@ -177,89 +251,135 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="26" height="53" uuid="7f22b749-46eb-42e7-bb98-6bbd1c6ffd25"/>
-								<textElement textAlignment="Center"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="f993f5cc-d9f0-4200-9508-fb448be2666e">
+					<jr:column width="59" uuid="f993f5cc-d9f0-4200-9508-fb448be2666e">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="84bace45-2e8d-43c8-b501-f46d14a4727c"/>
+								<reportElement x="0" y="0" width="59" height="30" uuid="84bace45-2e8d-43c8-b501-f46d14a4727c"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Titulo]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="90" height="53" uuid="a706bd1c-5067-46de-9ca9-63c34a6a9ac5"/>
-								<textElement textAlignment="Center"/>
+								<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="59" height="53" uuid="a706bd1c-5067-46de-9ca9-63c34a6a9ac5"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="58" uuid="6ea9eac1-75de-47b7-9f36-962e9a28a453">
+					<jr:column width="55" uuid="6ea9eac1-75de-47b7-9f36-962e9a28a453">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="58" height="30" uuid="023b6e3a-aa7b-4a30-aff3-995090d18f43"/>
+								<reportElement x="0" y="0" width="55" height="30" uuid="023b6e3a-aa7b-4a30-aff3-995090d18f43"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Autores]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="53" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="55" height="17" uuid="8769b40d-f15c-49ee-ac33-4fe2f8e4a11a"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{autor1}]]></textFieldExpression>
+							</textField>
+							<textField>
+								<reportElement x="0" y="17" width="55" height="17" uuid="b0999eec-f944-444e-8dc7-cd26b30802a1"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{autor2}]]></textFieldExpression>
+                                                                 
+							</textField>
+							<textField>
+								<reportElement x="0" y="34" width="55" height="17" uuid="bdeb8b31-f908-4457-8047-c533aac2741c"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{autor3}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+
+					</jr:column>
+					<jr:column width="59" uuid="6ea9eac1-75de-47b7-9f36-962e9a28a453">
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="59" height="30" uuid="023b6e3a-aa7b-4a30-aff3-995090d18f43"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Asesora]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="58" height="53" uuid="671653ef-3dfb-4296-881d-044bfc10e280"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="59" height="53" uuid="671653ef-3dfb-4296-881d-044bfc10e280"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{asesora}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="61" uuid="7b01b344-5545-49f3-b48e-583ca7ee61c3">
+					<jr:column width="74" uuid="7b01b344-5545-49f3-b48e-583ca7ee61c3">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="60" height="30" uuid="7a526d3c-b787-48fe-9094-e75b092c6551"/>
+								<reportElement x="0" y="0" width="74" height="30" uuid="7a526d3c-b787-48fe-9094-e75b092c6551"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Jurado]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="60" height="53" uuid="4b957519-5720-4a15-90c0-dccf914c11ef"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="74" height="53" uuid="4b957519-5720-4a15-90c0-dccf914c11ef"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{jurado}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="91" uuid="9db6607c-389e-4b73-b26c-06a284c449a4">
+					<jr:column width="64" uuid="9db6607c-389e-4b73-b26c-06a284c449a4">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="91" height="30" uuid="e3c74f97-d277-4aa0-b0b2-a93d12bfbc45"/>
+								<reportElement x="0" y="0" width="64" height="30" uuid="e3c74f97-d277-4aa0-b0b2-a93d12bfbc45"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Res. Designacion]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="91" height="53" uuid="7d5a5b2c-6963-447f-97e2-aca7bdc1522c"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="64" height="53" uuid="7d5a5b2c-6963-447f-97e2-aca7bdc1522c"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{res_designacion}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="67" uuid="f7db1102-e15b-4cd6-a1b7-26c178775d5c">
+					<jr:column width="68" uuid="f7db1102-e15b-4cd6-a1b7-26c178775d5c">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="67" height="30" uuid="4c8cc726-12e0-48dc-92f2-a5e73f6b28e3"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Res. Ejecucion]]></text>
 							</staticText>
@@ -267,97 +387,109 @@ FROM proyecto py INNER JOIN especialidad es ON es.id=py.especialidad_id;]]>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
 								<reportElement x="0" y="0" width="67" height="53" uuid="334f6c4f-41bc-4110-9994-9951c905c72a"/>
-								<textElement textAlignment="Center"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{res_ejecucion}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="89" uuid="b253f09b-6bb8-4f29-a2ac-e3b203712a4b">
+					<jr:column width="80" uuid="b253f09b-6bb8-4f29-a2ac-e3b203712a4b">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="89" height="30" uuid="31ce44a9-38a6-491c-8f51-4a13e6556b16"/>
+								<reportElement x="0" y="0" width="80" height="30" uuid="31ce44a9-38a6-491c-8f51-4a13e6556b16"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Res. Cambio jurado]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="89" height="53" uuid="34467613-5621-43a6-93d7-45f175be79c1"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="80" height="53" uuid="34467613-5621-43a6-93d7-45f175be79c1"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{res_cambioJurado}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="83" uuid="6d1be25b-0716-4ea0-a9ad-c585ea0918a9">
+					<jr:column width="79" uuid="6d1be25b-0716-4ea0-a9ad-c585ea0918a9">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="3" y="0" width="80" height="30" uuid="12c4901e-0f6e-40a6-8b23-3ca57772e2d0"/>
+								<reportElement x="0" y="0" width="79" height="30" uuid="12c4901e-0f6e-40a6-8b23-3ca57772e2d0"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Res. Sustentacion]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="83" height="53" uuid="8c3f0e12-cc01-4410-8113-59e0aadedfd4"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="79" height="53" uuid="8c3f0e12-cc01-4410-8113-59e0aadedfd4"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{res_sustentacion}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="98" uuid="54640aff-0744-4b6b-92c5-e383fac7635b">
+					<jr:column width="90" uuid="54640aff-0744-4b6b-92c5-e383fac7635b">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="98" height="30" uuid="a796574d-f044-408a-a1e2-13a2de5d5034"/>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a796574d-f044-408a-a1e2-13a2de5d5034"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Res. Cambio de titulo]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="98" height="53" uuid="fa7bdfa2-357e-4230-bdef-bd329953f792"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="90" height="53" uuid="fa7bdfa2-357e-4230-bdef-bd329953f792"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{res_cambioTitulo}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="68" uuid="4d90a9f6-bd88-4e4a-9209-2372a3c26020">
+					<jr:column width="72" uuid="4d90a9f6-bd88-4e4a-9209-2372a3c26020">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="68" height="30" uuid="d02ceff8-18c5-4ea0-b7b6-b4d6ed022b94"/>
+								<reportElement x="0" y="0" width="72" height="30" uuid="d02ceff8-18c5-4ea0-b7b6-b4d6ed022b94"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Otros]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="68" height="53" uuid="7cdcd40d-52cb-4d03-8d96-0ef354dbcbad"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="72" height="53" uuid="7cdcd40d-52cb-4d03-8d96-0ef354dbcbad"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{otros}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
-					<jr:column width="90" uuid="39494a4e-1302-426c-951f-8683655cfd07">
+					<jr:column width="74" uuid="39494a4e-1302-426c-951f-8683655cfd07">
 						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
 							<staticText>
-								<reportElement x="0" y="0" width="90" height="30" uuid="a2cfc881-6b8d-4b4b-bb0e-854e90bf9d15"/>
+								<reportElement x="0" y="0" width="74" height="30" uuid="a2cfc881-6b8d-4b4b-bb0e-854e90bf9d15"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle">
-									<font fontName="Arial" size="12" isBold="true"/>
+									<font fontName="Arial" size="5" isBold="true"/>
 								</textElement>
 								<text><![CDATA[Especialidad]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:detailCell style="table_TD" height="53" rowSpan="1">
 							<textField>
-								<reportElement x="0" y="0" width="90" height="53" uuid="22a7f207-a034-45cb-a593-9ae73b5be456"/>
-								<textElement textAlignment="Center"/>
+								<reportElement x="0" y="0" width="74" height="53" uuid="22a7f207-a034-45cb-a593-9ae73b5be456"/>
+								<textElement textAlignment="Center">
+									<font size="5"/>
+								</textElement>
 								<textFieldExpression><![CDATA[$F{especialidad}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
